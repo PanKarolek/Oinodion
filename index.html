@@ -4,38 +4,349 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oinodion - Greek Wines</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2 family=Cinzel:wght@700;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. RESET & BASE STYLES
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #ffffff;
+            color: #0d1f2d;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ==========================================================================
+           2. HEADER, SEARCH & NAVIGATION
+           ========================================================================== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 5%;
+            background-color: #ffffff;
+            gap: 20px;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: #002d62; /* Głęboki egejski błękit */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        /* Główne menu bez Explore */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a4a4a;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #002d62;
+        }
+
+        /* NOWOŚĆ: Prestiżowa linia wyszukiwania z lupą */
+        .search-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            max-width: 240px;
+            width: 100%;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-container:focus-within {
+            border-color: #002d62;
+        }
+
+        .search-input {
+            border: none;
+            outline: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            color: #0d1f2d;
+            width: 100%;
+            padding-right: 25px;
+            background: transparent;
+        }
+
+        .search-input::placeholder {
+            color: #a0a0a0;
+            font-weight: 500;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #4a4a4a;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-icon:hover {
+            color: #002d62;
+        }
+
+        /* Prawy blok: Języki + Koszyk */
+        .right-nav-block {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-shrink: 0;
+        }
+
+        /* NOWOŚĆ: Przełącznik języków EN | GR */
+        .lang-switcher {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #a0a0a0;
+        }
+
+        .lang-switcher span {
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .lang-switcher span.active {
+            color: #002d62; /* Aktywny język ma mocny kolor */
+        }
+
+        .lang-switcher span:hover {
+            color: #002d62;
+        }
+
+        .lang-divider {
+            margin: 0 4px;
+            color: #e0e0e0;
+            font-weight: 400;
+        }
+
+        /* Przycisk koszyka */
+        .btn-nav.primary {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 12px 28px;
+            background-color: #002d62; 
+            border: 1px solid #002d62;
+            color: #ffffff;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-nav.primary:hover {
+            background-color: #ff6b35;
+            border-color: #ff6b35;
+        }
+
+        /* ==========================================================================
+           3. HERO SECTION (Wymuszony Grid 50/50 na jednym ekranie)
+           ========================================================================== */
+        .hero-section {
+            padding: 0 5% 80px 5%;
+        }
+
+        /* Podwójna grecka rama */
+        .greek-border-wrap {
+            border: 8px double #002d62;
+            padding: 12px;
+            border-radius: 4px;
+            background-color: #ffffff;
+            box-shadow: 0 15px 35px rgba(0, 45, 98, 0.08);
+        }
+
+        /* SZTYWNY GRID - Dzieli na pół i trzyma w jednej linii */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr; 
+            background-color: #002d62; /* Ciemnoniebieskie tło - napisy będą doskonale widoczne */
+            overflow: hidden;
+            align-items: stretch;
+        }
+
+        /* Lewa strona - Teksty */
+        .hero-content {
+            padding: 80px 60px 80px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Cinzel', serif;
+            color: #ffffff;
+            font-size: 3.8rem;
+            line-height: 1.15;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 520px;
+        }
+
+        /* Przyciski w sekcji Hero */
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn-hero {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-hero.dark {
+            background-color: #ffffff;
+            border: 1px solid #ffffff;
+            color: #002d62;
+        }
+
+        .btn-hero.dark:hover {
+            background-color: #ff6b35;
+            border-color: #ff6b35;
+            color: #ffffff;
+        }
+
+        .btn-hero.transparent {
+            background: transparent;
+            border: 1.5px solid rgba(255, 255, 255, 0.6);
+            color: #ffffff;
+        }
+
+        .btn-hero.transparent:hover {
+            border-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Prawa strona - Kontener na zdjęcie logo.jpg */
+        .hero-image-container {
+            width: 100%;
+            height: 100%;
+            min-height: 550px;
+            position: relative;
+        }
+
+        .hero-image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Wypełnia przestrzeń idealnie, bez deformacji i spychani na dół */
+        }
+
+        /* ==========================================================================
+           4. RESPONSIVENESS
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr; /* Na małych ekranach obrazek zejdzie pod spód celowo */
+            }
+            .hero-image-container {
+                min-height: 400px;
+            }
+            .hero-image-container img {
+                position: relative;
+            }
+            .hero-content {
+                padding: 60px 40px;
+            }
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
+    <!-- NAVBAR (z lupą, linią wyszukiwania i przełącznikiem języka) -->
     <header>
         <div class="logo">Oinodion</div>
+        
         <nav>
             <ul>
                 <li><a href="#">Our Vines</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Contact</a></li>
-                <li>
-                    <a href="#" class="explore-dropdown">
-                        Explore 
-                        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </li>
             </ul>
         </nav>
-        <div class="nav-buttons">
-            <button class="btn-nav primary">Cart (0)</button>
+
+        <!-- Elegancka linia wyszukiwania z lupą (zamiast explore) -->
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search our cellar...">
+            <button class="search-icon" aria-label="Search">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.5 11.5L15 15M13 7C13 10.3137 10.3137 13 7 13C3.68629 13 1 10.3137 1 7C1 3.68629 3.68629 1 7 1C10.3137 1 13 3.68629 13 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Prawa strona: Języki i koszyk blisko siebie -->
+        <div class="right-nav-block">
+            <div class="lang-switcher">
+                <span class="active">EN</span>
+                <span class="lang-divider">|</span>
+                <span>GR</span>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn-nav primary">Cart (0)</button>
+            </div>
         </div>
     </header>
 
-   <div class="hero-section">
+    <!-- HERO SECTION (Tło #002d62 gwarantuje, że napisy są widoczne, a obrazek jest po prawej) -->
+    <div class="hero-section">
         <div class="greek-border-wrap">
             <main class="hero-grid">
+                
+                <!-- Lewa Kolumna: Teksty -->
                 <div class="hero-content">
                     <h1>Wine made the ancient way</h1>
                     <p>We curate rare, high-altitude Greek vintages from volcanic Santorini and old-vine Naoussa. Handcrafted with millennia of tradition, tailored for the modern connoisseur. Each bottle holds a legacy worth sharing.</p>
@@ -44,8 +355,10 @@
                         <button class="btn-hero transparent">Learn more</button>
                     </div>
                 </div>
+                
+                <!-- Prawa Kolumna: Twój obrazek z pliku image_1c767d.jpg -->
                 <div class="hero-image-container">
-                    <img src="logo.jpg">
+                    <img src="logo.jpg" alt="Oinodion Greek Wine Art">
                 </div>
 
             </main>

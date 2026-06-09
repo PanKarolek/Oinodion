@@ -24,8 +24,8 @@ header {
     padding: 25px 5%;
     background-color: #ffffff;
     gap: 20px;
-    /* Jedna prosta kreska pod calym menu */
-    border-bottom: 1px solid #e0e0e0;
+    /* Poniżej zmieniona linia: grubsza (3px) i w kolorze egejskiego błękitu */
+    border-bottom: 3px solid #003366;
 }
 
 .logo {

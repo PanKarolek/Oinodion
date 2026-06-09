@@ -1,241 +1,292 @@
-/* ==========================================================================
-   1. RESET & BASE STYLES
-   ========================================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: 'Space Grotesk', sans-serif;
-    background-color: #fafbfc;
-    color: #0d1f2d;
-    -webkit-font-smoothing: antialiased;
-}
+        /* ==========================================================================
+           1. RESET & BASE STYLES
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* ==========================================================================
-   2. HEADER & NAVIGATION (Układ z image_26d91b.jpg)
-   ========================================================================== */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 5%;
-    background-color: #ffffff;
-}
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #ffffff;
+            color: #0d1f2d;
+            -webkit-font-smoothing: antialiased;
+        }
 
-.logo {
-    font-family: 'Cinzel', serif;
-    font-weight: 900;
-    font-size: 1.8rem;
-    color: #002d62; /* Głęboki, prestiżowy egejski błękit */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-}
+        /* ==========================================================================
+           2. HEADER, SEARCH & NAVIGATION
+           ========================================================================== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 5%;
+            background-color: #ffffff;
+            gap: 20px;
+        }
 
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 32px;
-    align-items: center;
-}
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: #002d62; /* Głęboki egejski błękit */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
 
-nav a {
-    text-decoration: none;
-    color: #4a4a4a;
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-transform: capitalize;
-    transition: color 0.2s ease;
-}
+        /* Główne menu bez Explore */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
 
-nav a:hover {
-    color: #d4af37; /* Eleganckie złoto przy najechaniu */
-}
+        nav a {
+            text-decoration: none;
+            color: #4a4a4a;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: color 0.2s ease;
+        }
 
-/* Styl dla ikony Explore dropdown */
-.explore-dropdown {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
+        nav a:hover {
+            color: #002d62;
+        }
 
-/* Przycisk Cart (0) w menu */
-.nav-buttons .btn-nav.primary {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    padding: 12px 28px;
-    background-color: #4A2828; /* Oryginalny, śliwkowo-bordowy odcień z makiety */
-    border: 1px solid #4A2828;
-    color: #ffffff;
-    border-radius: 4px;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-}
+        /* NOWOŚĆ: Prestiżowa linia wyszukiwania z lupą */
+        .search-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            max-width: 240px;
+            width: 100%;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 4px;
+            transition: border-color 0.3s ease;
+        }
 
-.nav-buttons .btn-nav.primary:hover {
-    background-color: #002d62;
-    border-color: #002d62;
-    transform: translateY(-1px);
-}
+        .search-container:focus-within {
+            border-color: #002d62;
+        }
 
-/* ==========================================================================
-   3. HERO SECTION (Poprawione tło i układ)
-   ========================================================================== */
-.hero-section {
-    padding: 0 5% 80px 5%;
-}
+        .search-input {
+            border: none;
+            outline: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            color: #0d1f2d;
+            width: 100%;
+            padding-right: 25px;
+            background: transparent;
+        }
 
-/* Elegancka, podwójna rama okalająca sekcję */
-.greek-border-wrap {
-    border: 8px double #002d62;
-    padding: 12px;
-    border-radius: 4px;
-    background-color: #ffffff;
-    box-shadow: 0 15px 35px rgba(0, 45, 98, 0.08);
-}
+        .search-input::placeholder {
+            color: #a0a0a0;
+            font-weight: 500;
+        }
 
-/* Główny kontener grid - WYMUSZA układ obok siebie */
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr; /* Tekst po lewej, obrazek po prawej */
-    background-color: #002d62; /* GŁĘBOKI BŁĘKIT - teraz biały napis będzie idealnie widoczny! */
-    overflow: hidden;
-    align-items: stretch; /* Sprawia, że obrazek i tekst mają tę samą wysokość */
-}
+        .search-icon {
+            position: absolute;
+            right: 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #4a4a4a;
+            display: flex;
+            align-items: center;
+        }
 
-/* Lewa strona - Treść */
-.hero-content {
-    padding: 90px 60px 90px 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+        .search-icon:hover {
+            color: #002d62;
+        }
 
-.hero-content h1 {
-    font-family: 'Cinzel', serif;
-    color: #ffffff; /* Biały napis na ciemnoniebieskim tle */
-    font-size: 3.8rem;
-    line-height: 1.15;
-    font-weight: 700;
-    margin-bottom: 24px;
-    letter-spacing: -0.5px;
-}
+        /* Prawy blok: Języki + Koszyk */
+        .right-nav-block {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-shrink: 0;
+        }
 
-.hero-content p {
-    color: rgba(255, 255, 255, 0.9); /* Delikatnie przezroczysty biały dla lepszej czytelności */
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 40px;
-    max-width: 520px;
-    font-weight: 400;
-}
+        /* NOWOŚĆ: Przełącznik języków EN | GR */
+        .lang-switcher {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #a0a0a0;
+        }
 
-/* Przyciski wewnątrz sekcji hero */
-.hero-actions {
-    display: flex;
-    gap: 16px;
-}
+        .lang-switcher span {
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
 
-.btn-hero {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    padding: 16px 32px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
+        .lang-switcher span.active {
+            color: #002d62; /* Aktywny język ma mocny kolor */
+        }
 
-/* Przycisk Shop Now */
-.btn-hero.dark {
-    background-color: #ffffff; /* Zmiana na biały przycisk dla lepszego kontrastu */
-    border: 1px solid #ffffff;
-    color: #002d62;
-}
+        .lang-switcher span:hover {
+            color: #002d62;
+        }
 
-.btn-hero.dark:hover {
-    background-color: #ff6b35; /* Energetyczny grecki pomarańcz przy hoverze */
-    border-color: #ff6b35;
-    color: #ffffff;
-}
+        .lang-divider {
+            margin: 0 4px;
+            color: #e0e0e0;
+            font-weight: 400;
+        }
 
-/* Przycisk Learn More */
-.btn-hero.transparent {
-    background: transparent;
-    border: 1.5px solid rgba(255, 255, 255, 0.6);
-    color: #ffffff;
-}
+        /* Przycisk koszyka */
+        .btn-nav.primary {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 12px 28px;
+            background-color: #002d62; 
+            border: 1px solid #002d62;
+            color: #ffffff;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
 
-.btn-hero.transparent:hover {
-    border-color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);
-}
+        .btn-nav.primary:hover {
+            background-color: #ff6b35;
+            border-color: #ff6b35;
+        }
 
-/* Prawa strona - Zdjęcie (Wróci na prawo dzięki gridowi) */
-.hero-image-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 550px;
-}
+        /* ==========================================================================
+           3. HERO SECTION (Wymuszony Grid 50/50 na jednym ekranie)
+           ========================================================================== */
+        .hero-section {
+            padding: 0 5% 80px 5%;
+        }
 
-.hero-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Wypełnia całą prawą stronę bez rozciągania */
-    display: block;
-}
+        /* Podwójna grecka rama */
+        .greek-border-wrap {
+            border: 8px double #002d62;
+            padding: 12px;
+            border-radius: 4px;
+            background-color: #ffffff;
+            box-shadow: 0 15px 35px rgba(0, 45, 98, 0.08);
+        }
 
-/* ==========================================================================
-   4. RESPONSIVENESS (RWD)
-   ========================================================================== */
-@media (max-width: 1024px) {
-    header {
-        padding: 20px 4%;
-    }
-    
-    .hero-grid {
-        grid-template-columns: 1fr; /* Na tabletach i telefonach przechodzi w jedną kolumnę */
-    }
-    
-    .hero-content {
-        padding: 60px 40px;
-    }
-    
-    .hero-content h1 {
-        font-size: 3rem;
-    }
-    
-    .hero-image-container {
-        min-height: 450px;
-    }
-}
+        /* SZTYWNY GRID - Dzieli na pół i trzyma w jednej linii */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr; 
+            background-color: #002d62; /* Ciemnoniebieskie tło - napisy będą doskonale widoczne */
+            overflow: hidden;
+            align-items: stretch;
+        }
 
-@media (max-width: 768px) {
-    nav, .nav-buttons {
-        display: none; /* Uproszczenie menu na mobile */
-    }
-    
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero-actions {
-        flex-direction: column;
-        gap: 12px;
-    }
-    
-    .btn-hero {
-        width: 100%;
-        text-align: center;
-    }
-}
+        /* Lewa strona - Teksty */
+        .hero-content {
+            padding: 80px 60px 80px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Cinzel', serif;
+            color: #ffffff;
+            font-size: 3.8rem;
+            line-height: 1.15;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 520px;
+        }
+
+        /* Przyciski w sekcji Hero */
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn-hero {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-hero.dark {
+            background-color: #ffffff;
+            border: 1px solid #ffffff;
+            color: #002d62;
+        }
+
+        .btn-hero.dark:hover {
+            background-color: #ff6b35;
+            border-color: #ff6b35;
+            color: #ffffff;
+        }
+
+        .btn-hero.transparent {
+            background: transparent;
+            border: 1.5px solid rgba(255, 255, 255, 0.6);
+            color: #ffffff;
+        }
+
+        .btn-hero.transparent:hover {
+            border-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Prawa strona - Kontener na zdjęcie logo.jpg */
+        .hero-image-container {
+            width: 100%;
+            height: 100%;
+            min-height: 550px;
+            position: relative;
+        }
+
+        .hero-image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Wypełnia przestrzeń idealnie, bez deformacji i spychani na dół */
+        }
+
+        /* ==========================================================================
+           4. RESPONSIVENESS
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr; /* Na małych ekranach obrazek zejdzie pod spód celowo */
+            }
+            .hero-image-container {
+                min-height: 400px;
+            }
+            .hero-image-container img {
+                position: relative;
+            }
+            .hero-content {
+                padding: 60px 40px;
+            }
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+        }

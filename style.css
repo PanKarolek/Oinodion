@@ -1,292 +1,284 @@
+/* ==========================================================================
+   1. RESET & BASE STYLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* ==========================================================================
-           1. RESET & BASE STYLES
-           ========================================================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+}
 
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background-color: #ffffff;
-            color: #0d1f2d;
-            -webkit-font-smoothing: antialiased;
-        }
+/* ==========================================================================
+   2. HEADER, SEARCH & NAVIGATION
+   ========================================================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 5%;
+    background-color: #ffffff;
+    gap: 20px;
+}
 
-        /* ==========================================================================
-           2. HEADER, SEARCH & NAVIGATION
-           ========================================================================== */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 5%;
-            background-color: #ffffff;
-            gap: 20px;
-        }
+.logo {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
 
-        .logo {
-            font-family: 'Cinzel', serif;
-            font-weight: 900;
-            font-size: 1.8rem;
-            color: #002d62; /* Głęboki egejski błękit */
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    align-items: center;
+}
 
-        /* Główne menu bez Explore */
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 32px;
-            align-items: center;
-        }
+nav a {
+    text-decoration: none;
+    color: #4a4a4a;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
 
-        nav a {
-            text-decoration: none;
-            color: #4a4a4a;
-            font-size: 0.95rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            transition: color 0.2s ease;
-        }
+nav a:hover {
+    color: #003366;
+}
 
-        nav a:hover {
-            color: #002d62;
-        }
+/* Linia wyszukiwania z lupą zamiast Explore */
+.search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 220px;
+    width: 100%;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 4px;
+    transition: border-color 0.3s ease;
+}
 
-        /* NOWOŚĆ: Prestiżowa linia wyszukiwania z lupą */
-        .search-container {
-            display: flex;
-            align-items: center;
-            position: relative;
-            max-width: 240px;
-            width: 100%;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 4px;
-            transition: border-color 0.3s ease;
-        }
+.search-container:focus-within {
+    border-color: #003366;
+}
 
-        .search-container:focus-within {
-            border-color: #002d62;
-        }
+.search-input {
+    border: none;
+    outline: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    color: #1a1a1a;
+    width: 100%;
+    padding-right: 25px;
+    background: transparent;
+}
 
-        .search-input {
-            border: none;
-            outline: none;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem;
-            color: #0d1f2d;
-            width: 100%;
-            padding-right: 25px;
-            background: transparent;
-        }
+.search-input::placeholder {
+    color: #a0a0a0;
+    font-weight: 500;
+}
 
-        .search-input::placeholder {
-            color: #a0a0a0;
-            font-weight: 500;
-        }
+.search-icon {
+    position: absolute;
+    right: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #4a4a4a;
+    display: flex;
+    align-items: center;
+}
 
-        .search-icon {
-            position: absolute;
-            right: 0;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: #4a4a4a;
-            display: flex;
-            align-items: center;
-        }
+/* Przełącznik języków EN | GR blisko koszyka */
+.right-nav-block {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-shrink: 0;
+}
 
-        .search-icon:hover {
-            color: #002d62;
-        }
+.lang-switcher {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #a0a0a0;
+    font-family: 'Space Grotesk', sans-serif;
+}
 
-        /* Prawy blok: Języki + Koszyk */
-        .right-nav-block {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            flex-shrink: 0;
-        }
+.lang-switcher span {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
 
-        /* NOWOŚĆ: Przełącznik języków EN | GR */
-        .lang-switcher {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #a0a0a0;
-        }
+.lang-switcher span.active {
+    color: #1a1a1a;
+}
 
-        .lang-switcher span {
-            cursor: pointer;
-            transition: color 0.2s ease;
-        }
+.lang-switcher span:hover {
+    color: #003366;
+}
 
-        .lang-switcher span.active {
-            color: #002d62; /* Aktywny język ma mocny kolor */
-        }
+.lang-divider {
+    margin: 0 4px;
+    color: #e0e0e0;
+    font-weight: 400;
+}
 
-        .lang-switcher span:hover {
-            color: #002d62;
-        }
+/* Przycisk Cart (0) - Śliwkowo-bordowy z makiety */
+.nav-buttons .btn-nav.primary {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 12px 28px;
+    background-color: #4A2828; 
+    border: 1px solid #4A2828;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
 
-        .lang-divider {
-            margin: 0 4px;
-            color: #e0e0e0;
-            font-weight: 400;
-        }
+.nav-buttons .btn-nav.primary:hover {
+    background-color: #003366;
+    border-color: #003366;
+}
 
-        /* Przycisk koszyka */
-        .btn-nav.primary {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 700;
-            padding: 12px 28px;
-            background-color: #002d62; 
-            border: 1px solid #002d62;
-            color: #ffffff;
-            border-radius: 4px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-        }
+/* ==========================================================================
+   3. HERO SECTION (Stare luksusowe bordo + Naprawiony układ zdjęć)
+   ========================================================================== */
+.hero-section {
+    padding: 0 5% 80px 5%;
+}
 
-        .btn-nav.primary:hover {
-            background-color: #ff6b35;
-            border-color: #ff6b35;
-        }
+/* Podwójna grecka rama w kolorze egejskiego błękitu */
+.greek-border-wrap {
+    border: 12px double #003366;
+    padding: 16px;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
 
-        /* ==========================================================================
-           3. HERO SECTION (Wymuszony Grid 50/50 na jednym ekranie)
-           ========================================================================== */
-        .hero-section {
-            padding: 0 5% 80px 5%;
-        }
+/* Główny kontener grid - SZTYWNE TRZYMANIE W JEDNEJ LINII */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; /* 55% tekst, 45% zdjęcie */
+    background-color: #5C3D3D; /* Stary, prestiżowy kolor tła (ciemna śliwka/bordo) */
+    overflow: hidden;
+    position: relative;
+}
 
-        /* Podwójna grecka rama */
-        .greek-border-wrap {
-            border: 8px double #002d62;
-            padding: 12px;
-            border-radius: 4px;
-            background-color: #ffffff;
-            box-shadow: 0 15px 35px rgba(0, 45, 98, 0.08);
-        }
+/* Lewa strona - Treść (Białe napisy na ciemnym tle) */
+.hero-content {
+    padding: 80px 60px 80px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-        /* SZTYWNY GRID - Dzieli na pół i trzyma w jednej linii */
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr; 
-            background-color: #002d62; /* Ciemnoniebieskie tło - napisy będą doskonale widoczne */
-            overflow: hidden;
-            align-items: stretch;
-        }
+.hero-content h1 {
+    font-family: 'Cinzel', serif;
+    color: #ffffff;
+    font-size: 4rem;
+    line-height: 1.15;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
 
-        /* Lewa strona - Teksty */
-        .hero-content {
-            padding: 80px 60px 80px 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+.hero-content p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    max-width: 480px;
+}
 
-        .hero-content h1 {
-            font-family: 'Cinzel', serif;
-            color: #ffffff;
-            font-size: 3.8rem;
-            line-height: 1.15;
-            font-weight: 700;
-            margin-bottom: 24px;
-            letter-spacing: -0.5px;
-        }
+/* Przyciski wewnątrz sekcji hero */
+.hero-actions {
+    display: flex;
+    gap: 12px;
+}
 
-        .hero-content p {
-            color: rgba(255, 255, 255, 0.9);
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            max-width: 520px;
-        }
+.btn-hero {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
 
-        /* Przyciski w sekcji Hero */
-        .hero-actions {
-            display: flex;
-            gap: 16px;
-        }
+.btn-hero.dark {
+    background-color: #261111; /* Bardzo ciemny burgundowy przycisk */
+    border: 1px solid #261111;
+    color: #ffffff;
+}
 
-        .btn-hero {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 700;
-            padding: 16px 32px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
+.btn-hero.dark:hover {
+    background-color: #ffffff;
+    color: #261111;
+    border-color: #ffffff;
+}
 
-        .btn-hero.dark {
-            background-color: #ffffff;
-            border: 1px solid #ffffff;
-            color: #002d62;
-        }
+.btn-hero.transparent {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+}
 
-        .btn-hero.dark:hover {
-            background-color: #ff6b35;
-            border-color: #ff6b35;
-            color: #ffffff;
-        }
+.btn-hero.transparent:hover {
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
 
-        .btn-hero.transparent {
-            background: transparent;
-            border: 1.5px solid rgba(255, 255, 255, 0.6);
-            color: #ffffff;
-        }
+/* Prawa strona - Zdjęcie (Blokada przed uciekaniem w dół) */
+.hero-image-container {
+    width: 100%;
+    height: 100%;
+    min-height: 550px;
+    position: relative;
+}
 
-        .btn-hero.transparent:hover {
-            border-color: #ffffff;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
+.hero-image-container img {
+    position: absolute; /* Wymusza pozycjonowanie wewnątrz siatki po prawej */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Sprawia, że grafika wypełnia całą prawą połowę */
+    display: block;
+}
 
-        /* Prawa strona - Kontener na zdjęcie logo.jpg */
-        .hero-image-container {
-            width: 100%;
-            height: 100%;
-            min-height: 550px;
-            position: relative;
-        }
-
-        .hero-image-container img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Wypełnia przestrzeń idealnie, bez deformacji i spychani na dół */
-        }
-
-        /* ==========================================================================
-           4. RESPONSIVENESS
-           ========================================================================== */
-        @media (max-width: 1024px) {
-            .hero-grid {
-                grid-template-columns: 1fr; /* Na małych ekranach obrazek zejdzie pod spód celowo */
-            }
-            .hero-image-container {
-                min-height: 400px;
-            }
-            .hero-image-container img {
-                position: relative;
-            }
-            .hero-content {
-                padding: 60px 40px;
-            }
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-        }
+/* ==========================================================================
+   4. RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 992px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-content {
+        padding: 60px 40px;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .hero-image-container {
+        min-height: 400px;
+    }
+    .hero-image-container img {
+        position: relative;
+    }
+}

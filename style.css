@@ -159,7 +159,7 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   3. HERO SECTION (Pełna szerokość, układ 1:1, czcionka Cinzel i Space Grotesk)
+   3. HERO SECTION (Białe tło, czarne napisy i widoczne przyciski)
    ========================================================================== */
 .hero-section {
     padding: 0; 
@@ -174,18 +174,18 @@ nav a:hover {
     box-shadow: none;
 }
 
-/* Główny grid sekcji hero rozciągnięty od brzegu do brzegu */
+/* Główny grid sekcji hero rozciągnięty od brzegu do brzegu z białym tłem */
 .hero-grid {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr; 
-    background-color: #003366; /* Głęboki niebieski egejski zapewniający doskonałą czytelność */
+    background-color: #ffffff; /* Czyste białe tło według życzenia */
     overflow: hidden;
     width: 100%;
 }
 
-/* Lewa strona - Treść */
+/* Lewa strona - Treść (Czarne napisy dopasowane do jasnego tła) */
 .hero-content {
-    padding: 100px 60px 100px 5%; /* Lewy margines tekstu idealnie wyrównany z logo */
+    padding: 100px 60px 100px 5%; /* Lewy margines tekstu wyrównany z logo */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -193,7 +193,7 @@ nav a:hover {
 
 .hero-content h1 {
     font-family: 'Cinzel', serif; /* Czcionka Cinzel dla nagłówka */
-    color: #ffffff;
+    color: #1a1a1a; /* Głęboka czerń zamiast bieli - super widoczność */
     font-size: 4rem;
     line-height: 1.15;
     font-weight: 700;
@@ -202,14 +202,14 @@ nav a:hover {
 
 .hero-content p {
     font-family: 'Space Grotesk', sans-serif; /* Czcionka Space Grotesk dla opisu */
-    color: rgba(255, 255, 255, 0.85);
+    color: #4a4a4a; /* Ciemnoszary, bardzo czytelny tekst na białym tle */
     font-size: 1.05rem;
     line-height: 1.6;
     margin-bottom: 35px;
     max-width: 480px;
 }
 
-/* Przyciski wewnątrz hero */
+/* Przyciski Akcji na jasnym tle */
 .hero-actions {
     display: flex;
     gap: 12px;
@@ -226,30 +226,32 @@ nav a:hover {
     transition: all 0.2s ease;
 }
 
+/* Pierwszy przycisk: Czarny, pełny z białym napisem */
 .btn-hero.dark {
-    background-color: #ffffff;
-    border: 1px solid #ffffff;
-    color: #003366;
+    background-color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+    color: #ffffff;
 }
 
 .btn-hero.dark:hover {
-    background-color: #ff6b35;
-    border-color: #ff6b35;
+    background-color: #003366; /* Zmiana na niebieski egejski podczas najechania */
+    border-color: #003366;
     color: #ffffff;
 }
 
+/* Drugi przycisk: Przezroczysty z czarną ramką i czarnym napisem */
 .btn-hero.transparent {
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    color: #ffffff;
+    border: 1px solid #1a1a1a;
+    color: #1a1a1a;
 }
 
 .btn-hero.transparent:hover {
-    border-color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #f5f5f5;
+    border-color: #1a1a1a;
 }
 
-/* Prawa strona - Zdjęcie zablokowane sztywno w swojej połówce */
+/* Prawa strona - Zdjęcie trzymające się idealnie krawędzi */
 .hero-image-container {
     width: 100%;
     height: 100%;

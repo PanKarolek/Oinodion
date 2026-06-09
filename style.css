@@ -1,209 +1,240 @@
+/* ==========================================================================
+   1. RESET & BASE STYLES
+   ========================================================================== */
 * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background-color: #fafdff;
-            color: #0d1f2d;
-            overflow-x: hidden;
-        }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* NAVIGATION */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            background-color: #ffffff;
-            border-bottom: 3px solid #0056b3;
-        }
-        .logo {
-            font-family: 'Cinzel', serif;
-            font-weight: 900;
-            font-size: 1.8rem;
-            color: #0056b3;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-        nav a {
-            text-decoration: none;
-            color: #0d1f2d;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-        nav a:hover {
-            color: #ff6b35;
-        }
-        .nav-buttons {
-            display: flex;
-            gap: 15px;
-        }
-        .btn-nav {
-            padding: 10px 20px;
-            border: 2px solid #0056b3;
-            background: transparent;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .btn-nav.primary {
-            background-color: #0056b3;
-            color: #fff;
-        }
-        .btn-nav:hover {
-            background-color: #ff6b35;
-            border-color: #ff6b35;
-            color: #fff;
-            transform: translateY(-2px);
-        }
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: #fafbfc;
+    color: #0d1f2d;
+    -webkit-font-smoothing: antialiased;
+}
 
-        /* HERO SECTION - BOLD & ENERGETIC */
-        .hero-container {
-            max-width: 1400px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        .hero {
-            background: linear-gradient(135deg, #0056b3 0%, #002d62 100%);
-            border-radius: 24px;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 86, 179, 0.2);
-            position: relative;
-        }
-        /* Grecki akcent geometryczny w tle */
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(rgba(255,255,255,0.03) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.03) 2px, transparent 2px);
-            background-size: 20px 20px;
-            pointer-events: none;
-        }
+/* ==========================================================================
+   2. HEADER & NAVIGATION (Układ z image_26d91b.jpg)
+   ========================================================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 5%;
+    background-color: #ffffff;
+}
 
-        /* HERO TEXT */
-        .hero-content {
-            padding: 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            color: #ffffff;
-            z-index: 1;
-        }
-        .hero-content h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 4.5rem;
-            line-height: 1.1;
-            margin-bottom: 25px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
-        .hero-content h1 span {
-            color: #ff6b35; /* Energetyczny pomarańcz słońca */
-            display: block;
-        }
-        .hero-content p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            color: #e0f0ff;
-            max-width: 550px;
-        }
-        .hero-cta {
-            display: flex;
-            gap: 20px;
-        }
-        .btn-hero {
-            padding: 16px 36px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .btn-hero.shop {
-            background-color: #ff6b35;
-            color: white;
-            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
-        }
-        .btn-hero.shop:hover {
-            background-color: #ffe600;
-            color: #002d62;
-            transform: scale(1.05);
-        }
-        .btn-hero.explore {
-            background-color: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-        .btn-hero.explore:hover {
-            border-color: white;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
+.logo {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: #002d62; /* Głęboki, prestiżowy egejski błękit */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
 
-        /* HERO IMAGE CONTAINER */
-        .hero-image-wrap {
-            position: relative;
-            min-height: 500px;
-            background-color: #ff6b35;
-        }
-        .hero-image-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* Nałożenie lekkiego filtra, aby zdjęcie współgrało z klimatem */
-            filter: contrast(1.1) brightness(0.95);
-        }
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    align-items: center;
+}
 
-        /* SECTION BELOW HERO */
-        .section-title {
-            text-align: center;
-            margin: 80px 0 40px;
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            color: #002d62;
-            position: relative;
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: #ff6b35;
-            margin: 15px auto 0;
-        }
+nav a {
+    text-decoration: none;
+    color: #4a4a4a;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    transition: color 0.2s ease;
+}
 
-        /* RESPONSIVENESS */
-        @media (max-width: 992px) {
-            .hero {
-                grid-template-columns: 1fr;
-            }
-            .hero-content {
-                padding: 40px;
-            }
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-            .hero-image-wrap {
-                min-height: 400px;
-            }
-        }
+nav a:hover {
+    color: #d4af37; /* Eleganckie złoto przy najechaniu */
+}
+
+/* Styl dla ikony Explore dropdown */
+.explore-dropdown {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Przycisk Cart (0) w menu */
+.nav-buttons .btn-nav.primary {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 12px 28px;
+    background-color: #4A2828; /* Oryginalny, śliwkowo-bordowy odcień z makiety */
+    border: 1px solid #4A2828;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.nav-buttons .btn-nav.primary:hover {
+    background-color: #002d62;
+    border-color: #002d62;
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   3. HERO SECTION (Zbalansowany, grecki luksus)
+   ========================================================================== */
+.hero-section {
+    padding: 0 5% 80px 5%;
+}
+
+/* Elegancka, podwójna rama okalająca sekcję (Klimat z watermarked_img_14756390436091803392.png) */
+.greek-border-wrap {
+    border: 8px double #002d62;
+    padding: 12px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0 15px 35px rgba(0, 45, 98, 0.08);
+}
+
+/* Główny kontener grid (Układ 1:1 identyczny jak na screenie z laptopem) */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    background-color: #5C3D3D; /* Oryginalna głęboka śliwka/bordo z makiety */
+    overflow: hidden;
+}
+
+/* Lewa strona - Treść */
+.hero-content {
+    padding: 90px 60px 90px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-content h1 {
+    font-family: 'Cinzel', serif;
+    color: #ffffff;
+    font-size: 3.8rem;
+    line-height: 1.15;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+.hero-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 520px;
+    font-weight: 400;
+}
+
+/* Przyciski wewnątrz sekcji hero */
+.hero-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.btn-hero {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 16px 32px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Przycisk Shop Now */
+.btn-hero.dark {
+    background-color: #1f0f0f; /* Ciemny, prestiżowy odcień podbijający bordo */
+    border: 1px solid #1f0f0f;
+    color: #ffffff;
+}
+
+.btn-hero.dark:hover {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #1f0f0f;
+}
+
+/* Przycisk Learn More */
+.btn-hero.transparent {
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+}
+
+.btn-hero.transparent:hover {
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Prawa strona - Zdjęcie */
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 550px;
+}
+
+.hero-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================================================================
+   4. RESPONSIVENESS (RWD)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    header {
+        padding: 20px 4%;
+    }
+    
+    .hero-grid {
+        grid-template-columns: 1fr; /* Na tabletach i telefonach przechodzi w jedną kolumnę */
+    }
+    
+    .hero-content {
+        padding: 60px 40px;
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-image-container {
+        min-height: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav, .nav-buttons {
+        display: none; /* Uproszczenie menu na mobile */
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .btn-hero {
+        width: 100%;
+        text-align: center;
+    }
+}

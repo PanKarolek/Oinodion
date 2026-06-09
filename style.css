@@ -9,13 +9,13 @@
 
 body {
     font-family: 'Space Grotesk', sans-serif;
-    background-color: #fafbfc;
-    color: #0d1f2d;
+    background-color: #ffffff;
+    color: #1a1a1a;
     -webkit-font-smoothing: antialiased;
 }
 
 /* ==========================================================================
-   2. HEADER & NAVIGATION (Układ z image_26d91b.jpg)
+   2. HEADER, SEARCH & NAVIGATION
    ========================================================================== */
 header {
     display: flex;
@@ -23,16 +23,20 @@ header {
     align-items: center;
     padding: 25px 5%;
     background-color: #ffffff;
+    gap: 20px;
+    /* Jedna prosta kreska pod calym menu */
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .logo {
     font-family: 'Cinzel', serif;
     font-weight: 900;
     font-size: 1.8rem;
-    color: #002d62; /* Głęboki, prestiżowy egejski błękit */
+    color: #003366; 
     text-transform: uppercase;
     letter-spacing: 2px;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 nav ul {
@@ -46,30 +50,101 @@ nav a {
     text-decoration: none;
     color: #4a4a4a;
     font-size: 0.95rem;
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
-    text-transform: capitalize;
+    text-transform: uppercase;
     transition: color 0.2s ease;
 }
 
 nav a:hover {
-    color: #d4af37; /* Eleganckie złoto przy najechaniu */
+    color: #003366;
 }
 
-/* Styl dla ikony Explore dropdown */
-.explore-dropdown {
-    display: inline-flex;
+/* Linia wyszukiwania z lupą */
+.search-container {
+    display: flex;
     align-items: center;
-    gap: 6px;
+    position: relative;
+    max-width: 220px;
+    width: 100%;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 4px;
+    transition: border-color 0.3s ease;
 }
 
-/* Przycisk Cart (0) w menu */
+.search-container:focus-within {
+    border-color: #003366;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    color: #1a1a1a;
+    width: 100%;
+    padding-right: 25px;
+    background: transparent;
+}
+
+.search-input::placeholder {
+    color: #a0a0a0;
+    font-weight: 500;
+}
+
+.search-icon {
+    position: absolute;
+    right: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #4a4a4a;
+    display: flex;
+    align-items: center;
+}
+
+/* Przełącznik języków EN | GR */
+.right-nav-block {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-shrink: 0;
+}
+
+.lang-switcher {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #a0a0a0;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.lang-switcher span {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.lang-switcher span.active {
+    color: #1a1a1a;
+}
+
+.lang-switcher span:hover {
+    color: #003366;
+}
+
+.lang-divider {
+    margin: 0 4px;
+    color: #e0e0e0;
+    font-weight: 400;
+}
+
+/* Przycisk koszyka */
 .nav-buttons .btn-nav.primary {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.9rem;
     font-weight: 700;
     padding: 12px 28px;
-    background-color: #4A2828; /* Oryginalny, śliwkowo-bordowy odcień z makiety */
-    border: 1px solid #4A2828;
+    background-color: #003366; 
+    border: 1px solid #003366;
     color: #ffffff;
     border-radius: 4px;
     cursor: pointer;
@@ -79,99 +154,93 @@ nav a:hover {
 }
 
 .nav-buttons .btn-nav.primary:hover {
-    background-color: #002d62;
-    border-color: #002d62;
-    transform: translateY(-1px);
+    background-color: #ff6b35;
+    border-color: #ff6b35;
 }
 
 /* ==========================================================================
-   3. HERO SECTION (Poprawione tło i układ)
+   3. HERO SECTION (Pełna szerokość, układ 1:1, czcionka Cinzel i Space Grotesk)
    ========================================================================== */
 .hero-section {
-    padding: 0 5% 80px 5%;
+    padding: 0; 
+    width: 100%;
 }
 
-/* Elegancka, podwójna rama okalająca sekcję */
+/* Usunięcie jakichkolwiek obramowań wokół wrapa */
 .greek-border-wrap {
-    border: 8px double #002d62;
-    padding: 12px;
-    border-radius: 4px;
-    background-color: #ffffff;
-    box-shadow: 0 15px 35px rgba(0, 45, 98, 0.08);
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
 }
 
-/* Główny kontener grid - WYMUSZA układ obok siebie */
+/* Główny grid sekcji hero rozciągnięty od brzegu do brzegu */
 .hero-grid {
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr; /* Tekst po lewej, obrazek po prawej */
-    background-color: #002d62; /* GŁĘBOKI BŁĘKIT - teraz biały napis będzie idealnie widoczny! */
+    grid-template-columns: 1.1fr 0.9fr; 
+    background-color: #003366; /* Głęboki niebieski egejski zapewniający doskonałą czytelność */
     overflow: hidden;
-    align-items: stretch; /* Sprawia, że obrazek i tekst mają tę samą wysokość */
+    width: 100%;
 }
 
 /* Lewa strona - Treść */
 .hero-content {
-    padding: 90px 60px 90px 80px;
+    padding: 100px 60px 100px 5%; /* Lewy margines tekstu idealnie wyrównany z logo */
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .hero-content h1 {
-    font-family: 'Cinzel', serif;
-    color: #ffffff; /* Biały napis na ciemnoniebieskim tle */
-    font-size: 3.8rem;
+    font-family: 'Cinzel', serif; /* Czcionka Cinzel dla nagłówka */
+    color: #ffffff;
+    font-size: 4rem;
     line-height: 1.15;
     font-weight: 700;
     margin-bottom: 24px;
-    letter-spacing: -0.5px;
 }
 
 .hero-content p {
-    color: rgba(255, 255, 255, 0.9); /* Delikatnie przezroczysty biały dla lepszej czytelności */
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.1rem;
+    font-family: 'Space Grotesk', sans-serif; /* Czcionka Space Grotesk dla opisu */
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.05rem;
     line-height: 1.6;
-    margin-bottom: 40px;
-    max-width: 520px;
-    font-weight: 400;
+    margin-bottom: 35px;
+    max-width: 480px;
 }
 
-/* Przyciski wewnątrz sekcji hero */
+/* Przyciski wewnątrz hero */
 .hero-actions {
     display: flex;
-    gap: 16px;
+    gap: 12px;
 }
 
 .btn-hero {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 700;
-    padding: 16px 32px;
+    padding: 14px 28px;
     border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
     cursor: pointer;
+    text-transform: uppercase;
     transition: all 0.2s ease;
 }
 
-/* Przycisk Shop Now */
 .btn-hero.dark {
-    background-color: #ffffff; /* Zmiana na biały przycisk dla lepszego kontrastu */
+    background-color: #ffffff;
     border: 1px solid #ffffff;
-    color: #002d62;
+    color: #003366;
 }
 
 .btn-hero.dark:hover {
-    background-color: #ff6b35; /* Energetyczny grecki pomarańcz przy hoverze */
+    background-color: #ff6b35;
     border-color: #ff6b35;
     color: #ffffff;
 }
 
-/* Przycisk Learn More */
 .btn-hero.transparent {
     background: transparent;
-    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     color: #ffffff;
 }
 
@@ -180,61 +249,41 @@ nav a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Prawa strona - Zdjęcie (Wróci na prawo dzięki gridowi) */
+/* Prawa strona - Zdjęcie zablokowane sztywno w swojej połówce */
 .hero-image-container {
-    position: relative;
     width: 100%;
     height: 100%;
     min-height: 550px;
+    position: relative;
 }
 
 .hero-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Wypełnia całą prawą stronę bez rozciągania */
+    object-fit: cover;
     display: block;
 }
+
 /* ==========================================================================
-   4. RESPONSIVENESS (RWD)
+   4. RESPONSIVENESS
    ========================================================================== */
-@media (max-width: 1024px) {
-    header {
-        padding: 20px 4%;
-    }
-    
+@media (max-width: 992px) {
     .hero-grid {
-        grid-template-columns: 1fr; /* Na tabletach i telefonach przechodzi w jedną kolumnę */
+        grid-template-columns: 1fr;
     }
-    
     .hero-content {
-        padding: 60px 40px;
+        padding: 60px 5%;
     }
-    
     .hero-content h1 {
         font-size: 3rem;
     }
-    
     .hero-image-container {
-        min-height: 450px;
+        min-height: 400px;
     }
-}
-
-@media (max-width: 768px) {
-    nav, .nav-buttons {
-        display: none; /* Uproszczenie menu na mobile */
-    }
-    
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero-actions {
-        flex-direction: column;
-        gap: 12px;
-    }
-    
-    .btn-hero {
-        width: 100%;
-        text-align: center;
+    .hero-image-container img {
+        position: relative;
     }
 }

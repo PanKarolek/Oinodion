@@ -1,0 +1,209 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #fafdff;
+            color: #0d1f2d;
+            overflow-x: hidden;
+        }
+
+        /* NAVIGATION */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: #ffffff;
+            border-bottom: 3px solid #0056b3;
+        }
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: #0056b3;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #0d1f2d;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ff6b35;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        .btn-nav {
+            padding: 10px 20px;
+            border: 2px solid #0056b3;
+            background: transparent;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-nav.primary {
+            background-color: #0056b3;
+            color: #fff;
+        }
+        .btn-nav:hover {
+            background-color: #ff6b35;
+            border-color: #ff6b35;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* HERO SECTION - BOLD & ENERGETIC */
+        .hero-container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .hero {
+            background: linear-gradient(135deg, #0056b3 0%, #002d62 100%);
+            border-radius: 24px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 86, 179, 0.2);
+            position: relative;
+        }
+        /* Grecki akcent geometryczny w tle */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(255,255,255,0.03) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.03) 2px, transparent 2px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+
+        /* HERO TEXT */
+        .hero-content {
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #ffffff;
+            z-index: 1;
+        }
+        .hero-content h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+        .hero-content h1 span {
+            color: #ff6b35; /* Energetyczny pomarańcz słońca */
+            display: block;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: #e0f0ff;
+            max-width: 550px;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+        }
+        .btn-hero {
+            padding: 16px 36px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-hero.shop {
+            background-color: #ff6b35;
+            color: white;
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+        }
+        .btn-hero.shop:hover {
+            background-color: #ffe600;
+            color: #002d62;
+            transform: scale(1.05);
+        }
+        .btn-hero.explore {
+            background-color: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .btn-hero.explore:hover {
+            border-color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* HERO IMAGE CONTAINER */
+        .hero-image-wrap {
+            position: relative;
+            min-height: 500px;
+            background-color: #ff6b35;
+        }
+        .hero-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Nałożenie lekkiego filtra, aby zdjęcie współgrało z klimatem */
+            filter: contrast(1.1) brightness(0.95);
+        }
+
+        /* SECTION BELOW HERO */
+        .section-title {
+            text-align: center;
+            margin: 80px 0 40px;
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: #002d62;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #ff6b35;
+            margin: 15px auto 0;
+        }
+
+        /* RESPONSIVENESS */
+        @media (max-width: 992px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            .hero-content {
+                padding: 40px;
+            }
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .hero-image-wrap {
+                min-height: 400px;
+            }
+        }

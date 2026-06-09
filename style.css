@@ -85,13 +85,13 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   3. HERO SECTION (Zbalansowany, grecki luksus)
+   3. HERO SECTION (Poprawione tło i układ)
    ========================================================================== */
 .hero-section {
     padding: 0 5% 80px 5%;
 }
 
-/* Elegancka, podwójna rama okalająca sekcję (Klimat z watermarked_img_14756390436091803392.png) */
+/* Elegancka, podwójna rama okalająca sekcję */
 .greek-border-wrap {
     border: 8px double #002d62;
     padding: 12px;
@@ -100,12 +100,13 @@ nav a:hover {
     box-shadow: 0 15px 35px rgba(0, 45, 98, 0.08);
 }
 
-/* Główny kontener grid (Układ 1:1 identyczny jak na screenie z laptopem) */
+/* Główny kontener grid - WYMUSZA układ obok siebie */
 .hero-grid {
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    background-color: #5C3D3D; /* Oryginalna głęboka śliwka/bordo z makiety */
+    grid-template-columns: 1.15fr 0.85fr; /* Tekst po lewej, obrazek po prawej */
+    background-color: #002d62; /* GŁĘBOKI BŁĘKIT - teraz biały napis będzie idealnie widoczny! */
     overflow: hidden;
+    align-items: stretch; /* Sprawia, że obrazek i tekst mają tę samą wysokość */
 }
 
 /* Lewa strona - Treść */
@@ -118,7 +119,7 @@ nav a:hover {
 
 .hero-content h1 {
     font-family: 'Cinzel', serif;
-    color: #ffffff;
+    color: #ffffff; /* Biały napis na ciemnoniebieskim tle */
     font-size: 3.8rem;
     line-height: 1.15;
     font-weight: 700;
@@ -127,7 +128,7 @@ nav a:hover {
 }
 
 .hero-content p {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.9); /* Delikatnie przezroczysty biały dla lepszej czytelności */
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.1rem;
     line-height: 1.6;
@@ -156,32 +157,32 @@ nav a:hover {
 
 /* Przycisk Shop Now */
 .btn-hero.dark {
-    background-color: #1f0f0f; /* Ciemny, prestiżowy odcień podbijający bordo */
-    border: 1px solid #1f0f0f;
-    color: #ffffff;
+    background-color: #ffffff; /* Zmiana na biały przycisk dla lepszego kontrastu */
+    border: 1px solid #ffffff;
+    color: #002d62;
 }
 
 .btn-hero.dark:hover {
-    background-color: #ffffff;
-    border-color: #ffffff;
-    color: #1f0f0f;
+    background-color: #ff6b35; /* Energetyczny grecki pomarańcz przy hoverze */
+    border-color: #ff6b35;
+    color: #ffffff;
 }
 
 /* Przycisk Learn More */
 .btn-hero.transparent {
     background: transparent;
-    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
     color: #ffffff;
 }
 
 .btn-hero.transparent:hover {
     border-color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Prawa strona - Zdjęcie */
+/* Prawa strona - Zdjęcie (Wróci na prawo dzięki gridowi) */
 .hero-image-container {
-   float: left;
+    position: relative;
     width: 100%;
     height: 100%;
     min-height: 550px;
@@ -190,7 +191,7 @@ nav a:hover {
 .hero-image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Wypełnia całą prawą stronę bez rozciągania */
     display: block;
 }
 

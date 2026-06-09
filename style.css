@@ -9,13 +9,13 @@
 
 body {
     font-family: 'Space Grotesk', sans-serif;
-    background-color: #ffffff;
-    color: #1a1a1a;
+    background-color: #fafbfc;
+    color: #0d1f2d;
     -webkit-font-smoothing: antialiased;
 }
 
 /* ==========================================================================
-   2. HEADER, SEARCH & NAVIGATION
+   2. HEADER & NAVIGATION (Układ z image_26d91b.jpg)
    ========================================================================== */
 header {
     display: flex;
@@ -23,18 +23,16 @@ header {
     align-items: center;
     padding: 25px 5%;
     background-color: #ffffff;
-    gap: 20px;
 }
 
 .logo {
     font-family: 'Cinzel', serif;
     font-weight: 900;
     font-size: 1.8rem;
-    color: #1a1a1a;
+    color: #002d62; /* Głęboki, prestiżowy egejski błękit */
     text-transform: uppercase;
     letter-spacing: 2px;
     cursor: pointer;
-    flex-shrink: 0;
 }
 
 nav ul {
@@ -49,98 +47,28 @@ nav a {
     color: #4a4a4a;
     font-size: 0.95rem;
     font-weight: 700;
-    text-transform: uppercase;
+    text-transform: capitalize;
     transition: color 0.2s ease;
 }
 
 nav a:hover {
-    color: #003366;
+    color: #d4af37; /* Eleganckie złoto przy najechaniu */
 }
 
-/* Linia wyszukiwania z lupą zamiast Explore */
-.search-container {
-    display: flex;
+/* Styl dla ikony Explore dropdown */
+.explore-dropdown {
+    display: inline-flex;
     align-items: center;
-    position: relative;
-    max-width: 220px;
-    width: 100%;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 4px;
-    transition: border-color 0.3s ease;
+    gap: 6px;
 }
 
-.search-container:focus-within {
-    border-color: #003366;
-}
-
-.search-input {
-    border: none;
-    outline: none;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.9rem;
-    color: #1a1a1a;
-    width: 100%;
-    padding-right: 25px;
-    background: transparent;
-}
-
-.search-input::placeholder {
-    color: #a0a0a0;
-    font-weight: 500;
-}
-
-.search-icon {
-    position: absolute;
-    right: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #4a4a4a;
-    display: flex;
-    align-items: center;
-}
-
-/* Przełącznik języków EN | GR blisko koszyka */
-.right-nav-block {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    flex-shrink: 0;
-}
-
-.lang-switcher {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #a0a0a0;
-    font-family: 'Space Grotesk', sans-serif;
-}
-
-.lang-switcher span {
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.lang-switcher span.active {
-    color: #1a1a1a;
-}
-
-.lang-switcher span:hover {
-    color: #003366;
-}
-
-.lang-divider {
-    margin: 0 4px;
-    color: #e0e0e0;
-    font-weight: 400;
-}
-
-/* Przycisk Cart (0) - Śliwkowo-bordowy z makiety */
+/* Przycisk Cart (0) w menu */
 .nav-buttons .btn-nav.primary {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.9rem;
     font-weight: 700;
     padding: 12px 28px;
-    background-color: #4A2828; 
+    background-color: #4A2828; /* Oryginalny, śliwkowo-bordowy odcień z makiety */
     border: 1px solid #4A2828;
     color: #ffffff;
     border-radius: 4px;
@@ -151,37 +79,39 @@ nav a:hover {
 }
 
 .nav-buttons .btn-nav.primary:hover {
-    background-color: #003366;
-    border-color: #003366;
+    background-color: #002d62;
+    border-color: #002d62;
+    transform: translateY(-1px);
 }
 
 /* ==========================================================================
-   3. HERO SECTION (Stare luksusowe bordo + Naprawiony układ zdjęć)
+   3. HERO SECTION (Poprawione tło i układ)
    ========================================================================== */
 .hero-section {
     padding: 0 5% 80px 5%;
 }
 
-/* Podwójna grecka rama w kolorze egejskiego błękitu */
+/* Elegancka, podwójna rama okalająca sekcję */
 .greek-border-wrap {
-    border: 12px double #003366;
-    padding: 16px;
+    border: 8px double #002d62;
+    padding: 12px;
     border-radius: 4px;
     background-color: #ffffff;
+    box-shadow: 0 15px 35px rgba(0, 45, 98, 0.08);
 }
 
-/* Główny kontener grid - SZTYWNE TRZYMANIE W JEDNEJ LINII */
+/* Główny kontener grid - WYMUSZA układ obok siebie */
 .hero-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr; /* 55% tekst, 45% zdjęcie */
-    background-color: #5C3D3D; /* Stary, prestiżowy kolor tła (ciemna śliwka/bordo) */
+    grid-template-columns: 1.15fr 0.85fr; /* Tekst po lewej, obrazek po prawej */
+    background-color: #002d62; /* GŁĘBOKI BŁĘKIT - teraz biały napis będzie idealnie widoczny! */
     overflow: hidden;
-    position: relative;
+    align-items: stretch; /* Sprawia, że obrazek i tekst mają tę samą wysokość */
 }
 
-/* Lewa strona - Treść (Białe napisy na ciemnym tle) */
+/* Lewa strona - Treść */
 .hero-content {
-    padding: 80px 60px 80px 80px;
+    padding: 90px 60px 90px 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -189,53 +119,59 @@ nav a:hover {
 
 .hero-content h1 {
     font-family: 'Cinzel', serif;
-    color: #ffffff;
-    font-size: 4rem;
+    color: #ffffff; /* Biały napis na ciemnoniebieskim tle */
+    font-size: 3.8rem;
     line-height: 1.15;
     font-weight: 700;
     margin-bottom: 24px;
+    letter-spacing: -0.5px;
 }
 
 .hero-content p {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.9); /* Delikatnie przezroczysty biały dla lepszej czytelności */
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
     line-height: 1.6;
-    margin-bottom: 35px;
-    max-width: 480px;
+    margin-bottom: 40px;
+    max-width: 520px;
+    font-weight: 400;
 }
 
 /* Przyciski wewnątrz sekcji hero */
 .hero-actions {
     display: flex;
-    gap: 12px;
+    gap: 16px;
 }
 
 .btn-hero {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 700;
-    padding: 14px 28px;
-    border-radius: 6px;
-    cursor: pointer;
+    padding: 16px 32px;
+    border-radius: 4px;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
     transition: all 0.2s ease;
 }
 
+/* Przycisk Shop Now */
 .btn-hero.dark {
-    background-color: #261111; /* Bardzo ciemny burgundowy przycisk */
-    border: 1px solid #261111;
-    color: #ffffff;
+    background-color: #ffffff; /* Zmiana na biały przycisk dla lepszego kontrastu */
+    border: 1px solid #ffffff;
+    color: #002d62;
 }
 
 .btn-hero.dark:hover {
-    background-color: #ffffff;
-    color: #261111;
-    border-color: #ffffff;
+    background-color: #ff6b35; /* Energetyczny grecki pomarańcz przy hoverze */
+    border-color: #ff6b35;
+    color: #ffffff;
 }
 
+/* Przycisk Learn More */
 .btn-hero.transparent {
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
     color: #ffffff;
 }
 
@@ -244,41 +180,61 @@ nav a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Prawa strona - Zdjęcie (Blokada przed uciekaniem w dół) */
+/* Prawa strona - Zdjęcie (Wróci na prawo dzięki gridowi) */
 .hero-image-container {
+    position: relative;
     width: 100%;
     height: 100%;
     min-height: 550px;
-    position: relative;
 }
 
 .hero-image-container img {
-    position: absolute; /* Wymusza pozycjonowanie wewnątrz siatki po prawej */
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Sprawia, że grafika wypełnia całą prawą połowę */
+    object-fit: cover; /* Wypełnia całą prawą stronę bez rozciągania */
     display: block;
 }
-
 /* ==========================================================================
-   4. RESPONSIVENESS
+   4. RESPONSIVENESS (RWD)
    ========================================================================== */
-@media (max-width: 992px) {
-    .hero-grid {
-        grid-template-columns: 1fr;
+@media (max-width: 1024px) {
+    header {
+        padding: 20px 4%;
     }
+    
+    .hero-grid {
+        grid-template-columns: 1fr; /* Na tabletach i telefonach przechodzi w jedną kolumnę */
+    }
+    
     .hero-content {
         padding: 60px 40px;
     }
+    
     .hero-content h1 {
         font-size: 3rem;
     }
+    
     .hero-image-container {
-        min-height: 400px;
+        min-height: 450px;
     }
-    .hero-image-container img {
-        position: relative;
+}
+
+@media (max-width: 768px) {
+    nav, .nav-buttons {
+        display: none; /* Uproszczenie menu na mobile */
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .btn-hero {
+        width: 100%;
+        text-align: center;
     }
 }

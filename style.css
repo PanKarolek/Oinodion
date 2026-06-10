@@ -159,14 +159,14 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   3. HERO SECTION (Białe tło, czarne napisy i widoczne przyciski)
-   ========================================================================== */
+   3. HERO SECTION (Luksusowe, lekko ocieplone tło idealne do błękitu)
+   ========================================================================= */
 .hero-section {
     padding: 0; 
     width: 100%;
 }
 
-/* Usunięcie jakichkolwiek obramowań wokół wrapa */
+/* Brak zbędnych ramek i marginesów wokół sekcji głównej */
 .greek-border-wrap {
     border: none;
     padding: 0;
@@ -174,42 +174,43 @@ nav a:hover {
     box-shadow: none;
 }
 
-/* Główny grid sekcji hero rozciągnięty od brzegu do brzegu z lekko szarym tłem */
+/* Główny grid sekcji hero rozciągnięty od brzegu do brzegu */
 .hero-grid {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr; 
-    background-color: #f5f5f5; /* NOWOŚĆ: Elegancki, jasny, lekko szary kolor */
+    background-color: #fcfbfa; /* NOWOŚĆ: Ciepły, prestiżowy alabaster/ivory – idealny pod błękit */
     overflow: hidden;
     width: 100%;
 }
 
-/* Lewa strona - Treść (Czarne napisy dopasowane do jasnego tła) */
+/* Lewa strona - Treść (Kruczoczarne napisy na szlachetnym tle) */
 .hero-content {
-    padding: 100px 60px 100px 5%; /* Lewy margines tekstu wyrównany z logo */
+    padding: 100px 60px 100px 5%; /* Wyrównanie idealnie z logo Oinodion */
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .hero-content h1 {
-    font-family: 'Cinzel', serif; /* Czcionka Cinzel dla nagłówka */
-    color: #1a1a1a; /* Głęboka czerń zamiast bieli - super widoczność */
+    font-family: 'Cinzel', serif; /* Font z makiety */
+    color: #1a1a1a; 
     font-size: 4rem;
     line-height: 1.15;
     font-weight: 700;
     margin-bottom: 24px;
+    letter-spacing: -0.5px;
 }
 
 .hero-content p {
-    font-family: 'Space Grotesk', sans-serif; /* Czcionka Space Grotesk dla opisu */
-    color: #4a4a4a; /* Ciemnoszary, bardzo czytelny tekst na białym tle */
+    font-family: 'Space Grotesk', sans-serif; /* Czytelny font bezszeryfowy */
+    color: #3a3a3a; /* Ciemny, elegancki odcień tekstu */
     font-size: 1.05rem;
     line-height: 1.6;
     margin-bottom: 35px;
     max-width: 480px;
 }
 
-/* Przyciski Akcji na jasnym tle */
+/* Przyciski Akcji */
 .hero-actions {
     display: flex;
     gap: 12px;
@@ -223,10 +224,10 @@ nav a:hover {
     border-radius: 4px;
     cursor: pointer;
     text-transform: uppercase;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
 }
 
-/* Pierwszy przycisk: Czarny, pełny z białym napisem */
+/* Pierwszy przycisk: Kruczoczarny, odcinający się od tła */
 .btn-hero.dark {
     background-color: #1a1a1a;
     border: 1px solid #1a1a1a;
@@ -234,12 +235,11 @@ nav a:hover {
 }
 
 .btn-hero.dark:hover {
-    background-color: #003366; /* Zmiana na niebieski egejski podczas najechania */
+    background-color: #003366; /* Po najechaniu zmienia się w egejski błękit z linii */
     border-color: #003366;
-    color: #ffffff;
 }
 
-/* Drugi przycisk: Przezroczysty z czarną ramką i czarnym napisem */
+/* Drugi przycisk: Konturowy z ciemną ramką */
 .btn-hero.transparent {
     background: transparent;
     border: 1px solid #1a1a1a;
@@ -247,11 +247,11 @@ nav a:hover {
 }
 
 .btn-hero.transparent:hover {
-    background-color: #f5f5f5;
-    border-color: #1a1a1a;
+    background-color: #1a1a1a;
+    color: #ffffff;
 }
 
-/* Prawa strona - Zdjęcie trzymające się idealnie krawędzi */
+/* Prawa strona - Zdjęcie dociągnięte do krawędzi */
 .hero-image-container {
     width: 100%;
     height: 100%;

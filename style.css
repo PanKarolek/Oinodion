@@ -255,61 +255,149 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   4. EURO-TRUST BAR & CURATED SECTIONS (Nowe sekcje e-commerce)
+   4. SHOWCASE SECTION (Styl asymetryczny z poświatą i strzałkami)
    ========================================================================== */
-.trust-bar {
-    background-color: #003366;
-    color: #ffffff;
-    display: flex;
-    justify-content: space-around;
-    padding: 24px 5%;
-    gap: 20px;
-    flex-wrap: wrap;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.showcase-section {
+    background-color: #0b0c10; /* Głęboka, luksusowa czerń/noc w tle całego bloku */
+    padding: 100px 0 100px 5%; /* Prawy margines sterowany układem kart */
+    overflow: hidden;
+    position: relative;
 }
 
-.trust-item {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 700;
+.showcase-container {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr; /* Asymetria: tekst węższy, karty szersze */
+    gap: 60px;
+    align-items: center;
+}
+
+/* Lewa kolumna z tekstami */
+.showcase-sidebar {
+    position: relative;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Magiczna, miękka poświata egejska w tle tekstu – dokładnie jak różowa na makiecie */
+.showcase-glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 51, 102, 0.4) 0%, rgba(0,0,0,0) 70%);
+    top: -50px;
+    left: -100px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.showcase-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.showcase-desc {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #b0b3b8;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Podświetlenie nazwy marki jak w oryginale */
+.brand-highlight {
+    color: #0055a5; /* Jaśniejszy egejski błękit akcentowy */
+    font-weight: 700;
+}
+
+.showcase-subdesc {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 35px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Przycisk w owalu, nawiązujący do "Złóż zamówienie" z makiety */
+.btn-showcase-order {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #003366;
+    background-color: #ffffff;
+    padding: 14px 36px;
+    border-radius: 50px; /* Idealny owal */
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    margin-bottom: 40px;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    border: 1px solid #ffffff;
+}
+
+.btn-showcase-order:hover {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+/* Kontener strzałek nawigacji */
+.showcase-arrows {
+    display: flex;
+    gap: 16px;
+    position: relative;
+    z-index: 2;
+}
+
+.arrow-btn {
+    background: transparent;
+    border: none;
+    color: #4a4a4a; /* Domyślnie ciemniejsze, jakby nieaktywne */
+    cursor: pointer;
+    padding: 8px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
-/* Sekcja Kolekcji */
-.collections-section {
-    padding: 100px 5%;
-    background-color: #fcfbfa; /* Luksusowy odcień alabastru */
+/* Podświetlenie strzałek aktywowanych, egejski błękit */
+.arrow-btn:hover {
+    color: #0055a5;
+    transform: scale(1.1);
 }
 
-.section-title {
-    font-family: 'Cinzel', serif;
-    font-size: 2.4rem;
-    color: #1a1a1a;
-    text-align: center;
-    margin-bottom: 60px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+/* Prawa kolumna: Suwak/Kolekcja pionowych kart */
+.showcase-slider {
+    display: flex;
+    gap: 20px;
+    width: 100%;
 }
 
-.collections-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.collection-card {
+.wine-card {
     position: relative;
-    height: 450px;
+    flex: 1;
+    height: 500px; /* Wysokie, eleganckie proporcje z makiety */
     border-radius: 4px;
     overflow: hidden;
     cursor: pointer;
 }
 
-.collection-bg {
+.wine-card-bg {
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -317,62 +405,78 @@ nav a:hover {
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.collection-overlay {
+/* Ciemny gradient w dolnej części karty gwarantujący czytelność podpisów */
+.wine-card-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%);
-    transition: opacity 0.4s ease;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
 }
 
-.collection-info {
+.wine-card-info {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 40px;
+    padding: 30px;
     z-index: 2;
-    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.collection-info h3 {
-    font-family: 'Cinzel', serif;
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-}
-
-.collection-info p {
+.wine-card-info h3 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.95rem;
-    color: #cccccc;
-    margin-bottom: 20px;
-}
-
-.collection-link {
-    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
     color: #ffffff;
-    text-decoration: none;
     font-weight: 700;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 2px solid #ffffff;
-    padding-bottom: 4px;
-    transition: color 0.3s ease, border-color 0.3s ease;
+    margin-bottom: 12px;
 }
 
-/* Animacje Hover dla kafli */
-.collection-card:hover .collection-bg {
-    transform: scale(1.05);
+/* Kolorowa kreska pod nazwą produktu/kategorii – detal prosto z Twojego screena */
+.wine-card-line {
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #0055a5; /* Śliczny pasek zamiast różowego */
+    transition: width 0.4s ease;
 }
 
-.collection-card:hover .collection-link {
-    color: #ff6b35;
-    border-color: #ff6b35;
+/* Efekty najechania myszką (Hover effects) */
+.wine-card:hover .wine-card-bg {
+    transform: scale(1.06);
 }
 
+.wine-card:hover .wine-card-line {
+    width: 100px; /* Kreska wydłuża się po najechaniu */
+}
+
+/* ==========================================================================
+   5. SHOWCASE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .showcase-container {
+        grid-template-columns: 1fr;
+        padding-right: 5%;
+    }
+    .showcase-slider {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .showcase-section {
+        padding: 60px 5%;
+    }
+    .showcase-slider {
+        flex-direction: column;
+    }
+    .wine-card {
+        height: 300px;
+    }
+}
 /* ==========================================================================
    5. RESPONSIVENESS
    ========================================================================== */

@@ -1,6 +1,7 @@
 /* ==========================================================================
    1. RESET & BASE STYLES
    ========================================================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -14,9 +15,11 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+
 /* ==========================================================================
-   2. HEADER, SEARCH & NAVIGATION
+   2. HEADER
    ========================================================================== */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -31,132 +34,33 @@ header {
     font-family: 'Cinzel', serif;
     font-weight: 900;
     font-size: 1.8rem;
-    color: #003366; 
+    color: #003366;
     text-transform: uppercase;
     letter-spacing: 2px;
-    cursor: pointer;
-    flex-shrink: 0;
 }
 
 nav ul {
     display: flex;
     list-style: none;
     gap: 32px;
-    align-items: center;
 }
 
 nav a {
     text-decoration: none;
     color: #4a4a4a;
-    font-size: 0.95rem;
-    font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-    transition: color 0.2s ease;
 }
 
 nav a:hover {
     color: #003366;
 }
 
-.search-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-    max-width: 220px;
-    width: 100%;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 4px;
-    transition: border-color 0.3s ease;
-}
-
-.search-container:focus-within {
-    border-color: #003366;
-}
-
-.search-input {
-    border: none;
-    outline: none;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.9rem;
-    color: #1a1a1a;
-    width: 100%;
-    padding-right: 25px;
-    background: transparent;
-}
-
-.search-input::placeholder {
-    color: #a0a0a0;
-    font-weight: 500;
-}
-
-.search-icon {
-    position: absolute;
-    right: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #4a4a4a;
-    display: flex;
-    align-items: center;
-}
-
-.right-nav-block {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    flex-shrink: 0;
-}
-
-.lang-switcher {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #a0a0a0;
-    font-family: 'Space Grotesk', sans-serif;
-}
-
-.lang-switcher span {
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.lang-switcher span.active {
-    color: #1a1a1a;
-}
-
-.lang-switcher span:hover {
-    color: #003366;
-}
-
-.lang-divider {
-    margin: 0 4px;
-    color: #e0e0e0;
-    font-weight: 400;
-}
-
-.nav-buttons .btn-nav.primary {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    padding: 12px 28px;
-    background-color: #003366; 
-    border: 1px solid #003366;
-    color: #ffffff;
-    border-radius: 4px;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-}
-
-.nav-buttons .btn-nav.primary:hover {
-    background-color: #ff6b35;
-    border-color: #ff6b35;
-}
 
 /* ==========================================================================
-   3. HERO SECTION
+   3. HERO SECTION + FALA
    ========================================================================== */
+
 .hero-section {
     position: relative;
     width: 100%;
@@ -164,7 +68,6 @@ nav a:hover {
     background-image: url('wina.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -172,396 +75,193 @@ nav a:hover {
     overflow: hidden;
 }
 
-.hero-overlay {
+/* 🔥 NOWA FALA */
+.hero-section::after {
+    content: "";
     position: absolute;
-    top: 0;
+    bottom: -1px;
     left: 0;
     width: 100%;
+    height: 120px;
+    background: #003366;
+
+    clip-path: polygon(
+        0 55%,
+        10% 65%,
+        20% 55%,
+        30% 70%,
+        40% 55%,
+        50% 65%,
+        60% 50%,
+        70% 70%,
+        80% 55%,
+        90% 65%,
+        100% 55%,
+        100% 100%,
+        0 100%
+    );
+}
+
+.hero-overlay {
+    position: absolute;
+    width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); 
-    z-index: 1;
+    background: rgba(0,0,0,0.5);
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    padding: 0 24px;
-    max-width: 850px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 800px;
 }
 
 .hero-content h1 {
     font-family: 'Cinzel', serif;
-    color: #ffffff; 
-    font-size: 4.2rem;
-    line-height: 1.2;
-    font-weight: 700;
-    margin-bottom: 24px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    color: #fff;
+    font-size: 4rem;
+    margin-bottom: 20px;
 }
 
 .hero-content p {
-    font-family: 'Space Grotesk', sans-serif;
     color: #e2e2e2;
-    font-size: 1.15rem;
-    line-height: 1.6;
-    margin-bottom: 40px;
-    max-width: 650px;
+    margin-bottom: 30px;
 }
 
-.hero-actions {
-    display: flex;
-    gap: 16px;
-}
-
-.btn-hero {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    padding: 16px 36px;
-    border-radius: 4px;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: all 0.25s ease;
-}
-
-.btn-hero.light {
-    background-color: #ffffff;
-    border: 1px solid #ffffff;
-    color: #1a1a1a;
-}
-
-.btn-hero.light:hover {
-    background-color: #003366;
-    border-color: #003366;
-    color: #ffffff;
-}
-
-.btn-hero.transparent {
-    background: transparent;
-    border: 1px solid #ffffff;
-    color: #ffffff;
-}
-
-.btn-hero.transparent:hover {
-    background-color: #ffffff;
-    color: #1a1a1a;
-}
 
 /* ==========================================================================
-   4. FALOWANY TRUST BAR (Inspiracja z pliku image_d2cbd8.png)
+   4. TRUST BAR (bez strzałki)
    ========================================================================== */
+
 .trust-section-wrapper {
-    position: relative;
-    background-color: #0b0c10; /* Kolor dopasowany do tła sekcji poniżej */
-    padding-top: 10px;
-    padding-bottom: 30px;
-    width: 100%;
+    background-color: #0b0c10;
+    padding-top: 0;
 }
 
 .trust-bar {
-    background-color: #003366; /* Kultowy egejski błękit */
+    background-color: #003366;
     color: #ffffff;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 90px 8% 100px 8%;
+    padding: 100px 8%;
     gap: 30px;
     flex-wrap: wrap;
-    position: relative;
-
-    /* Wycinanie fali w górę i w dół za pomocą maski SVG bez użycia zewnętrznych grafik */
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23000' fill-opacity='1' d='M0,64L60,58.7C120,53,240,43,360,64C480,85,600,139,720,138.7C840,139,960,85,1080,64C1200,43,1320,53,1380,58.7L1440,64L1440,256C1380,266.7,1320,288,1200,298.7C1080,309,960,309,840,298.7C720,288,600,267,480,261.3C360,256,240,267,120,277.3L60,282.7L0,288Z'%3E%3C/path%3E%3C/svg%3E");
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23000' fill-opacity='1' d='M0,64L60,58.7C120,53,240,43,360,64C480,85,600,139,720,138.7C840,139,960,85,1080,64C1200,43,1320,53,1380,58.7L1440,64L1440,256C1380,266.7,1320,288,1200,298.7C1080,309,960,309,840,298.7C720,288,600,267,480,261.3C360,256,240,267,120,277.3L60,282.7L0,288Z'%3E%3C/path%3E%3C/svg%3E");
-    mask-size: cover;
-    -webkit-mask-size: cover;
-    mask-position: center;
-    -webkit-mask-position: center;
 }
 
-/* Pinezka/Przycisk na fali */
-.scroll-down-badge {
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 46px;
-    height: 46px;
-    background-color: #ffffff;
-    color: #003366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.scroll-down-badge:hover {
-    transform: translateX(-50%) translateY(3px);
-    background-color: #f5f5f5;
-}
-
-/* Komponenty wewnątrz paska zaufania */
+/* elementy */
 .trust-item {
-    font-family: 'Space Grotesk', sans-serif;
+    text-align: center;
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    text-align: center;
-    z-index: 2;
 }
 
 .trust-icon-circle {
     width: 42px;
     height: 42px;
-    border: 2px solid rgba(255, 255, 255, 0.25);
+    border: 2px solid rgba(255,255,255,0.3);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.04);
-    color: #ffffff;
-    transition: all 0.3s ease;
+    margin: 0 auto 10px;
 }
 
 .trust-item:hover .trust-icon-circle {
-    border-color: #ffffff;
-    background-color: #ffffff;
+    background: white;
     color: #003366;
-    transform: translateY(-2px);
 }
 
+
 /* ==========================================================================
-   5. SHOWCASE SECTION
+   5. SHOWCASE
    ========================================================================== */
+
 .showcase-section {
-    background-color: #0b0c10; 
-    padding: 60px 0 100px 5%;
-    overflow: hidden;
-    position: relative;
+    background-color: #0b0c10;
+    padding: 60px 5%;
 }
 
 .showcase-container {
     display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.showcase-sidebar {
-    position: relative;
-    padding-right: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.showcase-glow {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(0, 51, 102, 0.4) 0%, rgba(0,0,0,0) 70%);
-    top: -50px;
-    left: -100px;
-    z-index: 1;
-    pointer-events: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
 }
 
 .showcase-title {
     font-family: 'Cinzel', serif;
-    font-size: 2.2rem;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 30px;
-    position: relative;
-    z-index: 2;
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
 .showcase-desc {
-    font-family: 'Space Grotesk', sans-serif;
     color: #b0b3b8;
-    font-size: 1rem;
-    line-height: 1.6;
     margin-bottom: 20px;
-    position: relative;
-    z-index: 2;
-}
-
-.brand-highlight {
-    color: #0055a5;
-    font-weight: 700;
-}
-
-.showcase-subdesc {
-    font-family: 'Space Grotesk', sans-serif;
-    color: #ffffff;
-    font-size: 0.95rem;
-    font-weight: 500;
-    margin-bottom: 35px;
-    position: relative;
-    z-index: 2;
 }
 
 .btn-showcase-order {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
+    background: white;
     color: #003366;
-    background-color: #ffffff;
-    padding: 14px 36px;
-    border-radius: 50px;
+    padding: 12px 30px;
+    border-radius: 40px;
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    margin-bottom: 40px;
     display: inline-block;
-    position: relative;
-    z-index: 2;
-    border: 1px solid #ffffff;
 }
 
-.btn-showcase-order:hover {
-    background-color: transparent;
-    color: #ffffff;
-    border-color: #ffffff;
-}
 
-.showcase-arrows {
-    display: flex;
-    gap: 16px;
-    position: relative;
-    z-index: 2;
-}
-
-.arrow-btn {
-    background: transparent;
-    border: none;
-    color: #4a4a4a;
-    cursor: pointer;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.arrow-btn:hover {
-    color: #0055a5;
-    transform: scale(1.1);
-}
+/* ==========================================================================
+   6. CARDS
+   ========================================================================== */
 
 .showcase-slider {
     display: flex;
     gap: 20px;
-    width: 100%;
 }
 
 .wine-card {
-    position: relative;
     flex: 1;
-    height: 500px;
-    border-radius: 4px;
+    height: 400px;
+    position: relative;
     overflow: hidden;
-    cursor: pointer;
 }
 
 .wine-card-bg {
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-position: center;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform .5s;
+}
+
+.wine-card:hover .wine-card-bg {
+    transform: scale(1.05);
 }
 
 .wine-card-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to top, black, transparent);
 }
 
 .wine-card-info {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    bottom: 20px;
+    left: 20px;
+    color: white;
 }
 
-.wine-card-info h3 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.25rem;
-    color: #ffffff;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-
-.wine-card-line {
-    display: block;
-    width: 60px;
-    height: 4px;
-    background-color: #0055a5;
-    transition: width 0.4s ease;
-}
-
-.wine-card:hover .wine-card-bg {
-    transform: scale(1.06);
-}
-
-.wine-card:hover .wine-card-line {
-    width: 100px;
-}
 
 /* ==========================================================================
-   6. RESPONSIVENESS
+   7. RESPONSIVE
    ========================================================================== */
-@media (max-width: 1024px) {
-    .showcase-container {
+
+@media (max-width: 768px){
+    .showcase-container{
         grid-template-columns: 1fr;
-        padding-right: 5%;
     }
-    .showcase-slider {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
 
-@media (max-width: 850px) {
-    .trust-bar {
+    .showcase-slider{
         flex-direction: column;
-        gap: 40px;
-        padding: 90px 5% 90px 5%;
-        mask-size: auto 100%;
-        -webkit-mask-size: auto 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    .showcase-section {
-        padding: 40px 5%;
-    }
-    .showcase-slider {
-        flex-direction: column;
-    }
-    .wine-card {
-        height: 300px;
     }
 }

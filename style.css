@@ -24,7 +24,6 @@ header {
     padding: 25px 5%;
     background-color: #ffffff;
     gap: 20px;
-    /* Poniżej zmieniona linia: grubsza (3px) i w kolorze egejskiego błękitu */
     border-bottom: 3px solid #003366;
 }
 
@@ -60,7 +59,6 @@ nav a:hover {
     color: #003366;
 }
 
-/* Linia wyszukiwania z lupą */
 .search-container {
     display: flex;
     align-items: center;
@@ -103,7 +101,6 @@ nav a:hover {
     align-items: center;
 }
 
-/* Przełącznik języków EN | GR */
 .right-nav-block {
     display: flex;
     align-items: center;
@@ -137,7 +134,6 @@ nav a:hover {
     font-weight: 400;
 }
 
-/* Przycisk koszyka */
 .nav-buttons .btn-nav.primary {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.9rem;
@@ -159,133 +155,254 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   3. HERO SECTION (Luksusowe, lekko ocieplone tło idealne do błękitu)
-   ========================================================================= */
+   3. HERO SECTION (Zmienione na układ kinowy Full-Screen)
+   ========================================================================== */
 .hero-section {
-    padding: 0; 
+    position: relative;
     width: 100%;
-}
-
-/* Brak zbędnych ramek i marginesów wokół sekcji głównej */
-.greek-border-wrap {
-    border: none;
-    padding: 0;
-    background-color: transparent;
-    box-shadow: none;
-}
-
-/* Główny grid sekcji hero rozciągnięty od brzegu do brzegu */
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr; 
-    background-color: #fcfbfa; /* NOWOŚĆ: Ciepły, prestiżowy alabaster/ivory – idealny pod błękit */
+    height: 75vh; /* Wysokość dopasowana idealnie do monitora */
+    background-image: url('wina.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     overflow: hidden;
-    width: 100%;
 }
 
-/* Lewa strona - Treść (Kruczoczarne napisy na szlachetnym tle) */
+/* Nakładka przyciemniająca dla perfekcyjnej czytelności */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
 .hero-content {
-    padding: 100px 60px 100px 5%; /* Wyrównanie idealnie z logo Oinodion */
+    position: relative;
+    z-index: 2;
+    padding: 0 24px;
+    max-width: 850px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
 .hero-content h1 {
-    font-family: 'Cinzel', serif; /* Font z makiety */
-    color: #1a1a1a; 
-    font-size: 4rem;
-    line-height: 1.15;
+    font-family: 'Cinzel', serif;
+    color: #ffffff; 
+    font-size: 4.2rem;
+    line-height: 1.2;
     font-weight: 700;
     margin-bottom: 24px;
-    letter-spacing: -0.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .hero-content p {
-    font-family: 'Space Grotesk', sans-serif; /* Czytelny font bezszeryfowy */
-    color: #3a3a3a; /* Ciemny, elegancki odcień tekstu */
-    font-size: 1.05rem;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #e2e2e2;
+    font-size: 1.15rem;
     line-height: 1.6;
-    margin-bottom: 35px;
-    max-width: 480px;
+    margin-bottom: 40px;
+    max-width: 650px;
 }
 
-/* Przyciski Akcji */
 .hero-actions {
     display: flex;
-    gap: 12px;
+    gap: 16px;
 }
 
 .btn-hero {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.9rem;
     font-weight: 700;
-    padding: 14px 28px;
+    padding: 16px 36px;
     border-radius: 4px;
     cursor: pointer;
     text-transform: uppercase;
     transition: all 0.25s ease;
 }
 
-/* Pierwszy przycisk: Kruczoczarny, odcinający się od tła */
-.btn-hero.dark {
-    background-color: #1a1a1a;
-    border: 1px solid #1a1a1a;
-    color: #ffffff;
-}
-
-.btn-hero.dark:hover {
-    background-color: #003366; /* Po najechaniu zmienia się w egejski błękit z linii */
-    border-color: #003366;
-}
-
-/* Drugi przycisk: Konturowy z ciemną ramką */
-.btn-hero.transparent {
-    background: transparent;
-    border: 1px solid #1a1a1a;
+/* Przycisk Główny (Jasny na ciemnym tle) */
+.btn-hero.light {
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
     color: #1a1a1a;
 }
 
-.btn-hero.transparent:hover {
-    background-color: #1a1a1a;
+.btn-hero.light:hover {
+    background-color: #003366;
+    border-color: #003366;
     color: #ffffff;
 }
 
-/* Prawa strona - Zdjęcie dociągnięte do krawędzi */
-.hero-image-container {
-    width: 100%;
-    height: 100%;
-    min-height: 550px;
-    position: relative;
+/* Przycisk Dodatkowy (Konturowy) */
+.btn-hero.transparent {
+    background: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
 }
 
-.hero-image-container img {
+.btn-hero.transparent:hover {
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+/* ==========================================================================
+   4. EURO-TRUST BAR & CURATED SECTIONS (Nowe sekcje e-commerce)
+   ========================================================================== */
+.trust-bar {
+    background-color: #003366;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    padding: 24px 5%;
+    gap: 20px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.trust-item {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Sekcja Kolekcji */
+.collections-section {
+    padding: 100px 5%;
+    background-color: #fcfbfa; /* Luksusowy odcień alabastru */
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.4rem;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.collection-card {
+    position: relative;
+    height: 450px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.collection-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.collection-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display: block;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%);
+    transition: opacity 0.4s ease;
+}
+
+.collection-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px;
+    z-index: 2;
+    color: #ffffff;
+}
+
+.collection-info h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.collection-info p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    color: #cccccc;
+    margin-bottom: 20px;
+}
+
+.collection-link {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 4px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Animacje Hover dla kafli */
+.collection-card:hover .collection-bg {
+    transform: scale(1.05);
+}
+
+.collection-card:hover .collection-link {
+    color: #ff6b35;
+    border-color: #ff6b35;
 }
 
 /* ==========================================================================
-   4. RESPONSIVENESS
+   5. RESPONSIVENESS
    ========================================================================== */
 @media (max-width: 992px) {
-    .hero-grid {
+    .collections-grid {
         grid-template-columns: 1fr;
     }
-    .hero-content {
-        padding: 60px 5%;
+    .collection-card {
+        height: 350px;
     }
     .hero-content h1 {
-        font-size: 3rem;
+        font-size: 2.8rem;
     }
-    .hero-image-container {
-        min-height: 400px;
+    .hero-content p {
+        font-size: 1rem;
     }
-    .hero-image-container img {
-        position: relative;
+}
+
+@media (max-width: 768px) {
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+    .btn-hero {
+        width: 100%;
+    }
+    .trust-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 10%;
     }
 }

@@ -155,12 +155,12 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   3. HERO SECTION (Zmienione na układ kinowy Full-Screen)
+   3. HERO SECTION
    ========================================================================== */
 .hero-section {
     position: relative;
     width: 100%;
-    height: 75vh; /* Wysokość dopasowana idealnie do monitora */
+    height: 75vh;
     background-image: url('wina.jpg');
     background-size: cover;
     background-position: center;
@@ -172,7 +172,6 @@ nav a:hover {
     overflow: hidden;
 }
 
-/* Nakładka przyciemniająca dla perfekcyjnej czytelności */
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -229,7 +228,6 @@ nav a:hover {
     transition: all 0.25s ease;
 }
 
-/* Przycisk Główny (Jasny na ciemnym tle) */
 .btn-hero.light {
     background-color: #ffffff;
     border: 1px solid #ffffff;
@@ -242,7 +240,6 @@ nav a:hover {
     color: #ffffff;
 }
 
-/* Przycisk Dodatkowy (Konturowy) */
 .btn-hero.transparent {
     background: transparent;
     border: 1px solid #ffffff;
@@ -255,23 +252,113 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   4. SHOWCASE SECTION (Styl asymetryczny z poświatą i strzałkami)
+   4. FALOWANY TRUST BAR (Inspiracja z pliku image_d2cbd8.png)
+   ========================================================================== */
+.trust-section-wrapper {
+    position: relative;
+    background-color: #0b0c10; /* Kolor dopasowany do tła sekcji poniżej */
+    padding-top: 10px;
+    padding-bottom: 30px;
+    width: 100%;
+}
+
+.trust-bar {
+    background-color: #003366; /* Kultowy egejski błękit */
+    color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 90px 8% 100px 8%;
+    gap: 30px;
+    flex-wrap: wrap;
+    position: relative;
+
+    /* Wycinanie fali w górę i w dół za pomocą maski SVG bez użycia zewnętrznych grafik */
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23000' fill-opacity='1' d='M0,64L60,58.7C120,53,240,43,360,64C480,85,600,139,720,138.7C840,139,960,85,1080,64C1200,43,1320,53,1380,58.7L1440,64L1440,256C1380,266.7,1320,288,1200,298.7C1080,309,960,309,840,298.7C720,288,600,267,480,261.3C360,256,240,267,120,277.3L60,282.7L0,288Z'%3E%3C/path%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23000' fill-opacity='1' d='M0,64L60,58.7C120,53,240,43,360,64C480,85,600,139,720,138.7C840,139,960,85,1080,64C1200,43,1320,53,1380,58.7L1440,64L1440,256C1380,266.7,1320,288,1200,298.7C1080,309,960,309,840,298.7C720,288,600,267,480,261.3C360,256,240,267,120,277.3L60,282.7L0,288Z'%3E%3C/path%3E%3C/svg%3E");
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    mask-position: center;
+    -webkit-mask-position: center;
+}
+
+/* Pinezka/Przycisk na fali */
+.scroll-down-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 46px;
+    height: 46px;
+    background-color: #ffffff;
+    color: #003366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.scroll-down-badge:hover {
+    transform: translateX(-50%) translateY(3px);
+    background-color: #f5f5f5;
+}
+
+/* Komponenty wewnątrz paska zaufania */
+.trust-item {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    z-index: 2;
+}
+
+.trust-icon-circle {
+    width: 42px;
+    height: 42px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.trust-item:hover .trust-icon-circle {
+    border-color: #ffffff;
+    background-color: #ffffff;
+    color: #003366;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   5. SHOWCASE SECTION
    ========================================================================== */
 .showcase-section {
-    background-color: #0b0c10; /* Głęboka, luksusowa czerń/noc w tle całego bloku */
-    padding: 100px 0 100px 5%; /* Prawy margines sterowany układem kart */
+    background-color: #0b0c10; 
+    padding: 60px 0 100px 5%;
     overflow: hidden;
     position: relative;
 }
 
 .showcase-container {
     display: grid;
-    grid-template-columns: 0.8fr 1.2fr; /* Asymetria: tekst węższy, karty szersze */
+    grid-template-columns: 0.8fr 1.2fr;
     gap: 60px;
     align-items: center;
 }
 
-/* Lewa kolumna z tekstami */
 .showcase-sidebar {
     position: relative;
     padding-right: 20px;
@@ -280,7 +367,6 @@ nav a:hover {
     align-items: flex-start;
 }
 
-/* Magiczna, miękka poświata egejska w tle tekstu – dokładnie jak różowa na makiecie */
 .showcase-glow {
     position: absolute;
     width: 300px;
@@ -313,9 +399,8 @@ nav a:hover {
     z-index: 2;
 }
 
-/* Podświetlenie nazwy marki jak w oryginale */
 .brand-highlight {
-    color: #0055a5; /* Jaśniejszy egejski błękit akcentowy */
+    color: #0055a5;
     font-weight: 700;
 }
 
@@ -329,7 +414,6 @@ nav a:hover {
     z-index: 2;
 }
 
-/* Przycisk w owalu, nawiązujący do "Złóż zamówienie" z makiety */
 .btn-showcase-order {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.9rem;
@@ -337,7 +421,7 @@ nav a:hover {
     color: #003366;
     background-color: #ffffff;
     padding: 14px 36px;
-    border-radius: 50px; /* Idealny owal */
+    border-radius: 50px;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -355,7 +439,6 @@ nav a:hover {
     border-color: #ffffff;
 }
 
-/* Kontener strzałek nawigacji */
 .showcase-arrows {
     display: flex;
     gap: 16px;
@@ -366,7 +449,7 @@ nav a:hover {
 .arrow-btn {
     background: transparent;
     border: none;
-    color: #4a4a4a; /* Domyślnie ciemniejsze, jakby nieaktywne */
+    color: #4a4a4a;
     cursor: pointer;
     padding: 8px;
     display: flex;
@@ -375,13 +458,11 @@ nav a:hover {
     transition: color 0.3s ease, transform 0.2s ease;
 }
 
-/* Podświetlenie strzałek aktywowanych, egejski błękit */
 .arrow-btn:hover {
     color: #0055a5;
     transform: scale(1.1);
 }
 
-/* Prawa kolumna: Suwak/Kolekcja pionowych kart */
 .showcase-slider {
     display: flex;
     gap: 20px;
@@ -391,7 +472,7 @@ nav a:hover {
 .wine-card {
     position: relative;
     flex: 1;
-    height: 500px; /* Wysokie, eleganckie proporcje z makiety */
+    height: 500px;
     border-radius: 4px;
     overflow: hidden;
     cursor: pointer;
@@ -405,7 +486,6 @@ nav a:hover {
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Ciemny gradient w dolnej części karty gwarantujący czytelność podpisów */
 .wine-card-overlay {
     position: absolute;
     top: 0;
@@ -435,26 +515,24 @@ nav a:hover {
     margin-bottom: 12px;
 }
 
-/* Kolorowa kreska pod nazwą produktu/kategorii – detal prosto z Twojego screena */
 .wine-card-line {
     display: block;
     width: 60px;
     height: 4px;
-    background-color: #0055a5; /* Śliczny pasek zamiast różowego */
+    background-color: #0055a5;
     transition: width 0.4s ease;
 }
 
-/* Efekty najechania myszką (Hover effects) */
 .wine-card:hover .wine-card-bg {
     transform: scale(1.06);
 }
 
 .wine-card:hover .wine-card-line {
-    width: 100px; /* Kreska wydłuża się po najechaniu */
+    width: 100px;
 }
 
 /* ==========================================================================
-   5. SHOWCASE RESPONSIVENESS
+   6. RESPONSIVENESS
    ========================================================================== */
 @media (max-width: 1024px) {
     .showcase-container {
@@ -466,9 +544,19 @@ nav a:hover {
     }
 }
 
+@media (max-width: 850px) {
+    .trust-bar {
+        flex-direction: column;
+        gap: 40px;
+        padding: 90px 5% 90px 5%;
+        mask-size: auto 100%;
+        -webkit-mask-size: auto 100%;
+    }
+}
+
 @media (max-width: 768px) {
     .showcase-section {
-        padding: 60px 5%;
+        padding: 40px 5%;
     }
     .showcase-slider {
         flex-direction: column;

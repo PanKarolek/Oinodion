@@ -178,7 +178,7 @@ nav a:hover {
 .hero-grid {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr; 
-    background-color: #B38185; /* Czyste białe tło według życzenia */
+    background-color: #B5A7A7; 
     overflow: hidden;
     width: 100%;
 }

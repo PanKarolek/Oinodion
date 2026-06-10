@@ -48,6 +48,12 @@ nav a {
 nav a:hover {
     color: #003366;
 }
+
+.nav-buttons {
+   margin: 5px;
+   color: #003366;
+   backgroundcolor: white;
+}
 /* ==========================================================================
    3. HERO SECTION + FALA
    ========================================================================== */
@@ -84,6 +90,19 @@ nav a:hover {
 .hero-content p {
     color: #e2e2e2;
     margin-bottom: 30px;
+}
+
+.btn-hero light {
+   margin: 5px;
+   background-color: black;
+   border: 1px solid black;
+   color: white;
+}
+
+.btn-hero transparent{
+   background-color: white;
+   border: 1px solid black;
+   color: black;
 }
 /* ==========================================================================
    4. TRUST BAR (bez strzałki)

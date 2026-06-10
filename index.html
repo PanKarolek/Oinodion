@@ -12,6 +12,7 @@
 </head>
 <body>
 
+    <!-- NAVBAR -->
     <header>
         <div class="logo">Oinodion</div>
         
@@ -44,26 +45,75 @@
         </div>
     </header>
 
+    <!-- ZMODYFIKOWANE HERO (Full-Screen, Tekst na środku) -->
     <div class="hero-section">
-        <div class="greek-border-wrap">
-            <main class="hero-grid">
-                
-                <div class="hero-content">
-                    <h1>Wine made the ancient way</h1>
-                    <p>We curate rare, high-altitude Greek vintages from volcanic Santorini and old-vine Naoussa. Handcrafted with millennia of tradition, tailored for the modern connoisseur. Each bottle holds a legacy worth sharing.</p>
-                    <div class="hero-actions">
-                        <button class="btn-hero dark">Shop now</button>
-                        <button class="btn-hero transparent">Learn more</button>
-                    </div>
-                </div>
-                
-                <div class="hero-image-container">
-                    <img src="wina.jpg" alt="Oinodion Greek Wine Art">
-                </div>
-
-            </main>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Wine made the ancient way</h1>
+            <p>We curate rare, high-altitude Greek vintages from volcanic Santorini and old-vine Naoussa. Handcrafted with millennia of tradition, tailored for the modern connoisseur. Each bottle holds a legacy worth sharing.</p>
+            <div class="hero-actions">
+                <button class="btn-hero light">Shop now</button>
+                <button class="btn-hero transparent">Learn more</button>
+            </div>
         </div>
     </div>
+
+    <!-- NOWOŚĆ: EURO-TRUST BAR (Wizerunek i logistyka UE) -->
+    <div class="trust-bar">
+        <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+            Express Europe-Wide Delivery
+        </div>
+        <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            Direct from Vineyards
+        </div>
+        <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>
+            Secure Thermo-Packaging
+        </div>
+    </div>
+
+    <!-- NOWOŚĆ: SEKCJA KOLEKCJI (Curated Collections) -->
+    <section class="collections-section">
+        <h2 class="section-title">Curated Collections</h2>
+        <div class="collections-grid">
+            
+            <!-- Kafel 1 -->
+            <div class="collection-card">
+                <div class="collection-bg" style="background-image: url('wina.jpg');"></div>
+                <div class="collection-overlay"></div>
+                <div class="collection-info">
+                    <h3>Volcanic Whites</h3>
+                    <p>Santorini Assyrtiko</p>
+                    <a href="#" class="collection-link">Explore</a>
+                </div>
+            </div>
+
+            <!-- Kafel 2 -->
+            <div class="collection-card">
+                <div class="collection-bg" style="background-image: url('wina.jpg');"></div>
+                <div class="collection-overlay"></div>
+                <div class="collection-info">
+                    <h3>Age-Worthy Reds</h3>
+                    <p>Naoussa Xinomavro</p>
+                    <a href="#" class="collection-link">Explore</a>
+                </div>
+            </div>
+
+            <!-- Kafel 3 -->
+            <div class="collection-card">
+                <div class="collection-bg" style="background-image: url('wina.jpg');"></div>
+                <div class="collection-overlay"></div>
+                <div class="collection-info">
+                    <h3>Rare & Amphora</h3>
+                    <p>Limited Vintages</p>
+                    <a href="#" class="collection-link">Explore</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
 </body>
 </html>

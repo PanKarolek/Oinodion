@@ -74,42 +74,71 @@
         </div>
     </div>
 
-    <!-- NOWOŚĆ: SEKCJA KOLEKCJI (Curated Collections) -->
-    <section class="collections-section">
-        <h2 class="section-title">Curated Collections</h2>
-        <div class="collections-grid">
+   <!-- SEKCJA WYBORU: RED, WHITE, SPARKLING (Stylizowana na makietę premium) -->
+    <section class="showcase-section">
+        <div class="showcase-container">
             
-            <!-- Kafel 1 -->
-            <div class="collection-card">
-                <div class="collection-bg" style="background-image: url('wina.jpg');"></div>
-                <div class="collection-overlay"></div>
-                <div class="collection-info">
-                    <h3>Volcanic Whites</h3>
-                    <p>Santorini Assyrtiko</p>
-                    <a href="#" class="collection-link">Explore</a>
+            <!-- Lewa strona: Teksty i strzałki nawigacji -->
+            <div class="showcase-sidebar">
+                <div class="showcase-glow"></div> <!-- Efekt poświaty w tle -->
+                <h2 class="showcase-title">Choose your taste</h2>
+                <p class="showcase-desc">
+                    <span class="brand-highlight">Oinodion Cellar</span> offers a curated journey through Greece's most prestigious microclimates. From volcanic islands to high-altitude mountain peaks, our wines are selected for passionate collectors and modern epicureans across Europe.
+                </p>
+                <p class="showcase-subdesc">Select your preferred style and explore the vintage collection online.</p>
+                
+                <a href="#" class="btn-showcase-order">Explore Full Cellar</a>
+                
+                <!-- Strzałki nawigacji dokładnie pod przyciskiem/tekstem -->
+                <div class="showcase-arrows">
+                    <button class="arrow-btn" aria-label="Previous">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                    </button>
+                    <button class="arrow-btn" aria-label="Next">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
                 </div>
             </div>
 
-            <!-- Kafel 2 -->
-            <div class="collection-card">
-                <div class="collection-bg" style="background-image: url('wina.jpg');"></div>
-                <div class="collection-overlay"></div>
-                <div class="collection-info">
-                    <h3>Age-Worthy Reds</h3>
-                    <p>Naoussa Xinomavro</p>
-                    <a href="#" class="collection-link">Explore</a>
+            <!-- Prawa strona: 3 wysokie, pionowe karty produktowe -->
+            <div class="showcase-slider">
+                
+                <!-- Karta 1: Wina Czerwone -->
+                <div class="wine-card">
+                    <div class="wine-card-bg" style="background-image: url('wina.jpg');"></div>
+                    <div class="wine-card-overlay"></div>
+                    <div class="wine-card-info">
+                        <h3>Red Wines</h3>
+                        <span class="wine-card-line"></span>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Kafel 3 -->
-            <div class="collection-card">
-                <div class="collection-bg" style="background-image: url('wina.jpg');"></div>
-                <div class="collection-overlay"></div>
-                <div class="collection-info">
-                    <h3>Rare & Amphora</h3>
-                    <p>Limited Vintages</p>
-                    <a href="#" class="collection-link">Explore</a>
+                <!-- Karta 2: Wina Białe -->
+                <div class="wine-card">
+                    <div class="wine-card-bg" style="background-image: url('wina.jpg');"></div>
+                    <div class="wine-card-overlay"></div>
+                    <div class="wine-card-info">
+                        <h3>White Wines</h3>
+                        <span class="wine-card-line"></span>
+                    </div>
                 </div>
+
+                <!-- Karta 3: Wina Musujące (Sparkling) -->
+                <div class="wine-card">
+                    <div class="wine-card-bg" style="background-image: url('wina.jpg');"></div>
+                    <div class="wine-card-overlay"></div>
+                    <div class="wine-card-info">
+                        <h3>Sparkling</h3>
+                        <span class="wine-card-line"></span>
+                    </div>
+                </div>
+
             </div>
 
         </div>

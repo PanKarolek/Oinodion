@@ -477,36 +477,3 @@ nav a:hover {
         height: 300px;
     }
 }
-/* ==========================================================================
-   5. RESPONSIVENESS
-   ========================================================================== */
-@media (max-width: 992px) {
-    .collections-grid {
-        grid-template-columns: 1fr;
-    }
-    .collection-card {
-        height: 350px;
-    }
-    .hero-content h1 {
-        font-size: 2.8rem;
-    }
-    .hero-content p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-actions {
-        flex-direction: column;
-        width: 100%;
-        gap: 12px;
-    }
-    .btn-hero {
-        width: 100%;
-    }
-    .trust-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding-left: 10%;
-    }
-}

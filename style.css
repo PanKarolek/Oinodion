@@ -14,26 +14,26 @@ body {
 }
 
 /* ==========================================================================
-   2. HEADER & SEARCH BAR
+   2. HEADER & NAVIGATION (Baza: Biel, Akcenty: Głęboki Granat)
    ========================================================================== */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%; /* Zmniejszyłem padding góra/dół dla lepszego balansu z wyszukiwarką */
-    background-color: #ffffff;
+    padding: 15px 5%;
+    background-color: #ffffff; /* Baza nagłówka: czysta biel */
     gap: 30px;
-    border-bottom: 3px solid #003366;
+    border-bottom: 3px solid #002244; /* Zmiana na Głęboki Cykladzki Granat */
 }
 
 .logo {
     font-family: 'Cinzel', serif;
     font-weight: 900;
     font-size: 1.8rem;
-    color: #003366;
+    color: #002244; /* Głęboki Granat */
     text-transform: uppercase;
     letter-spacing: 2px;
-    flex-shrink: 0; /* Logo nie będzie się kurczyć */
+    flex-shrink: 0;
 }
 
 nav ul {
@@ -52,21 +52,20 @@ nav a {
 }
 
 nav a:hover {
-    color: #003366;
+    color: #002244; /* Głęboki Granat */
 }
 
-/* Stylizacja paska wyszukiwania */
 .search-container {
     display: flex;
     align-items: center;
     position: relative;
     max-width: 300px;
-    flex-grow: 1; /* Pozwala wyszukiwarce elastycznie zająć przestrzeń */
+    flex-grow: 1;
 }
 
 .search-input {
     width: 100%;
-    padding: 10px 40px 10px 15px; /* Duży prawy padding, żeby tekst nie wchodził pod lupę */
+    padding: 10px 40px 10px 15px;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.9rem;
     border: 1px solid #cccccc;
@@ -78,9 +77,9 @@ nav a:hover {
 }
 
 .search-input:focus {
-    border-color: #003366;
+    border-color: #002244; /* Głęboki Granat */
     background-color: #ffffff;
-    box-shadow: 0 0 5px rgba(0, 51, 102, 0.2);
+    box-shadow: 0 0 5px rgba(0, 34, 68, 0.2);
 }
 
 .search-icon {
@@ -88,7 +87,7 @@ nav a:hover {
     right: 5px;
     background: none;
     border: none;
-    color: #003366;
+    color: #002244; /* Głęboki Granat */
     cursor: pointer;
     padding: 8px;
     display: flex;
@@ -99,10 +98,9 @@ nav a:hover {
 }
 
 .search-icon:hover {
-    background-color: rgba(0, 51, 102, 0.1);
+    background-color: rgba(0, 34, 68, 0.1);
 }
 
-/* Blok języka i koszyka */
 .right-nav-block {
     display: flex;
     align-items: center;
@@ -118,7 +116,7 @@ nav a:hover {
 }
 
 .lang-switcher .active {
-    color: #003366;
+    color: #002244; /* Głęboki Granat */
 }
 
 .lang-divider {
@@ -126,15 +124,14 @@ nav a:hover {
     color: #cccccc;
 }
 
-/* Przycisk Koszyka */
 .btn-nav.primary {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 0.85rem;
     color: #ffffff;
-    background-color: #003366;
-    border: 2px solid #003366;
+    background-color: #002244; /* Głęboki Granat */
+    border: 2px solid #002244;
     padding: 10px 20px;
     border-radius: 20px;
     cursor: pointer;
@@ -143,11 +140,11 @@ nav a:hover {
 
 .btn-nav.primary:hover {
     background-color: #ffffff;
-    color: #003366;
+    color: #002244;
 }
 
 /* ==========================================================================
-   3. HERO SECTION (Naprawione selektory klas)
+   3. HERO SECTION
    ========================================================================== */
 .hero-section {
     position: relative;
@@ -179,7 +176,7 @@ nav a:hover {
 
 .hero-content h1 {
     font-family: 'Cinzel', serif;
-    color: #fff;
+    color: #ffffff;
     font-size: 4rem;
     margin-bottom: 20px;
 }
@@ -197,7 +194,6 @@ nav a:hover {
     gap: 15px;
 }
 
-/* Uniwersalny reset dla przycisków w hero */
 .btn-hero {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
@@ -209,7 +205,6 @@ nav a:hover {
     transition: all 0.3s ease;
 }
 
-/* POPRAWIONE SELEKTORY: .btn-hero.light zamiast .btn-hero light */
 .btn-hero.light {
     background-color: #ffffff;
     border: 2px solid #ffffff;
@@ -231,79 +226,68 @@ nav a:hover {
     background-color: #ffffff;
     color: #1a1a1a;
 }
+
 /* ==========================================================================
-   4. TRUST BAR - WERSJA PREMIUM (Wysoki Kontrast i Wyrazistość)
+   4. TRUST BAR (Tło: Głęboki Granat, Akcenty: Matowe Złoto, Tekst: Biel)
    ========================================================================== */
 .trust-section-wrapper {
-    background-color: #0b0c10;
+    background-color: #000000;
     padding: 0;
 }
 
 .trust-bar {
-    background-color: #001f3f; /* Głęboki, wyraźny antyczny granat - odcina się od czarnego tła */
+    background-color: #002244; /* Głęboki Cykladzki Granat */
     color: #ffffff;
     display: flex;
-    justify-content: space-around; /* Rozkładamy elementy równomiernie na całej szerokości */
+    justify-content: space-around;
     align-items: center;
-    padding: 45px 8%;            /* Nieco większy padding dla oddechu i elegancji */
+    padding: 45px 8%;
     gap: 30px;
     flex-wrap: wrap;
-    border-bottom: 2px solid #d4af37; /* Cienka, złota linia na dole paska podkreślająca prestiż */
+    border-bottom: 2px solid #c5a059; /* Matowe Greckie Złoto */
 }
 
 .trust-item {
     display: flex;
-    align-items: center; /* Centrowanie w pionie cyfry i tekstu */
-    gap: 15px;           /* Większy odstęp między numerem a tekstem */
+    align-items: center;
+    gap: 15px;
     cursor: default;
     transition: transform 0.3s ease;
 }
 
 .trust-item:hover {
-    transform: scale(1.03); /* Delikatne powiększenie całego elementu przy najechaniu */
+    transform: scale(1.03);
 }
 
-/* Rzymska numeracja - teraz duża, złota i bardzo wyraźna */
 .trust-num {
     font-family: 'Cinzel', serif;
-    font-size: 1.4rem;       /* Wyraźnie większa czcionka */
-    color: #d4af37;          /* Klasyczne greckie złoto (Gold Metallic) */
+    font-size: 1.4rem;
+    color: #c5a059; /* Matowe Greckie Złoto */
     font-weight: 900;
     letter-spacing: 1px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Subtelny cień, by cyfry "wyskakiwały" z tła */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Tekst - większy, grubszy i śnieżnobiały */
 .trust-text {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.9rem;       /* Zwiększone z 0.75rem dla doskonałej czytelności */
-    font-weight: 700;        /* Pogrubiony font (Bold) – teraz tekst jest "ostry" */
+    font-size: 0.9rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5px;   /* Eleganckie rozstrzelenie liter */
-    color: #ffffff;          /* Czysta, jasna biel - idealnie widoczna */
+    letter-spacing: 1.5px;
+    color: #ffffff; /* Śnieżna biel dla ostrego kontrastu */
     transition: color 0.3s ease;
 }
 
-/* Efekt najechania myszką na tekst */
 .trust-item:hover .trust-text {
-    color: #d4af37;          /* Przy najechaniu tekst też podświetla się na złoto */
+    color: #c5a059; /* Podświetlenie tekstu na złoto przy hoverze */
 }
 
-/* Dostosowanie do urządzeń mobilnych */
-@media (max-width: 768px) {
-    .trust-bar {
-        flex-direction: column; /* Na telefonach układają się pionowo */
-        align-items: flex-start;
-        padding: 35px 10%;
-        gap: 25px;
-    }
-}
 /* ==========================================================================
-   5. SHOWCASE SECTION (Wersja Głębokie Bordo / Burgundy)
+   5. SHOWCASE SECTION (Baza: Głęboka Czerń, Glow: Widoczne Bordo)
    ========================================================================== */
 .showcase-section {
-    background-color: #000000;
-    padding: 100px 5% 140px 5%; /* Przestrzeń na dole na strzałki */
+    background-color: #000000; /* Baza sekcji: czysta czerń */
+    padding: 100px 5 140px 5%; 
     position: relative;
     overflow: hidden;
 }
@@ -317,23 +301,22 @@ nav a:hover {
     z-index: 2;
 }
 
-/* Duże, klimatyczne, luksusowe bordowe koło w tle tekstu */
 .showcase-sidebar {
     position: relative;
 }
 
+/* Mocne, celowo wyraziste, rozmyte koło w odcieniu winiarskiego bordo */
 .showcase-glow {
     position: absolute;
-    width: 500px; /* Jeszcze większe, by poświata była doskonale widoczna */
-    height: 500px;
-    /* Przejście od głębokiego aksamitnego bordo do delikatnej winiarskiej mgły */
-    background: radial-gradient(circle, rgba(145, 25, 46, 0.45) 0%, rgba(74, 14, 23, 0.15) 50%, rgba(0,0,0,0) 75%);
+    width: 550px; /* Zwiększone, by idealnie odcinało lewy tekst */
+    height: 550px;
+    background: radial-gradient(circle, rgba(74, 14, 23, 0.7) 0%, rgba(145, 25, 46, 0.25) 50%, rgba(0,0,0,0) 70%);
     top: 50%;
-    left: -100px;
+    left: -120px;
     transform: translateY(-50%);
     z-index: -1;
     pointer-events: none;
-    filter: blur(30px); /* Miękkie, high-endowe rozmycie */
+    filter: blur(35px); /* Piękne, miękkie przejście plamy */
 }
 
 .showcase-title {
@@ -352,9 +335,9 @@ nav a:hover {
     margin-bottom: 15px;
 }
 
-/* Wyróżnienie marki w kolorze szlachetnego bordo */
+/* Wyróżnienie marki w kolorze dojrzałego bordo */
 .brand-highlight {
-    color: #b52b44; 
+    color: #91192e; 
     font-weight: 700;
 }
 
@@ -364,10 +347,9 @@ nav a:hover {
     margin-bottom: 35px;
 }
 
-/* Przycisk akcji */
 .btn-showcase-order {
     background: #ffffff;
-    color: #4a0e17; /* Ciemnobordowy tekst wewnątrz przycisku */
+    color: #4a0e17; /* Bordowy tekst na białym przycisku */
     padding: 14px 35px;
     border-radius: 40px;
     text-decoration: none;
@@ -386,7 +368,6 @@ nav a:hover {
     border-color: #91192e;
 }
 
-/* Kontener dla slidera i strzałek */
 .slider-wrapper {
     position: relative;
     display: flex;
@@ -394,7 +375,7 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   6. SLIDER, KARTY I STRZAŁKI W KOLORZE BORDO
+   6. SLIDER & STRZAŁKI POD PIERWSZYM ZDJĘCIEM (Wyrównane do Złota i Bordo)
    ========================================================================== */
 .showcase-slider {
     display: flex;
@@ -449,35 +430,35 @@ nav a:hover {
     letter-spacing: 0.5px;
 }
 
-/* Elegancka bordowa linia pod tekstem */
+/* Stała bordowa linia pod tekstem */
 .wine-card-line {
     display: block;
     width: 70px;
     height: 4px;
-    background-color: #4a0e17; /* Głębokie bordo */
+    background-color: #4a0e17; /* Głębokie Bordo */
     transition: all 0.3s ease;
 }
 
 .wine-card:hover .wine-card-line {
     width: 100%;
-    background-color: #91192e; /* Rozjaśnienie do rubinu przy najechaniu */
+    background-color: #91192e; /* Rozjaśnienie linii przy najechaniu */
 }
 
-/* STRZAŁKI: Pozycjonowanie idealnie pod 1. kartą */
+/* STRZAŁKI: Idealne klejenie do lewej krawędzi pierwszego zdjęcia */
 .showcase-arrows {
     display: flex;
     gap: 20px;
     position: absolute;
-    bottom: -65px; /* Wybicie pod podpis pierwszego zdjęcia */
-    left: 0;       /* Wyrównanie idealnie z lewą krawędzią pierwszego wina */
+    bottom: -65px; /* Perfekcyjne przesunięcie pod spód karty */
+    left: 0;       /* Wyrównanie do krawędzi pierwszego wina */
     z-index: 10;
 }
 
-/* Wyraziste, grube strzałki w kolorze bordo */
+/* Wyraziste, grube, złote strzałki - perfekcyjnie kontrastują na czarnym tle */
 .arrow-btn {
     background: transparent;
     border: none;
-    color: #91192e; /* Bardzo widoczny, nasycony bordowy */
+    color: #c5a059; /* Matowe Greckie Złoto - super widoczne! */
     cursor: pointer;
     padding: 10px;
     display: flex;
@@ -487,15 +468,17 @@ nav a:hover {
 }
 
 .arrow-btn:hover {
-    color: #ffffff; /* Odpalenie do czystej bieli przy hoverze */
+    color: #ffffff; /* Rozbłysk do czystej bieli */
     transform: scale(1.2);
 }
 
 .arrow-btn svg {
-    stroke-width: 2.8px !important; /* Grubsza linia sprawia, że strzałki są doskonale widoczne */
+    stroke-width: 2.8px !important; /* Gruba, mięsista linia ikony */
 }
 
-/* RESPONSIVE */
+/* ==========================================================================
+   7. RESPONSIVE (Dostosowanie do urządzeń mobilnych)
+   ========================================================================== */
 @media (max-width: 992px) {
     .showcase-container {
         grid-template-columns: 1fr;
@@ -511,7 +494,16 @@ nav a:hover {
     .showcase-arrows {
         position: static;
         margin-top: 30px;
-        justify-content: center;
+        justify-content: center; /* Centrowanie strzałek na tabletach */
+    }
+}
+
+@media (max-width: 768px) {
+    .trust-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 35px 10%;
+        gap: 25px;
     }
 }
 
@@ -519,16 +511,5 @@ nav a:hover {
     .showcase-slider {
         flex-direction: column;
         gap: 30px;
-    }
-}
-/* ==========================================================================
-   7. RESPONSIVE
-   ========================================================================== */
-@media (max-width: 768px){
-    .showcase-container{
-        grid-template-columns: 1fr;
-    }
-    .showcase-slider{
-        flex-direction: column;
     }
 }

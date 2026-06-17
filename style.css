@@ -635,7 +635,7 @@ nav a.active-nav::after {
     letter-spacing: 1px;
 }
 
-/* Uchwyt na butelkę */
+/* Kontener na butelkę z przezroczystym tłem */
 .product-img-holder {
     height: 380px;
     margin: 20px 0;
@@ -643,30 +643,46 @@ nav a.active-nav::after {
     align-items: center;
     justify-content: center;
     position: relative;
+    z-index: 2;
 }
 
-/* Butelka zyskuje delikatny blask z tyłu */
+/* Szlachetne, bordowe kółko (glow) generowane bezpośrednio za butelką */
 .product-img-holder::before {
     content: '';
     position: absolute;
-    width: 120px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
-    z-index: 1;
+    width: 180px;  /* Średnica idealnie dopasowana do szerokości butelki */
+    height: 180px;
+    /* Przejście od głębokiego aksamitnego bordo do pełnej przezroczystości */
+    background: radial-gradient(circle, rgba(74, 14, 23, 0.65) 0%, rgba(145, 25, 46, 0.2) 50%, rgba(0, 0, 0, 0) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 1; /* Pod butelką */
     pointer-events: none;
+    filter: blur(15px); /* Miękkie, high-endowe rozmycie krawędzi */
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* Upewniamy się, że przezroczysty obrazek PNG nakłada się idealnie na poświatę */
 .product-img-holder img {
     max-height: 100%;
     max-width: 100%;
     object-fit: contain;
-    z-index: 2;
-    transition: transform 0.5s ease;
+    position: relative;
+    z-index: 2; /* Nad kółkiem */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Dynamiczne uniesienie butelki przy hoverze */
+/* EFFECT HOVER: Po najechaniu na całą kartę, kółko za butelką potęguje swój blask */
+.product-item-card:hover .product-img-holder::before {
+    /* Przejście w magnetyczny, rubinowy odcień i delikatne rozszerzenie aury */
+    background: radial-gradient(circle, rgba(145, 25, 46, 0.8) 0%, rgba(181, 43, 68, 0.3) 55%, rgba(0, 0, 0, 0) 70%);
+    transform: translate(-50%, -50%) scale(1.15);
+}
+
+/* Dynamiczne uniesienie butelki przy hoverze (współgra z ruchem tła) */
 .product-item-card:hover .product-img-holder img {
-    transform: scale(1.04) translateY(-5px);
+    transform: scale(1.04) translateY(-8px);
 }
 
 /* Szczegóły tekstu wewnątrz karty */

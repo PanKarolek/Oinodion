@@ -299,71 +299,209 @@ nav a:hover {
     }
 }
 /* ==========================================================================
-   5. SHOWCASE
+   5. SHOWCASE SECTION (Stylizowana na wzór ze zdjęcia)
    ========================================================================== */
 .showcase-section {
-    background-color: #0b0c10;
-    padding: 60px 5%;
+    background-color: #000000; /* Głęboka, czysta czerń jako tło bazy */
+    padding: 100px 5%;
+    position: relative;
+    overflow: hidden;
 }
 
 .showcase-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: 0.8fr 1.2fr; /* Idealna proporcja tekstu do kart */
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
 }
 
+/* Klimatyczna, burgundowa poświata po lewej stronie z obrazka */
+.showcase-sidebar {
+    position: relative;
+}
+
+.showcase-glow {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(141, 19, 54, 0.35) 0%, rgba(0,0,0,0) 70%);
+    top: 50%;
+    left: -50px;
+    transform: translateY(-50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Typografia na wzór screenu */
 .showcase-title {
     font-family: 'Cinzel', serif;
-    color: white;
-    font-size: 2rem;
-    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
 }
+
 .showcase-desc {
     color: #b0b3b8;
-    margin-bottom: 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
+
+.brand-highlight {
+    color: #a62b4c; /* Elegancki odcień czerwonego wina / maliny z grafiki */
+    font-weight: 700;
+}
+
+.showcase-subdesc {
+    color: #8c8e92;
+    font-size: 0.9rem;
+    margin-bottom: 35px;
+}
+
+/* Zaokrąglony, biały przycisk "Złóż zamówienie" */
 .btn-showcase-order {
-    background: white;
-    color: #003366;
-    padding: 12px 30px;
+    background: #ffffff;
+    color: #a62b4c; /* Kolor tekstu dopasowany do akcentu */
+    padding: 14px 35px;
     border-radius: 40px;
     text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     display: inline-block;
+    transition: all 0.3s ease;
+    border: 2px solid #ffffff;
+}
+
+.btn-showcase-order:hover {
+    background: transparent;
+    color: #ffffff;
+}
+
+/* Nawigacja - strzałki idealnie pod tekstem */
+.showcase-arrows {
+    display: flex;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.arrow-btn {
+    background: transparent;
+    border: none;
+    color: #a62b4c; /* Charakterystyczny burgundowo-różowy kolor strzałek */
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.arrow-btn:hover {
+    color: #ffffff;
+    transform: scale(1.15);
 }
 
 /* ==========================================================================
-   6. CARDS
+   6. SLIDER & CARDS (Pionowe, eleganckie karty ze zdjęcia)
    ========================================================================== */
 .showcase-slider {
     display: flex;
-    gap: 20px;
+    gap: 15px; /* Cienkie linie odstępu między zdjęciami */
 }
+
 .wine-card {
     flex: 1;
-    height: 400px;
+    display: flex;
+    flex-direction: column; /* Układ pionowy: najpierw opakowanie zdjęcia, potem tekst */
+}
+
+/* Wrapper zdjęcia, aby linia z tekstem była idealnie pod spodem, a hover nie psuł układu */
+.wine-card-img-wrapper {
+    height: 480px; /* Wysokie, smukłe proporcje jak na zdjęciu */
     position: relative;
     overflow: hidden;
+    border-left: 1px solid rgba(255, 255, 255, 0.1); /* Delikatne pionowe odcięcia */
 }
+
 .wine-card-bg {
     width: 100%;
     height: 100%;
     background-size: cover;
-    transition: transform .5s;
+    background-position: center;
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
 .wine-card:hover .wine-card-bg {
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
+
+/* Subtelny, ciemny gradient na dole zdjęcia */
 .wine-card-overlay {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, black, transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, transparent 40%);
 }
+
+/* Informacje o winie na samym dole - wyjeżdżające POD zdjęcie */
 .wine-card-info {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: white;
+    padding-top: 15px;
+    position: relative;
+}
+
+.wine-card-info h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+/* Charakterystyczna różowo-burgundowa pozioma kreska pod napisem */
+.wine-card-line {
+    display: block;
+    width: 70px;  /* Stała szerokość paska z grafiki */
+    height: 4px;  /* Grubszy, wyraźny akcent */
+    background-color: #a62b4c;
+    transition: width 0.3s ease;
+}
+
+.wine-card:hover .wine-card-line {
+    width: 100%; /* Efektowne rozszerzenie kreski przy najechaniu na kartę */
+}
+
+/* Aktualizacja sekcji Responsive dla nowego układu */
+@media (max-width: 992px) {
+    .showcase-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .showcase-glow {
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .wine-card-img-wrapper {
+        height: 380px;
+    }
+}
+
+@media (max-width: 576px) {
+    .showcase-slider {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .wine-card-img-wrapper {
+        height: 400px;
+    }
 }
 /* ==========================================================================
    7. RESPONSIVE

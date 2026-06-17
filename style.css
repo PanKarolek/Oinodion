@@ -299,11 +299,11 @@ nav a:hover {
     }
 }
 /* ==========================================================================
-   5. SHOWCASE SECTION (Wersja Wyrazisty Granat)
+   5. SHOWCASE SECTION (Wersja Głębokie Bordo / Burgundy)
    ========================================================================== */
 .showcase-section {
     background-color: #000000;
-    padding: 100px 5% 140px 5%; /* Większy padding na dole, by zrobić miejsce na strzałki */
+    padding: 100px 5% 140px 5%; /* Przestrzeń na dole na strzałki */
     position: relative;
     overflow: hidden;
 }
@@ -317,23 +317,23 @@ nav a:hover {
     z-index: 2;
 }
 
-/* Mocne, widoczne, rozmyte niebiesko-granatowe koło w tle */
+/* Duże, klimatyczne, luksusowe bordowe koło w tle tekstu */
 .showcase-sidebar {
     position: relative;
 }
 
 .showcase-glow {
     position: absolute;
-    width: 450px; /* Zwiększyłem rozmiar koła */
-    height: 450px;
-    /* Użycie mocnego, nasyconego granatu z przejściem w elektryzujący błękit */
-    background: radial-gradient(circle, rgba(0, 85, 255, 0.45) 0%, rgba(0, 210, 255, 0.1) 50%, rgba(0,0,0,0) 70%);
+    width: 500px; /* Jeszcze większe, by poświata była doskonale widoczna */
+    height: 500px;
+    /* Przejście od głębokiego aksamitnego bordo do delikatnej winiarskiej mgły */
+    background: radial-gradient(circle, rgba(145, 25, 46, 0.45) 0%, rgba(74, 14, 23, 0.15) 50%, rgba(0,0,0,0) 75%);
     top: 50%;
     left: -100px;
     transform: translateY(-50%);
     z-index: -1;
     pointer-events: none;
-    filter: blur(20px); /* Dodatkowe rozmycie dla gładkiego efektu luksusowej poświaty */
+    filter: blur(30px); /* Miękkie, high-endowe rozmycie */
 }
 
 .showcase-title {
@@ -352,9 +352,9 @@ nav a:hover {
     margin-bottom: 15px;
 }
 
-/* Zmiana wyróżnienia marki na wyrazisty granat */
+/* Wyróżnienie marki w kolorze szlachetnego bordo */
 .brand-highlight {
-    color: #00d2ff; 
+    color: #b52b44; 
     font-weight: 700;
 }
 
@@ -364,10 +364,10 @@ nav a:hover {
     margin-bottom: 35px;
 }
 
-/* Przycisk akcji z granatowym akcentem przy hoverze */
+/* Przycisk akcji */
 .btn-showcase-order {
     background: #ffffff;
-    color: #002244;
+    color: #4a0e17; /* Ciemnobordowy tekst wewnątrz przycisku */
     padding: 14px 35px;
     border-radius: 40px;
     text-decoration: none;
@@ -383,7 +383,7 @@ nav a:hover {
 .btn-showcase-order:hover {
     background: transparent;
     color: #ffffff;
-    border-color: #0055ff;
+    border-color: #91192e;
 }
 
 /* Kontener dla slidera i strzałek */
@@ -394,7 +394,7 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   6. SLIDER, KARTY I STRZAŁKI POD PIERWSZYM ZDJĘCIEM
+   6. SLIDER, KARTY I STRZAŁKI W KOLORZE BORDO
    ========================================================================== */
 .showcase-slider {
     display: flex;
@@ -432,7 +432,7 @@ nav a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, transparent 40%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 40%);
 }
 
 .wine-card-info {
@@ -449,18 +449,18 @@ nav a:hover {
     letter-spacing: 0.5px;
 }
 
-/* Linia pod tekstem zmieniona z różowej na jasnogranatową */
+/* Elegancka bordowa linia pod tekstem */
 .wine-card-line {
     display: block;
     width: 70px;
     height: 4px;
-    background-color: #0055ff; /* Wyrazisty granat */
-    transition: width 0.3s ease;
+    background-color: #4a0e17; /* Głębokie bordo */
+    transition: all 0.3s ease;
 }
 
 .wine-card:hover .wine-card-line {
     width: 100%;
-    background-color: #00d2ff; /* Rozjaśnienie przy najechaniu */
+    background-color: #91192e; /* Rozjaśnienie do rubinu przy najechaniu */
 }
 
 /* STRZAŁKI: Pozycjonowanie idealnie pod 1. kartą */
@@ -468,16 +468,16 @@ nav a:hover {
     display: flex;
     gap: 20px;
     position: absolute;
-    bottom: -65px; /* Przesunięcie w dół, poniżej tekstu karty */
-    left: 0;       /* Wyrównanie dokładnie do lewej krawędzi pierwszego zdjęcia */
+    bottom: -65px; /* Wybicie pod podpis pierwszego zdjęcia */
+    left: 0;       /* Wyrównanie idealnie z lewą krawędzią pierwszego wina */
     z-index: 10;
 }
 
-/* Mocne, wyraźne strzałki */
+/* Wyraziste, grube strzałki w kolorze bordo */
 .arrow-btn {
     background: transparent;
     border: none;
-    color: #0055ff; /* Widoczny, głęboki niebieski/granat */
+    color: #91192e; /* Bardzo widoczny, nasycony bordowy */
     cursor: pointer;
     padding: 10px;
     display: flex;
@@ -487,12 +487,12 @@ nav a:hover {
 }
 
 .arrow-btn:hover {
-    color: #00d2ff; /* Elektryzujący błękit przy hoverze */
+    color: #ffffff; /* Odpalenie do czystej bieli przy hoverze */
     transform: scale(1.2);
 }
 
 .arrow-btn svg {
-    stroke-width: 2.5px !important; /* Grubsza, wyraźniejsza kreska strzałki */
+    stroke-width: 2.8px !important; /* Grubsza linia sprawia, że strzałki są doskonale widoczne */
 }
 
 /* RESPONSIVE */
@@ -511,7 +511,7 @@ nav a:hover {
     .showcase-arrows {
         position: static;
         margin-top: 30px;
-        justify-content: center; /* Centrowanie na tabletach/telefonach */
+        justify-content: center;
     }
 }
 

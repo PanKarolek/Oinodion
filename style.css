@@ -499,23 +499,48 @@ nav a.active-nav::after {
 }
 
 /* ==========================================================================
-   7. BESTSELLERS SECTION (Nowość - Czysty Styl E-commerce)
+   7. BESTSELLERS SECTION (Wersja Wykwintna & Dopasowana do "Choose your taste")
    ========================================================================== */
 .products-section {
-    background-color: #ffffff;
-    padding: 100px 5%;
+    background-color: #08080a; /* Ultra ciemne, głębokie tło pasujące do czerni showcase */
+    padding: 120px 5%;
+    position: relative;
+}
+
+/* Nagłówek sekcji z podkreśleniem */
+.section-title-wrapper {
     text-align: center;
+    margin-bottom: 70px;
+}
+
+.section-kicker {
+    color: #d4af37; /* Greckie złoto */
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 12px;
 }
 
 .section-main-title {
     font-family: 'Cinzel', serif;
-    font-size: 2.5rem;
-    color: #001f3f; /* Królewski Granat */
+    font-size: 2.6rem;
+    color: #ffffff; /* Śnieżnobiały tytuł */
     text-transform: uppercase;
-    margin-bottom: 60px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
 }
 
+/* Nowoczesne, luksusowe podkreślenie */
+.title-underline {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #91192e, #d4af37, #91192e, transparent);
+    margin: 0 auto;
+}
+
+/* Siatka produktów */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -524,89 +549,147 @@ nav a.active-nav::after {
     margin: 0 auto;
 }
 
+/* Elegancki Box Produktu */
 .product-item-card {
-    background-color: #fcfcfc;
-    border: 1px solid #eeeeee;
-    padding: 30px 20px;
+    background: linear-gradient(145deg, #111216, #0d0e11); /* Satynowy, ciemny gradient */
+    border: 1px solid rgba(255, 255, 255, 0.04); /* Prawie niewidoczna, delikatna linia */
+    border-radius: 8px; /* Lekki, nowoczesny border-radius */
+    padding: 35px 25px;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    overflow: hidden;
 }
 
+/* Efekt najechaniu na box - luksusowa poświata bordo/rubin */
 .product-item-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 31, 63, 0.08);
+    transform: translateY(-8px);
+    border-color: rgba(145, 25, 46, 0.4); /* Subtelne bordowe obramowanie przy hoverze */
+    box-shadow: 0 20px 40px rgba(74, 14, 23, 0.4), /* Głębokie bordo w tle */
+                0 0 20px rgba(145, 25, 46, 0.1);
 }
 
+/* Delikatny tag na górze butelki */
+.product-tag {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(145, 25, 46, 0.2);
+    border: 1px solid #91192e;
+    color: #ffb3b3;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+}
+
+/* Uchwyt na butelkę */
 .product-img-holder {
-    height: 350px;
-    margin-bottom: 25px;
+    height: 380px;
+    margin: 20px 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    position: relative;
+}
+
+/* Butelka zyskuje delikatny blask z tyłu */
+.product-img-holder::before {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .product-img-holder img {
     max-height: 100%;
     max-width: 100%;
     object-fit: contain;
-    transition: transform 0.4s ease;
+    z-index: 2;
+    transition: transform 0.5s ease;
 }
 
+/* Dynamiczne uniesienie butelki przy hoverze */
 .product-item-card:hover .product-img-holder img {
-    transform: scale(1.05);
+    transform: scale(1.04) translateY(-5px);
 }
 
+/* Szczegóły tekstu wewnątrz karty */
 .product-region {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    color: #d4af37; /* Greckie Złoto */
+    color: #d4af37; /* Złoto */
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .product-meta h4 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.1rem;
-    color: #1a1a1a;
-    margin-bottom: 10px;
-    line-height: 1.4;
+    font-size: 1.2rem;
+    color: #ffffff; /* Biały tekst dla kontrastu z ciemnym boxem */
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+/* Mała linia podtytułowa wewnątrz karty */
+.product-card-divider {
+    width: 40px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 0 auto 15px auto;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.product-item-card:hover .product-card-divider {
+    width: 100%;
+    background-color: #91192e; /* Rozwija się w rubinową linię */
 }
 
 .product-price {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
-    color: #4a0e17; /* Głębokie Bordo */
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
 }
 
+/* Przycisk dodawania do koszyka - czysta perfekcja */
 .btn-add-to-cart {
     font-family: 'Space Grotesk', sans-serif;
-    background-color: #001f3f;
+    background-color: transparent;
     color: #ffffff;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 14px 25px;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 0.8rem;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     cursor: pointer;
     width: 100%;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 4px; /* Bardzo delikatny kant przycisku */
+    transition: all 0.3s ease;
+}
+
+/* Przycisk po najechaniu wypełnia się głębokim bordo */
+.product-item-card:hover .btn-add-to-cart {
+    border-color: #91192e;
+    background-color: #4a0e17;
 }
 
 .btn-add-to-cart:hover {
-    background-color: #4a0e17; /* Zmiana na głębokie bordo */
-}
-
-.btn-add-to-cart:active {
-    transform: scale(0.98);
+    background-color: #91192e !important; /* Jeszcze jaśniejszy rubin przy bezpośrednim naciśnięciu */
+    box-shadow: 0 0 15px rgba(145, 25, 46, 0.4);
 }
 
 /* ==========================================================================

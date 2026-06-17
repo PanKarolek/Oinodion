@@ -232,67 +232,63 @@ nav a:hover {
     color: #1a1a1a;
 }
 /* ==========================================================================
-   4. TRUST BAR (Zmniejszony i Elegancki)
+   4. TRUST BAR - WERSJA AUTORSKA (Premium Minimal)
    ========================================================================== */
 .trust-section-wrapper {
     background-color: #0b0c10;
-    padding-top: 0;
+    padding: 0;
 }
 
 .trust-bar {
-    background-color: #002244; /* Nieco głębszy, bardziej luksusowy odcień granatu */
+    background-color: #0b0c10; /* Jednolite tło z resztą sekcji poniżej - bez odcinających pasów */
     color: #ffffff;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 30px 10%; /* Zredukowany padding z 100px do 30px – pasek jest smukły */
-    gap: 40px;
+    justify-content: flex-start; /* Klasyczna, prestiżowa niesymetryczność */
+    gap: 80px;                   /* Dużo wolnej przestrzeni (tzw. "luxury whitespace") */
+    padding: 40px 5%;            /* Spójny margines z nagłówkiem (5%) */
     flex-wrap: wrap;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Delikatna linia odcinająca */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Pojedynczy element paska zaufania */
 .trust-item {
     display: flex;
-    align-items: center; /* Wyrównanie ikony i tekstu w jednej linii */
-    gap: 12px;           /* Elegancja tkwi w przestrzeni obok ikony, a nie nad nią */
-    font-size: 0.75rem;  /* Zmniejszony tekst dla wyrazistości (high-end look) */
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px; /* Większe światło między literami dodaje prestiżu */
+    align-items: baseline; /* Wyrównanie do linii tekstu */
+    gap: 10px;
     cursor: default;
-    transition: transform 0.3s ease;
 }
 
-.trust-item:hover {
-    transform: translateY(-2px); /* Subtelne uniesienie zamiast agresywnego błysku */
+/* Rzymska numeracja jako element eleganckiego sznytu */
+.trust-num {
+    font-family: 'Cinzel', serif; /* Ten sam font co w logo */
+    font-size: 0.9rem;
+    color: #003366;               /* Akcent głębokiego granatu */
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-/* Nowe, lżejsze koło ikony */
-.trust-icon-circle {
-    width: 32px;  /* Zmniejszone z 42px */
-    height: 32px; /* Zmniejszone z 42px */
-    border: 1px solid rgba(255, 255, 255, 0.25); /* Cieńsza, delikatniejsza linia */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
+/* Czysta, czytelna i surowa typografia */
+.trust-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;             /* Lżejszy font wygląda szlachetniej niż gruby bold */
+    text-transform: uppercase;
+    letter-spacing: 2px;          /* Szerokie rozstrzelenie liter */
+    color: #cccccc;               /* Lekko zgaszona biel, by nie krzyczała */
+    transition: color 0.3s ease;
 }
 
-/* Delikatne podświetlenie samej ikony podczas hoveru na cały element */
-.trust-item:hover .trust-icon-circle {
-    border-color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.08);
+/* Subtelna interakcja - podświetlenie tekstu przy najechaniu */
+.trust-item:hover .trust-text {
     color: #ffffff;
 }
 
-/* Wymuszenie na SVG, by idealnie pasowało do mniejszego koła */
-.trust-icon-circle svg {
-    width: 14px !important;
-    height: 14px !important;
-    stroke-width: 1.5px !important; /* Cieńsza linia ikony wygląda bardziej premium */
+/* Dostosowanie do urządzeń mobilnych */
+@media (max-width: 768px) {
+    .trust-bar {
+        gap: 30px;
+        justify-content: space-between;
+    }
 }
 /* ==========================================================================
    5. SHOWCASE

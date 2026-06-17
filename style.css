@@ -232,7 +232,7 @@ nav a:hover {
     color: #1a1a1a;
 }
 /* ==========================================================================
-   4. TRUST BAR - WERSJA AUTORSKA (Premium Minimal)
+   4. TRUST BAR - WERSJA PREMIUM (Wysoki Kontrast i Wyrazistość)
    ========================================================================== */
 .trust-section-wrapper {
     background-color: #0b0c10;
@@ -240,54 +240,62 @@ nav a:hover {
 }
 
 .trust-bar {
-    background-color: #0b0c10; /* Jednolite tło z resztą sekcji poniżej - bez odcinających pasów */
+    background-color: #001f3f; /* Głęboki, wyraźny antyczny granat - odcina się od czarnego tła */
     color: #ffffff;
     display: flex;
-    justify-content: flex-start; /* Klasyczna, prestiżowa niesymetryczność */
-    gap: 80px;                   /* Dużo wolnej przestrzeni (tzw. "luxury whitespace") */
-    padding: 40px 5%;            /* Spójny margines z nagłówkiem (5%) */
+    justify-content: space-around; /* Rozkładamy elementy równomiernie na całej szerokości */
+    align-items: center;
+    padding: 45px 8%;            /* Nieco większy padding dla oddechu i elegancji */
+    gap: 30px;
     flex-wrap: wrap;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 2px solid #d4af37; /* Cienka, złota linia na dole paska podkreślająca prestiż */
 }
 
 .trust-item {
     display: flex;
-    align-items: baseline; /* Wyrównanie do linii tekstu */
-    gap: 10px;
+    align-items: center; /* Centrowanie w pionie cyfry i tekstu */
+    gap: 15px;           /* Większy odstęp między numerem a tekstem */
     cursor: default;
+    transition: transform 0.3s ease;
 }
 
-/* Rzymska numeracja jako element eleganckiego sznytu */
+.trust-item:hover {
+    transform: scale(1.03); /* Delikatne powiększenie całego elementu przy najechaniu */
+}
+
+/* Rzymska numeracja - teraz duża, złota i bardzo wyraźna */
 .trust-num {
-    font-family: 'Cinzel', serif; /* Ten sam font co w logo */
-    font-size: 0.9rem;
-    color: #003366;               /* Akcent głębokiego granatu */
-    font-weight: 700;
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;       /* Wyraźnie większa czcionka */
+    color: #d4af37;          /* Klasyczne greckie złoto (Gold Metallic) */
+    font-weight: 900;
     letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Subtelny cień, by cyfry "wyskakiwały" z tła */
 }
 
-/* Czysta, czytelna i surowa typografia */
+/* Tekst - większy, grubszy i śnieżnobiały */
 .trust-text {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 400;             /* Lżejszy font wygląda szlachetniej niż gruby bold */
+    font-size: 0.9rem;       /* Zwiększone z 0.75rem dla doskonałej czytelności */
+    font-weight: 700;        /* Pogrubiony font (Bold) – teraz tekst jest "ostry" */
     text-transform: uppercase;
-    letter-spacing: 2px;          /* Szerokie rozstrzelenie liter */
-    color: #cccccc;               /* Lekko zgaszona biel, by nie krzyczała */
+    letter-spacing: 1.5px;   /* Eleganckie rozstrzelenie liter */
+    color: #ffffff;          /* Czysta, jasna biel - idealnie widoczna */
     transition: color 0.3s ease;
 }
 
-/* Subtelna interakcja - podświetlenie tekstu przy najechaniu */
+/* Efekt najechania myszką na tekst */
 .trust-item:hover .trust-text {
-    color: #ffffff;
+    color: #d4af37;          /* Przy najechaniu tekst też podświetla się na złoto */
 }
 
 /* Dostosowanie do urządzeń mobilnych */
 @media (max-width: 768px) {
     .trust-bar {
-        gap: 30px;
-        justify-content: space-between;
+        flex-direction: column; /* Na telefonach układają się pionowo */
+        align-items: flex-start;
+        padding: 35px 10%;
+        gap: 25px;
     }
 }
 /* ==========================================================================

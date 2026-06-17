@@ -1,1067 +1,828 @@
 /* ==========================================================================
-
    1. RESET & BASE STYLES
-
    ========================================================================== */
-
 * {
-
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
-
 }
 
 body {
-
     font-family: 'Space Grotesk', sans-serif;
-
     background-color: #ffffff;
-
     color: #1a1a1a;
-
     -webkit-font-smoothing: antialiased;
-
 }
 
-
+/* Płynne przewijanie do sekcji po kliknięciu w menu */
+html {
+    scroll-behavior: smooth;
+}
 
 /* ==========================================================================
-
    2. HEADER & SEARCH BAR
-
    ========================================================================== */
-
 header {
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
-    padding: 15px 5%; /* Zmniejszyłem padding góra/dół dla lepszego balansu z wyszukiwarką */
-
+    padding: 15px 5%;
     background-color: #ffffff;
-
     gap: 30px;
-
-    border-bottom: 3px solid #003366;
-
+    border-bottom: 3px solid #001f3f; /* Dostosowane do motywu głębokiego granatu */
 }
-
-
 
 .logo {
-
     font-family: 'Cinzel', serif;
-
     font-weight: 900;
-
     font-size: 1.8rem;
-
-    color: #003366;
-
+    color: #001f3f;
     text-transform: uppercase;
-
     letter-spacing: 2px;
-
-    flex-shrink: 0; /* Logo nie będzie się kurczyć */
-
+    flex-shrink: 0;
 }
-
-
 
 nav ul {
-
     display: flex;
-
     list-style: none;
-
     gap: 32px;
-
 }
-
-
 
 nav a {
-
     text-decoration: none;
-
     color: #4a4a4a;
-
     font-weight: 700;
-
     text-transform: uppercase;
-
     font-size: 0.9rem;
-
     transition: color 0.3s ease;
-
 }
-
-
 
 nav a:hover {
-
-    color: #003366;
-
+    color: #001f3f;
 }
 
-
-
-/* Stylizacja paska wyszukiwania */
-
-.search-container {
-
-    display: flex;
-
-    align-items: center;
-
+/* Podświetlenie aktywnej zakładki na stronie głównej */
+nav a.active-nav {
+    color: #001f3f;
     position: relative;
-
-    max-width: 300px;
-
-    flex-grow: 1; /* Pozwala wyszukiwarce elastycznie zająć przestrzeń */
-
 }
 
+nav a.active-nav::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: #d4af37; /* Prestiżowe greckie złoto */
+    border-radius: 50%;
+}
 
+/* Wyszukiwarka */
+.search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 300px;
+    flex-grow: 1;
+}
 
 .search-input {
-
     width: 100%;
-
-    padding: 10px 40px 10px 15px; /* Duży prawy padding, żeby tekst nie wchodził pod lupę */
-
+    padding: 10px 40px 10px 15px;
     font-family: 'Space Grotesk', sans-serif;
-
     font-size: 0.9rem;
-
     border: 1px solid #cccccc;
-
     border-radius: 20px;
-
     background-color: #f9f9f9;
-
     color: #1a1a1a;
-
     outline: none;
-
     transition: all 0.3s ease;
-
 }
-
-
 
 .search-input:focus {
-
-    border-color: #003366;
-
+    border-color: #001f3f;
     background-color: #ffffff;
-
-    box-shadow: 0 0 5px rgba(0, 51, 102, 0.2);
-
+    box-shadow: 0 0 5px rgba(0, 31, 63, 0.2);
 }
-
-
 
 .search-icon {
-
     position: absolute;
-
     right: 5px;
-
     background: none;
-
     border: none;
-
-    color: #003366;
-
+    color: #001f3f;
     cursor: pointer;
-
     padding: 8px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     border-radius: 50%;
-
     transition: background-color 0.3s ease;
-
 }
-
-
 
 .search-icon:hover {
-
-    background-color: rgba(0, 51, 102, 0.1);
-
+    background-color: rgba(0, 31, 63, 0.1);
 }
-
-
 
 /* Blok języka i koszyka */
-
 .right-nav-block {
-
     display: flex;
-
     align-items: center;
-
     gap: 25px;
-
     flex-shrink: 0;
-
 }
-
-
 
 .lang-switcher {
-
     font-size: 0.85rem;
-
     font-weight: 700;
-
     color: #a0a0a0;
-
     cursor: pointer;
-
 }
-
-
 
 .lang-switcher .active {
-
-    color: #003366;
-
+    color: #001f3f;
 }
-
-
 
 .lang-divider {
-
     margin: 0 5px;
-
     color: #cccccc;
-
 }
-
-
 
 /* Przycisk Koszyka */
-
 .btn-nav.primary {
-
     font-family: 'Space Grotesk', sans-serif;
-
     font-weight: 700;
-
     text-transform: uppercase;
-
     font-size: 0.85rem;
-
     color: #ffffff;
-
-    background-color: #003366;
-
-    border: 2px solid #003366;
-
+    background-color: #001f3f;
+    border: 2px solid #001f3f;
     padding: 10px 20px;
-
     border-radius: 20px;
-
     cursor: pointer;
-
     transition: all 0.3s ease;
-
 }
-
-
 
 .btn-nav.primary:hover {
-
     background-color: #ffffff;
-
-    color: #003366;
-
+    color: #001f3f;
 }
-
-
 
 /* ==========================================================================
-
-   3. HERO SECTION (Naprawione selektory klas)
-
+   3. HERO SECTION
    ========================================================================== */
-
 .hero-section {
-
     position: relative;
-
     width: 100%;
-
     height: 75vh;
-
     background-image: url('tlo.jpg');
-
     background-size: cover;
-
     background-position: center;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     text-align: center;
-
     overflow: hidden;
-
 }
-
-
 
 .hero-overlay {
-
     position: absolute;
-
     width: 100%;
-
     height: 100%;
-
     background: rgba(0,0,0,0.5);
-
 }
-
-
 
 .hero-content {
-
     position: relative;
-
     z-index: 2;
-
     max-width: 800px;
-
     padding: 0 20px;
-
 }
-
-
 
 .hero-content h1 {
-
     font-family: 'Cinzel', serif;
-
     color: #fff;
-
     font-size: 4rem;
-
     margin-bottom: 20px;
-
 }
-
-
 
 .hero-content p {
-
     color: #e2e2e2;
-
     margin-bottom: 30px;
-
     font-size: 1.1rem;
-
     line-height: 1.6;
-
 }
-
-
 
 .hero-actions {
-
     display: flex;
-
     justify-content: center;
-
     gap: 15px;
-
 }
-
-
-
-/* Uniwersalny reset dla przycisków w hero */
 
 .btn-hero {
-
     font-family: 'Space Grotesk', sans-serif;
-
     font-weight: 700;
-
     text-transform: uppercase;
-
     font-size: 0.9rem;
-
     padding: 12px 28px;
-
     border-radius: 40px;
-
     cursor: pointer;
-
     transition: all 0.3s ease;
-
 }
-
-
-
-/* POPRAWIONE SELEKTORY: .btn-hero.light zamiast .btn-hero light */
 
 .btn-hero.light {
-
     background-color: #ffffff;
-
     border: 2px solid #ffffff;
-
     color: #1a1a1a;
-
 }
-
-
 
 .btn-hero.light:hover {
-
     background-color: transparent;
-
     color: #ffffff;
-
 }
-
-
 
 .btn-hero.transparent {
-
     background-color: transparent;
-
     border: 2px solid #ffffff;
-
     color: #ffffff;
-
 }
-
-
 
 .btn-hero.transparent:hover {
-
     background-color: #ffffff;
-
     color: #1a1a1a;
-
 }
 
 /* ==========================================================================
-
-   4. TRUST BAR - WERSJA PREMIUM (Wysoki Kontrast i Wyrazistość)
-
+   4. TRUST BAR
    ========================================================================== */
-
 .trust-section-wrapper {
-
     background-color: #0b0c10;
-
     padding: 0;
-
 }
-
-
 
 .trust-bar {
-
-    background-color: #001f3f; /* Głęboki, wyraźny antyczny granat - odcina się od czarnego tła */
-
+    background-color: #001f3f; 
     color: #ffffff;
-
     display: flex;
-
-    justify-content: space-around; /* Rozkładamy elementy równomiernie na całej szerokości */
-
+    justify-content: space-around;
     align-items: center;
-
-    padding: 45px 8%;            /* Nieco większy padding dla oddechu i elegancji */
-
+    padding: 45px 8%;
     gap: 30px;
-
     flex-wrap: wrap;
-
-    border-bottom: 2px solid #d4af37; /* Cienka, złota linia na dole paska podkreślająca prestiż */
-
+    border-bottom: 2px solid #d4af37;
 }
-
-
 
 .trust-item {
-
     display: flex;
-
-    align-items: center; /* Centrowanie w pionie cyfry i tekstu */
-
-    gap: 15px;           /* Większy odstęp między numerem a tekstem */
-
+    align-items: center;
+    gap: 15px;
     cursor: default;
-
     transition: transform 0.3s ease;
-
 }
-
-
 
 .trust-item:hover {
-
-    transform: scale(1.03); /* Delikatne powiększenie całego elementu przy najechaniu */
-
+    transform: scale(1.03);
 }
-
-
-
-/* Rzymska numeracja - teraz duża, złota i bardzo wyraźna */
 
 .trust-num {
-
     font-family: 'Cinzel', serif;
-
-    font-size: 1.4rem;       /* Wyraźnie większa czcionka */
-
-    color: #d4af37;          /* Klasyczne greckie złoto (Gold Metallic) */
-
+    font-size: 1.4rem;
+    color: #d4af37;
     font-weight: 900;
-
     letter-spacing: 1px;
-
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Subtelny cień, by cyfry "wyskakiwały" z tła */
-
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
-
-
-
-/* Tekst - większy, grubszy i śnieżnobiały */
 
 .trust-text {
-
     font-family: 'Space Grotesk', sans-serif;
-
-    font-size: 0.9rem;       /* Zwiększone z 0.75rem dla doskonałej czytelności */
-
-    font-weight: 700;        /* Pogrubiony font (Bold) – teraz tekst jest "ostry" */
-
+    font-size: 0.9rem;
+    font-weight: 700;
     text-transform: uppercase;
-
-    letter-spacing: 1.5px;   /* Eleganckie rozstrzelenie liter */
-
-    color: #ffffff;          /* Czysta, jasna biel - idealnie widoczna */
-
+    letter-spacing: 1.5px;
+    color: #ffffff;
     transition: color 0.3s ease;
-
 }
-
-
-
-/* Efekt najechania myszką na tekst */
 
 .trust-item:hover .trust-text {
-
-    color: #d4af37;          /* Przy najechaniu tekst też podświetla się na złoto */
-
-}
-
-
-
-/* Dostosowanie do urządzeń mobilnych */
-
-@media (max-width: 768px) {
-
-    .trust-bar {
-
-        flex-direction: column; /* Na telefonach układają się pionowo */
-
-        align-items: flex-start;
-
-        padding: 35px 10%;
-
-        gap: 25px;
-
-    }
-
+    color: #d4af37;
 }
 
 /* ==========================================================================
-
-   5. SHOWCASE SECTION (Wersja Głębokie Bordo / Burgundy)
-
+   5. SHOWCASE SECTION (Kategorie / Burgundy Glow)
    ========================================================================== */
-
 .showcase-section {
-
     background-color: #000000;
-
-    padding: 100px 5% 140px 5%; /* Przestrzeń na dole na strzałki */
-
+    padding: 100px 5% 140px 5%;
     position: relative;
-
     overflow: hidden;
-
 }
-
-
 
 .showcase-container {
-
     display: grid;
-
     grid-template-columns: 0.8fr 1.2fr;
-
     gap: 60px;
-
     align-items: center;
-
     position: relative;
-
     z-index: 2;
-
 }
-
-
-
-/* Duże, klimatyczne, luksusowe bordowe koło w tle tekstu */
 
 .showcase-sidebar {
-
     position: relative;
-
 }
-
-
 
 .showcase-glow {
-
     position: absolute;
-
-    width: 500px; /* Jeszcze większe, by poświata była doskonale widoczna */
-
+    width: 500px;
     height: 500px;
-
-    /* Przejście od głębokiego aksamitnego bordo do delikatnej winiarskiej mgły */
-
     background: radial-gradient(circle, rgba(145, 25, 46, 0.45) 0%, rgba(74, 14, 23, 0.15) 50%, rgba(0,0,0,0) 75%);
-
     top: 50%;
-
     left: -100px;
-
     transform: translateY(-50%);
-
     z-index: -1;
-
     pointer-events: none;
-
-    filter: blur(30px); /* Miękkie, high-endowe rozmycie */
-
+    filter: blur(30px);
 }
-
-
 
 .showcase-title {
-
     font-family: 'Cinzel', serif;
-
     color: #ffffff;
-
     font-size: 2.2rem;
-
     text-transform: uppercase;
-
     letter-spacing: 2px;
-
     margin-bottom: 30px;
-
 }
-
-
 
 .showcase-desc {
-
     color: #b0b3b8;
-
     font-size: 0.95rem;
-
     line-height: 1.6;
-
     margin-bottom: 15px;
-
 }
-
-
-
-/* Wyróżnienie marki w kolorze szlachetnego bordo */
 
 .brand-highlight {
-
     color: #b52b44; 
-
     font-weight: 700;
-
 }
-
-
 
 .showcase-subdesc {
-
     color: #8c8e92;
-
     font-size: 0.9rem;
-
     margin-bottom: 35px;
-
 }
-
-
-
-/* Przycisk akcji */
 
 .btn-showcase-order {
-
     background: #ffffff;
-
-    color: #4a0e17; /* Ciemnobordowy tekst wewnątrz przycisku */
-
+    color: #4a0e17;
     padding: 14px 35px;
-
     border-radius: 40px;
-
     text-decoration: none;
-
     font-weight: 700;
-
     font-size: 0.85rem;
-
     text-transform: uppercase;
-
     letter-spacing: 1px;
-
     display: inline-block;
-
     transition: all 0.3s ease;
-
     border: 2px solid #ffffff;
-
 }
-
-
 
 .btn-showcase-order:hover {
-
     background: transparent;
-
     color: #ffffff;
-
     border-color: #91192e;
-
 }
-
-
-
-/* Kontener dla slidera i strzałek */
 
 .slider-wrapper {
-
     position: relative;
-
     display: flex;
-
     flex-direction: column;
-
 }
-
-
 
 /* ==========================================================================
-
-   6. SLIDER, KARTY I STRZAŁKI W KOLORZE BORDO
-
+   6. SLIDER & WINE CARDS
    ========================================================================== */
-
 .showcase-slider {
-
     display: flex;
-
     gap: 15px;
-
 }
-
-
 
 .wine-card {
-
     flex: 1;
-
     display: flex;
-
     flex-direction: column;
-
 }
-
-
 
 .wine-card-img-wrapper {
-
     height: 480px;
-
     position: relative;
-
     overflow: hidden;
-
     border-left: 1px solid rgba(255, 255, 255, 0.05);
-
 }
-
-
 
 .wine-card-bg {
-
     width: 100%;
-
     height: 100%;
-
     background-size: cover;
-
     background-position: center;
-
     transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
-
 }
-
-
 
 .wine-card:hover .wine-card-bg {
-
     transform: scale(1.06);
-
 }
-
-
 
 .wine-card-overlay {
-
     position: absolute;
-
     top: 0;
-
     left: 0;
-
     width: 100%;
-
     height: 100%;
-
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 40%);
-
 }
-
-
 
 .wine-card-info {
-
     padding-top: 15px;
-
     position: relative;
-
 }
-
-
 
 .wine-card-info h3 {
-
     font-family: 'Space Grotesk', sans-serif;
-
     color: #ffffff;
-
     font-size: 0.95rem;
-
     font-weight: 700;
-
     margin-bottom: 8px;
-
     letter-spacing: 0.5px;
-
 }
-
-
-
-/* Elegancka bordowa linia pod tekstem */
 
 .wine-card-line {
-
     display: block;
-
     width: 70px;
-
     height: 4px;
-
-    background-color: #4a0e17; /* Głębokie bordo */
-
+    background-color: #4a0e17;
     transition: all 0.3s ease;
-
 }
-
-
 
 .wine-card:hover .wine-card-line {
-
     width: 100%;
-
-    background-color: #91192e; /* Rozjaśnienie do rubinu przy najechaniu */
-
+    background-color: #91192e;
 }
-
-
-
-/* STRZAŁKI: Pozycjonowanie idealnie pod 1. kartą */
 
 .showcase-arrows {
-
     display: flex;
-
     gap: 20px;
-
     position: absolute;
-
-    bottom: -65px; /* Wybicie pod podpis pierwszego zdjęcia */
-
-    left: 0;       /* Wyrównanie idealnie z lewą krawędzią pierwszego wina */
-
+    bottom: -65px;
+    left: 0;
     z-index: 10;
-
 }
-
-
-
-/* Wyraziste, grube strzałki w kolorze bordo */
 
 .arrow-btn {
-
     background: transparent;
-
     border: none;
-
-    color: #91192e; /* Bardzo widoczny, nasycony bordowy */
-
+    color: #91192e;
     cursor: pointer;
-
     padding: 10px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     transition: all 0.2s ease;
-
 }
-
-
 
 .arrow-btn:hover {
-
-    color: #ffffff; /* Odpalenie do czystej bieli przy hoverze */
-
+    color: #ffffff;
     transform: scale(1.2);
-
 }
-
-
 
 .arrow-btn svg {
-
-    stroke-width: 2.8px !important; /* Grubsza linia sprawia, że strzałki są doskonale widoczne */
-
-}
-
-
-
-/* RESPONSIVE */
-
-@media (max-width: 992px) {
-
-    .showcase-container {
-
-        grid-template-columns: 1fr;
-
-        gap: 40px;
-
-    }
-
-    .showcase-glow {
-
-        left: 50%;
-
-        transform: translate(-50%, -50%);
-
-    }
-
-    .wine-card-img-wrapper {
-
-        height: 380px;
-
-    }
-
-    .showcase-arrows {
-
-        position: static;
-
-        margin-top: 30px;
-
-        justify-content: center;
-
-    }
-
-}
-
-
-
-@media (max-width: 576px) {
-
-    .showcase-slider {
-
-        flex-direction: column;
-
-        gap: 30px;
-
-    }
-
+    stroke-width: 2.8px !important;
 }
 
 /* ==========================================================================
-
-   7. RESPONSIVE
-
+   7. BESTSELLERS SECTION (Nowość - Czysty Styl E-commerce)
    ========================================================================== */
+.products-section {
+    background-color: #ffffff;
+    padding: 100px 5%;
+    text-align: center;
+}
 
-@media (max-width: 768px){
+.section-main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: #001f3f; /* Królewski Granat */
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    letter-spacing: 1px;
+}
 
-    .showcase-container{
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
+.product-item-card {
+    background-color: #fcfcfc;
+    border: 1px solid #eeeeee;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 31, 63, 0.08);
+}
+
+.product-img-holder {
+    height: 350px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.product-img-holder img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.product-item-card:hover .product-img-holder img {
+    transform: scale(1.05);
+}
+
+.product-region {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #d4af37; /* Greckie Złoto */
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.product-meta h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.product-price {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    color: #4a0e17; /* Głębokie Bordo */
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.btn-add-to-cart {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: #001f3f;
+    color: #ffffff;
+    border: none;
+    padding: 14px 25px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #4a0e17; /* Zmiana na głębokie bordo */
+}
+
+.btn-add-to-cart:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================================================
+   8. OUR STORY SECTION (Nowość - Kontrastowa Opowieść)
+   ========================================================================== */
+.story-block-section {
+    background-color: #f7f8fa; /* Subtelne odcięcie tła */
+    padding: 120px 5%;
+}
+
+.story-inner-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.story-kicker {
+    color: #d4af37;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.story-content-side h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.6rem;
+    color: #001f3f;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.story-content-side p {
+    color: #555555;
+    line-height: 1.7;
+    font-size: 1rem;
+    margin-bottom: 40px;
+}
+
+.btn-story-read {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #001f3f;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 5px;
+    font-size: 0.9rem;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-story-read:hover {
+    color: #4a0e17;
+    border-color: #4a0e17;
+}
+
+.story-img-wrapper {
+    height: 500px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.story-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.story-inner-container:hover .story-img-wrapper img {
+    transform: scale(1.03);
+}
+
+/* ==========================================================================
+   9. FOOTER (Nowość - Elegancka Stopka Premium)
+   ========================================================================== */
+footer {
+    background-color: #0b0c10;
+    color: #ffffff;
+    padding: 80px 5% 40px 5%;
+    border-top: 4px solid #4a0e17; /* Bordowy akcent na domknięcie */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto 60px auto;
+}
+
+footer h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #d4af37; /* Złote logo w stopce */
+    letter-spacing: 1px;
+}
+
+footer h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+footer p {
+    color: #aaaaaa;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+footer p a {
+    transition: color 0.3s ease;
+}
+
+footer p a:hover {
+    color: #d4af37 !important;
+}
+
+.footer-copyright {
+    text-align: center;
+    border-top: 1px solid #222222;
+    padding-top: 30px;
+    font-size: 0.85rem;
+    color: #666666;
+}
+
+/* ==========================================================================
+   10. GLOBAL RESPONSIVE RESPONSIVENESS (RWD)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .showcase-container {
         grid-template-columns: 1fr;
-
+        gap: 40px;
     }
+    .showcase-glow {
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .wine-card-img-wrapper {
+        height: 380px;
+    }
+    .showcase-arrows {
+        position: static;
+        margin-top: 30px;
+        justify-content: center;
+    }
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    .story-inner-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .story-img-wrapper {
+        height: 350px;
+        order: 2; /* Obrazek ląduje pod tekstem na tabletach */
+    }
+    .story-content-side {
+        order: 1;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
 
-    .showcase-slider{
-
+@media (max-width: 768px) {
+    header {
         flex-direction: column;
-
+        gap: 15px;
+        padding: 20px 5%;
     }
+    .search-container {
+        max-width: 100%;
+        width: 100%;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .trust-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 35px 10%;
+        gap: 25px;
+    }
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
 
+@media (max-width: 576px) {
+    .showcase-slider {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .hero-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn-hero {
+        width: 100%;
+    }
 }

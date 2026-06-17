@@ -299,42 +299,43 @@ nav a:hover {
     }
 }
 /* ==========================================================================
-   5. SHOWCASE SECTION (Stylizowana na wzór ze zdjęcia)
+   5. SHOWCASE SECTION (Wersja Wyrazisty Granat)
    ========================================================================== */
 .showcase-section {
-    background-color: #000000; /* Głęboka, czysta czerń jako tło bazy */
-    padding: 100px 5%;
+    background-color: #000000;
+    padding: 100px 5% 140px 5%; /* Większy padding na dole, by zrobić miejsce na strzałki */
     position: relative;
     overflow: hidden;
 }
 
 .showcase-container {
     display: grid;
-    grid-template-columns: 0.8fr 1.2fr; /* Idealna proporcja tekstu do kart */
+    grid-template-columns: 0.8fr 1.2fr;
     gap: 60px;
     align-items: center;
     position: relative;
     z-index: 2;
 }
 
-/* Klimatyczna, burgundowa poświata po lewej stronie z obrazka */
+/* Mocne, widoczne, rozmyte niebiesko-granatowe koło w tle */
 .showcase-sidebar {
     position: relative;
 }
 
 .showcase-glow {
     position: absolute;
-    width: 350px;
-    height: 350px;
-    background: radial-gradient(circle, rgba(141, 19, 54, 0.35) 0%, rgba(0,0,0,0) 70%);
+    width: 450px; /* Zwiększyłem rozmiar koła */
+    height: 450px;
+    /* Użycie mocnego, nasyconego granatu z przejściem w elektryzujący błękit */
+    background: radial-gradient(circle, rgba(0, 85, 255, 0.45) 0%, rgba(0, 210, 255, 0.1) 50%, rgba(0,0,0,0) 70%);
     top: 50%;
-    left: -50px;
+    left: -100px;
     transform: translateY(-50%);
     z-index: -1;
     pointer-events: none;
+    filter: blur(20px); /* Dodatkowe rozmycie dla gładkiego efektu luksusowej poświaty */
 }
 
-/* Typografia na wzór screenu */
 .showcase-title {
     font-family: 'Cinzel', serif;
     color: #ffffff;
@@ -351,8 +352,9 @@ nav a:hover {
     margin-bottom: 15px;
 }
 
+/* Zmiana wyróżnienia marki na wyrazisty granat */
 .brand-highlight {
-    color: #a62b4c; /* Elegancki odcień czerwonego wina / maliny z grafiki */
+    color: #00d2ff; 
     font-weight: 700;
 }
 
@@ -362,10 +364,10 @@ nav a:hover {
     margin-bottom: 35px;
 }
 
-/* Zaokrąglony, biały przycisk "Złóż zamówienie" */
+/* Przycisk akcji z granatowym akcentem przy hoverze */
 .btn-showcase-order {
     background: #ffffff;
-    color: #a62b4c; /* Kolor tekstu dopasowany do akcentu */
+    color: #002244;
     padding: 14px 35px;
     border-radius: 40px;
     text-decoration: none;
@@ -381,52 +383,35 @@ nav a:hover {
 .btn-showcase-order:hover {
     background: transparent;
     color: #ffffff;
+    border-color: #0055ff;
 }
 
-/* Nawigacja - strzałki idealnie pod tekstem */
-.showcase-arrows {
+/* Kontener dla slidera i strzałek */
+.slider-wrapper {
+    position: relative;
     display: flex;
-    gap: 15px;
-    margin-top: 40px;
-}
-
-.arrow-btn {
-    background: transparent;
-    border: none;
-    color: #a62b4c; /* Charakterystyczny burgundowo-różowy kolor strzałek */
-    cursor: pointer;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.arrow-btn:hover {
-    color: #ffffff;
-    transform: scale(1.15);
+    flex-direction: column;
 }
 
 /* ==========================================================================
-   6. SLIDER & CARDS (Pionowe, eleganckie karty ze zdjęcia)
+   6. SLIDER, KARTY I STRZAŁKI POD PIERWSZYM ZDJĘCIEM
    ========================================================================== */
 .showcase-slider {
     display: flex;
-    gap: 15px; /* Cienkie linie odstępu między zdjęciami */
+    gap: 15px;
 }
 
 .wine-card {
     flex: 1;
     display: flex;
-    flex-direction: column; /* Układ pionowy: najpierw opakowanie zdjęcia, potem tekst */
+    flex-direction: column;
 }
 
-/* Wrapper zdjęcia, aby linia z tekstem była idealnie pod spodem, a hover nie psuł układu */
 .wine-card-img-wrapper {
-    height: 480px; /* Wysokie, smukłe proporcje jak na zdjęciu */
+    height: 480px;
     position: relative;
     overflow: hidden;
-    border-left: 1px solid rgba(255, 255, 255, 0.1); /* Delikatne pionowe odcięcia */
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .wine-card-bg {
@@ -441,7 +426,6 @@ nav a:hover {
     transform: scale(1.06);
 }
 
-/* Subtelny, ciemny gradient na dole zdjęcia */
 .wine-card-overlay {
     position: absolute;
     top: 0;
@@ -451,7 +435,6 @@ nav a:hover {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, transparent 40%);
 }
 
-/* Informacje o winie na samym dole - wyjeżdżające POD zdjęcie */
 .wine-card-info {
     padding-top: 15px;
     position: relative;
@@ -466,20 +449,53 @@ nav a:hover {
     letter-spacing: 0.5px;
 }
 
-/* Charakterystyczna różowo-burgundowa pozioma kreska pod napisem */
+/* Linia pod tekstem zmieniona z różowej na jasnogranatową */
 .wine-card-line {
     display: block;
-    width: 70px;  /* Stała szerokość paska z grafiki */
-    height: 4px;  /* Grubszy, wyraźny akcent */
-    background-color: #a62b4c;
+    width: 70px;
+    height: 4px;
+    background-color: #0055ff; /* Wyrazisty granat */
     transition: width 0.3s ease;
 }
 
 .wine-card:hover .wine-card-line {
-    width: 100%; /* Efektowne rozszerzenie kreski przy najechaniu na kartę */
+    width: 100%;
+    background-color: #00d2ff; /* Rozjaśnienie przy najechaniu */
 }
 
-/* Aktualizacja sekcji Responsive dla nowego układu */
+/* STRZAŁKI: Pozycjonowanie idealnie pod 1. kartą */
+.showcase-arrows {
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    bottom: -65px; /* Przesunięcie w dół, poniżej tekstu karty */
+    left: 0;       /* Wyrównanie dokładnie do lewej krawędzi pierwszego zdjęcia */
+    z-index: 10;
+}
+
+/* Mocne, wyraźne strzałki */
+.arrow-btn {
+    background: transparent;
+    border: none;
+    color: #0055ff; /* Widoczny, głęboki niebieski/granat */
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.arrow-btn:hover {
+    color: #00d2ff; /* Elektryzujący błękit przy hoverze */
+    transform: scale(1.2);
+}
+
+.arrow-btn svg {
+    stroke-width: 2.5px !important; /* Grubsza, wyraźniejsza kreska strzałki */
+}
+
+/* RESPONSIVE */
 @media (max-width: 992px) {
     .showcase-container {
         grid-template-columns: 1fr;
@@ -492,15 +508,17 @@ nav a:hover {
     .wine-card-img-wrapper {
         height: 380px;
     }
+    .showcase-arrows {
+        position: static;
+        margin-top: 30px;
+        justify-content: center; /* Centrowanie na tabletach/telefonach */
+    }
 }
 
 @media (max-width: 576px) {
     .showcase-slider {
         flex-direction: column;
         gap: 30px;
-    }
-    .wine-card-img-wrapper {
-        height: 400px;
     }
 }
 /* ==========================================================================

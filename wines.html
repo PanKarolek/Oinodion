@@ -235,5 +235,25 @@
             });
         });
     </script>
+
+    <div id="cart-modal" class="cart-modal-overlay">
+    <div class="cart-modal-window">
+        <button class="cart-modal-close" id="cart-close">&times;</button>
+        <h2 class="cart-modal-title">Your Private Selection</h2>
+        <div class="cart-modal-divider"></div>
+        
+        <div id="cart-items-container" class="cart-items-list">
+            <p class="cart-empty-msg">Your cellar collection is currently empty.</p>
+        </div>
+        
+        <div class="cart-modal-footer">
+            <div class="cart-total-wrapper">
+                <span>Total Allocation:</span>
+                <span id="cart-total-price">€0.00</span>
+            </div>
+            <button class="btn-checkout" id="checkout-btn">Proceed to Secure Checkout</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>

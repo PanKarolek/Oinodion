@@ -42,89 +42,95 @@
         </div>
     </header>
 
-    <section class="wines-hero">
-        <div class="wines-hero-content">
-            <span class="wines-kicker">Exclusive Allocations</span>
-            <h1>The Cellar Collection</h1>
-            <p>Explore strictly limited, rare vintages sourced directly from boutique micro-wineries of Greece. Handcrafted liquid art for true connoisseurs.</p>
+    <section class="products-section">
+        <div class="section-title-wrapper">
+            <span class="section-kicker">Curated Vintages</span>
+            <h2 class="section-main-title">Our Cellar Collection</h2>
+            <div class="title-underline"></div>
+        </div>
+        
+        <div class="filter-bar">
+            <button class="filter-btn active" data-target="all">All Vintages</button>
+            <button class="filter-btn" data-target="red">Red Wines</button>
+            <button class="filter-btn" data-target="white">White Wines</button>
+            <button class="filter-btn" data-target="sparkling">Sparkling Wines</button>
+            <button class="filter-btn" data-target="rose">Rose Wines</button>
+        </div>
+        
+        <div class="products-grid" id="wines-grid">
+            
+            <div class="product-item-card" data-category="white">
+                <div class="product-tag">Exclusive</div>
+                <div class="product-img-holder">
+                    <img src="ASSYRTIKO-VOLCANIC.webp" alt="Assyrtiko Volcanic">
+                </div>
+                <div class="product-meta">
+                    <span class="product-region">Santorini, Cyclades</span>
+                    <h4>Assyrtiko Volcanic 2022</h4>
+                    <div class="product-card-divider"></div>
+                    <p class="product-price">€42.00</p>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            
+            <div class="product-item-card" data-category="red">
+                <div class="product-tag">Rare Vintage</div>
+                <div class="product-img-holder">
+                    <img src="XINOMAVRO-RESERVE.png" alt="Xinomavro Reserve">
+                </div>
+                <div class="product-meta">
+                    <span class="product-region">Naoussa, Macedonia</span>
+                    <h4>Xinomavro Reserve 2020</h4>
+                    <div class="product-card-divider"></div>
+                    <p class="product-price">€34.00</p>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            
+            <div class="product-item-card" data-category="red">
+                <div class="product-tag">Highly Rated</div>
+                <div class="product-img-holder">
+                    <img src="allegorie-agiorgitiko.png" alt="Agiorgitiko Heritage">
+                </div>
+                <div class="product-meta">
+                    <span class="product-region">Nemea, Peloponnese</span>
+                    <h4>Agiorgitiko Heritage 2019</h4>
+                    <div class="product-card-divider"></div>
+                    <p class="product-price">€29.00</p>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-item-card" data-category="sparkling">
+                <div class="product-tag">Limited</div>
+                <div class="product-img-holder">
+                    <img src="amalia-brut.png" alt="Amalia Brut Sparkling">
+                </div>
+                <div class="product-meta">
+                    <span class="product-region">Mantinia, Peloponnese</span>
+                    <h4>Amalia Brut Sparkling</h4>
+                    <div class="product-card-divider"></div>
+                    <p class="product-price">€48.00</p>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-item-card" data-category="rose">
+                <div class="product-tag">New Release</div>
+                <div class="product-img-holder">
+                    <img src="daphne-rose.png" alt="Daphne Rose Heritage">
+                </div>
+                <div class="product-meta">
+                    <span class="product-region">Crete, Aegean Islands</span>
+                    <h4>Daphne Rose Heritage 2023</h4>
+                    <div class="product-card-divider"></div>
+                    <p class="product-price">€31.00</p>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            
         </div>
     </section>
-
-    <main class="catalog-container">
-        <div class="filter-bar">
-            <button class="filter-btn active">All Vintages</button>
-            <button class="filter-btn">Rare Reds</button>
-            <button class="filter-btn">Volcanic Whites</button>
-            <button class="filter-btn">Amphora Aged</button>
-        </div>
-
-        <div class="wines-grid">
-            
-            <div class="wine-card">
-                <div class="wine-image-wrapper">
-                    <span class="wine-badge">Only 42 Bottles Left</span>
-                    <img src="wine_pyrgos.jpg" alt="Thalassitis Volcanic White">
-                </div>
-                <div class="wine-info">
-                    <span class="wine-type">Volcanic White / Santorini</span>
-                    <h3>Thalassitis Assyrtiko 2022</h3>
-                    <p>Bone-dry, razor-sharp mineral profile born from 100-year-old ungrafted vines in volcanic ash.</p>
-                    <div class="wine-meta">
-                        <span class="wine-price">€74.00</span>
-                        <button class="btn-add-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="wine-card">
-                <div class="wine-image-wrapper">
-                    <span class="wine-badge">Collector's Choice</span>
-                    <img src="wine_naoussa.jpg" alt="Legacy Xinomavro Red">
-                </div>
-                <div class="wine-info">
-                    <span class="wine-type">Rare Red / Naoussa</span>
-                    <h3>Grand Reserve Xinomavro 2018</h3>
-                    <p>Aged for 24 months in French oak. Robust tannins with complex notes of sun-dried tomato and black olive.</p>
-                    <div class="wine-meta">
-                        <span class="wine-price">€115.00</span>
-                        <button class="btn-add-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="wine-card">
-                <div class="wine-image-wrapper">
-                    <img src="wine_amphora.jpg" alt="Amphora Clay Aged Wine">
-                </div>
-                <div class="wine-info">
-                    <span class="wine-type">Amphora Aged / Crete</span>
-                    <h3>Mystic Vidiano Amphora 2021</h3>
-                    <p>Fermented entirely in clay vessels. Layered, textured palate of ripe apricot, beeswax, and wild herbs.</p>
-                    <div class="wine-meta">
-                        <span class="wine-price">€89.00</span>
-                        <button class="btn-add-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="wine-card">
-                <div class="wine-image-wrapper">
-                    <span class="wine-badge">Highly Allocated</span>
-                    <img src="wine_mavrotragano.jpg" alt="Mavrotragano Ancient Red">
-                </div>
-                <div class="wine-info">
-                    <span class="wine-type">Rare Red / Santorini</span>
-                    <h3>Pure Mavrotragano 2020</h3>
-                    <p>An ancient deep red varietal resurrected from the abyss. Dark berries, volcanic soot, and majestic structure.</p>
-                    <div class="wine-meta">
-                        <span class="wine-price">€145.00</span>
-                        <button class="btn-add-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </main>
 
     <footer id="contact">
         <div class="footer-grid">
@@ -150,5 +156,29 @@
         </div>
     </footer>
 
+    <script>
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Usuń klasę 'active' ze wszystkich przycisków i dodaj do klikniętego
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const targetCategory = button.getAttribute('data-target');
+                const productCards = document.querySelectorAll('.product-item-card');
+                
+                productCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (targetCategory === 'all' || cardCategory === targetCategory) {
+                        card.style.display = 'flex'; // Pokaż kartę
+                        setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(10px)';
+                        setTimeout(() => { card.style.display = 'none'; }, 300); // Ukryj po animacji
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

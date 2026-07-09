@@ -240,12 +240,14 @@ nav a.active-nav::after {
     border-radius: 40px;
     cursor: pointer;
     transition: all 0.3s ease;
+   text-decoration: none;
 }
 
 .btn-hero.light {
     background-color: #ffffff;
     border: 2px solid #ffffff;
     color: #1a1a1a;
+   
 }
 
 .btn-hero.light:hover {

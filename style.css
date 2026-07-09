@@ -882,3 +882,183 @@ footer p a:hover {
         width: 100%;
     }
 }
+/* ==========================================================================
+   LUXURY CART MODAL STYLES
+   ========================================================================== */
+.cart-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 100000; /* Nad wszystkim, nawet nad sticky headerem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.cart-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.cart-modal-window {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 8px;
+    padding: 40px 30px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    transform: translateY(-30px);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(145, 25, 46, 0.1);
+}
+
+.cart-modal-overlay.active .cart-modal-window {
+    transform: translateY(0);
+}
+
+.cart-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #1a1a1a;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.cart-modal-close:hover {
+    color: #91192e;
+}
+
+.cart-modal-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.cart-modal-divider {
+    width: 50px;
+    height: 1px;
+    background-color: #91192e;
+    margin: 15px auto 30px auto;
+}
+
+/* Lista przedmiotów w koszyku */
+.cart-items-list {
+    max-height: 250px;
+    overflow-y: auto;
+    margin-bottom: 30px;
+    padding-right: 5px;
+}
+
+.cart-empty-msg {
+    text-align: center;
+    color: #777777;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    padding: 20px 0;
+}
+
+/* Wygląd pojedynczego wina w koszyku */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.cart-item-details h5 {
+    font-size: 1rem;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+    font-weight: 700;
+}
+
+.cart-item-details span {
+    font-size: 0.85rem;
+    color: #777777;
+}
+
+.cart-item-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cart-item-price {
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.btn-remove-item {
+    background: none;
+    border: none;
+    color: #a0a0a0;
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+.btn-remove-item:hover {
+    color: #91192e;
+}
+
+/* Stopka koszyka */
+.cart-modal-footer {
+    border-top: 1px solid #eaeaea;
+    padding-top: 25px;
+}
+
+.cart-total-wrapper {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+}
+
+#cart-total-price {
+    font-size: 1.3rem;
+    color: #91192e;
+}
+
+.btn-checkout {
+    font-family: 'Space Grotesk', sans-serif;
+    width: 100%;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: 1px solid #1a1a1a;
+    padding: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-checkout:hover {
+    background-color: #91192e;
+    border-color: #91192e;
+    box-shadow: 0 4px 15px rgba(145, 25, 46, 0.2);
+}

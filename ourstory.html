@@ -10,14 +10,41 @@
 </head>
 <body>
 
-    <header class="story-hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <span class="hero-kicker">Since Millennia</span>
-            <h1>The Sacred Liquid Art</h1>
-            <p>The journey of Oinodion, where ancient Greek traditions meet contemporary private collections.</p>
+    <header id="header">
+        <!-- Logo działające jako Home -->
+        <a href="#header" class="logo" style="text-decoration: none;">Oinodion</a>
+        
+        <nav>
+            <ul>
+                <!-- Zakładka Home oraz poprawione "Our Wines" -->
+                <li><a href="#header" class="active-nav">Home</a></li>
+                <li><a href="#wines">Our Wines</a></li>
+                <li><a href="#story">Our Story</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search our cellar...">
+            <button class="search-icon" aria-label="Search">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.5 11.5L15 15M13 7C13 10.3137 10.3137 13 7 13C3.68629 13 1 10.3137 1 7C1 3.68629 3.68629 1 7 1C10.3137 1 13 3.68629 13 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="right-nav-block">
+            <div class="lang-switcher">
+                <span class="active">EN</span>
+                <span class="lang-divider">|</span>
+                <span>GR</span>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn-nav primary">Cart (0)</button>
+            </div>
         </div>
     </header>
+
 
     <main class="story-container">
         

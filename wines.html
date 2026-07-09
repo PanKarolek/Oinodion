@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Cellar Collection - Oinodion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="wines.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header id="header">
+        <a href="index.html" class="logo" style="text-decoration: none;">Oinodion</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#header" class="active-nav">Our Wines</a></li>
+                <li><a href="ourstory.html">Our Story</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search our cellar...">
+            <button class="search-icon" aria-label="Search">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.5 11.5L15 15M13 7C13 10.3137 10.3137 13 7 13C3.68629 13 1 10.3137 1 7C1 3.68629 3.68629 1 7 1C10.3137 1 13 3.68629 13 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="right-nav-block">
+            <div class="lang-switcher">
+                <span class="active">EN</span>
+                <span class="lang-divider">|</span>
+                <span>GR</span>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn-nav primary">Cart (0)</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="wines-hero">
+        <div class="wines-hero-content">
+            <span class="wines-kicker">Exclusive Allocations</span>
+            <h1>The Cellar Collection</h1>
+            <p>Explore strictly limited, rare vintages sourced directly from boutique micro-wineries of Greece. Handcrafted liquid art for true connoisseurs.</p>
+        </div>
+    </section>
+
+    <main class="catalog-container">
+        <div class="filter-bar">
+            <button class="filter-btn active">All Vintages</button>
+            <button class="filter-btn">Rare Reds</button>
+            <button class="filter-btn">Volcanic Whites</button>
+            <button class="filter-btn">Amphora Aged</button>
+        </div>
+
+        <div class="wines-grid">
+            
+            <div class="wine-card">
+                <div class="wine-image-wrapper">
+                    <span class="wine-badge">Only 42 Bottles Left</span>
+                    <img src="wine_pyrgos.jpg" alt="Thalassitis Volcanic White">
+                </div>
+                <div class="wine-info">
+                    <span class="wine-type">Volcanic White / Santorini</span>
+                    <h3>Thalassitis Assyrtiko 2022</h3>
+                    <p>Bone-dry, razor-sharp mineral profile born from 100-year-old ungrafted vines in volcanic ash.</p>
+                    <div class="wine-meta">
+                        <span class="wine-price">€74.00</span>
+                        <button class="btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wine-card">
+                <div class="wine-image-wrapper">
+                    <span class="wine-badge">Collector's Choice</span>
+                    <img src="wine_naoussa.jpg" alt="Legacy Xinomavro Red">
+                </div>
+                <div class="wine-info">
+                    <span class="wine-type">Rare Red / Naoussa</span>
+                    <h3>Grand Reserve Xinomavro 2018</h3>
+                    <p>Aged for 24 months in French oak. Robust tannins with complex notes of sun-dried tomato and black olive.</p>
+                    <div class="wine-meta">
+                        <span class="wine-price">€115.00</span>
+                        <button class="btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wine-card">
+                <div class="wine-image-wrapper">
+                    <img src="wine_amphora.jpg" alt="Amphora Clay Aged Wine">
+                </div>
+                <div class="wine-info">
+                    <span class="wine-type">Amphora Aged / Crete</span>
+                    <h3>Mystic Vidiano Amphora 2021</h3>
+                    <p>Fermented entirely in clay vessels. Layered, textured palate of ripe apricot, beeswax, and wild herbs.</p>
+                    <div class="wine-meta">
+                        <span class="wine-price">€89.00</span>
+                        <button class="btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wine-card">
+                <div class="wine-image-wrapper">
+                    <span class="wine-badge">Highly Allocated</span>
+                    <img src="wine_mavrotragano.jpg" alt="Mavrotragano Ancient Red">
+                </div>
+                <div class="wine-info">
+                    <span class="wine-type">Rare Red / Santorini</span>
+                    <h3>Pure Mavrotragano 2020</h3>
+                    <p>An ancient deep red varietal resurrected from the abyss. Dark berries, volcanic soot, and majestic structure.</p>
+                    <div class="wine-meta">
+                        <span class="wine-price">€145.00</span>
+                        <button class="btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div>
+                <h3>Oinodion</h3>
+                <p>Boutique Greek Wine Cellar for European Collectors and Modern Connoisseurs.</p>
+            </div>
+            <div>
+                <h4>Navigation</h4>
+                <p><a href="index.html" style="color:#aaaaaa; text-decoration:none;">Home</a></p>
+                <p><a href="#header" style="color:#aaaaaa; text-decoration:none;">Our Wines</a></p>
+                <p><a href="ourstory.html" style="color:#aaaaaa; text-decoration:none;">Our Story</a></p>
+            </div>
+            <div>
+                <h4>Customer Care</h4>
+                <p>Shipping & Delivery</p>
+                <p>Secure Packaging</p>
+                <p>Contact Support</p>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2026 Oinodion Cellar. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

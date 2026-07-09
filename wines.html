@@ -212,6 +212,26 @@
         </div>
     </footer>
 
+     <div id="cart-modal" class="cart-modal-overlay">
+    <div class="cart-modal-window">
+        <button class="cart-modal-close" id="cart-close">&times;</button>
+        <h2 class="cart-modal-title">Your Private Selection</h2>
+        <div class="cart-modal-divider"></div>
+        
+        <div id="cart-items-container" class="cart-items-list">
+            <p class="cart-empty-msg">Your cellar collection is currently empty.</p>
+        </div>
+        
+        <div class="cart-modal-footer">
+            <div class="cart-total-wrapper">
+                <span>Total Allocation:</span>
+                <span id="cart-total-price">€0.00</span>
+            </div>
+            <button class="btn-checkout" id="checkout-btn">Proceed to Secure Checkout</button>
+        </div>
+    </div>
+</div>
+
     <script>
         document.querySelectorAll('.filter-btn').forEach(button => {
             button.addEventListener('click', () => {
@@ -236,24 +256,125 @@
         });
     </script>
 
-    <div id="cart-modal" class="cart-modal-overlay">
-    <div class="cart-modal-window">
-        <button class="cart-modal-close" id="cart-close">&times;</button>
-        <h2 class="cart-modal-title">Your Private Selection</h2>
-        <div class="cart-modal-divider"></div>
+<script>
+    // Inicjalizacja koszyka z localStorage lub jako pusta tablica
+    let cart = JSON.parse(localStorage.getItem('oinodion_cart')) || [];
+
+    // Funkcja zapisująca koszyk i odświeżająca widok na stronie
+    function updateCartDOM() {
+        localStorage.setItem('oinodion_cart', JSON.stringify(cart));
         
-        <div id="cart-items-container" class="cart-items-list">
-            <p class="cart-empty-msg">Your cellar collection is currently empty.</p>
-        </div>
+        // 1. Aktualizacja licznika w headerze (suma sztuk produktów)
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const cartCountEl = document.getElementById('cart-count');
+        if(cartCountEl) cartCountEl.innerText = totalItems;
+
+        // 2. Generowanie listy produktów wewnątrz okna modala
+        const container = document.getElementById('cart-items-container');
+        const totalPriceEl = document.getElementById('cart-total-price');
         
-        <div class="cart-modal-footer">
-            <div class="cart-total-wrapper">
-                <span>Total Allocation:</span>
-                <span id="cart-total-price">€0.00</span>
-            </div>
-            <button class="btn-checkout" id="checkout-btn">Proceed to Secure Checkout</button>
-        </div>
-    </div>
-</div>
+        if (!container || !totalPriceEl) return;
+
+        if (cart.length === 0) {
+            container.innerHTML = '<p class="cart-empty-msg">Your cellar collection is currently empty.</p>';
+            totalPriceEl.innerText = '€0.00';
+        } else {
+            container.innerHTML = '';
+            let grandTotal = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                grandTotal += itemTotal;
+
+                container.innerHTML += `
+                    <div class="cart-item">
+                        <div class="cart-item-details">
+                            <h5>${item.name}</h5>
+                            <span>Qty: ${item.quantity}</span>
+                        </div>
+                        <div class="cart-item-right">
+                            <span class="cart-item-price">€${itemTotal.toFixed(2)}</span>
+                            <button class="btn-remove-item" onclick="removeFromCart(${index})">Remove</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            totalPriceEl.innerText = `€${grandTotal.toFixed(2)}`;
+        }
+    }
+
+    // Funkcja dodawania produktu do koszyka
+    document.querySelectorAll('.btn-add-to-cart').forEach(button => {
+        button.addEventListener('click', (e) => {
+            // Znajdź główną kartę produktu, w którą kliknięto
+            const card = e.target.closest('.product-item-card');
+            const name = card.querySelector('h4').innerText;
+            // Oczyszczanie ceny ze znaku € i zamiana na liczbę
+            const priceText = card.querySelector('.product-price').innerText;
+            const price = parseFloat(priceText.replace('€', '').trim());
+
+            // Sprawdź czy to wino jest już w koszyku
+            const existingItem = cart.find(item => item.name === name);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+
+            // Animacja zmiany napisu na przycisku dla luksusowego efektu feedbacku
+            const originalText = button.innerText;
+            button.innerText = "Allocated ✓";
+            button.style.backgroundColor = "#4a0e17";
+            setTimeout(() => {
+                button.innerText = originalText;
+                button.style.backgroundColor = "";
+            }, 1000);
+
+            updateCartDOM();
+        });
+    });
+
+    // Funkcja usuwania z koszyka
+    window.removeFromCart = function(index) {
+        cart.splice(index, 1);
+        updateCartDOM();
+    }
+
+    // --- LOGIKA OTWIERANIA / ZAMYKANIA OKNA KOSZYKA ---
+    const modal = document.getElementById('cart-modal');
+    const trigger = document.getElementById('cart-trigger');
+    const closeBtn = document.getElementById('cart-close');
+
+    if(trigger && modal && closeBtn) {
+        trigger.addEventListener('click', () => modal.classList.add('active'));
+        closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+        
+        // Zamknij po kliknięciu w tło poza okienkiem
+        modal.addEventListener('click', (e) => {
+            if(e.target === modal) modal.classList.remove('active');
+        });
+    }
+
+    // --- FINALIZACJA ZAKUPU (CHECKOUT) ---
+    const checkoutBtn = document.getElementById('checkout-btn');
+    if(checkoutBtn) {
+        checkoutBtn.addEventListener('click', () => {
+            if(cart.length === 0) {
+                alert("Your cart is empty. Please select a vintage to proceed.");
+                return;
+            }
+            // Symulacja przejścia do bramki płatniczej
+            alert("Thank you for your allocation. Redirecting to secure boutique payment gateway (Stripe/PayPal)...");
+            cart = []; // Czyszczenie koszyka po zakupie
+            modal.classList.remove('active');
+            updateCartDOM();
+        });
+    }
+
+    // Wywołaj na starcie, aby wczytać koszyk przy załadowaniu strony
+    window.addEventListener('DOMContentLoaded', updateCartDOM);
+</script>
 </body>
 </html>

@@ -20,16 +20,28 @@ html {
 }
 
 /* ==========================================================================
-   2. HEADER & SEARCH BAR
+   2. HEADER & SEARCH BAR (STICKY VERSION)
    ========================================================================== */
 header {
+    position: fixed;     /* Sprawia, że nagłówek zostaje na górze ekranu */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;       /* Gwarantuje, że menu będzie zawsze nad całą treścią strony */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.95); /* Lekka przezroczystość dla nowoczesnego wyglądu */
+    backdrop-filter: blur(5px);                  /* Subtelne rozmycie przewijanej pod spodem treści */
     gap: 30px;
-    border-bottom: 3px solid #001f3f; /* Dostosowane do motywu głębokiego granatu */
+    border-bottom: 3px solid #001f3f;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);  /* Delikatny cień dodający głębi podczas przewijania */
+}
+
+/* Zapobiega ucinaniu góry strony, która domyślnie schowałaby się pod przyklejonym headerem */
+body {
+    padding-top: 80px; /* Dostosuj tę wartość do dokładnej wysokości Twojego headera */
 }
 
 .logo {
@@ -61,7 +73,7 @@ nav a:hover {
     color: #001f3f;
 }
 
-/* Podświetlenie aktywnej zakładki na stronie głównej */
+/* Podświetlenie aktywnej zakładki */
 nav a.active-nav {
     color: #001f3f;
     position: relative;
@@ -75,7 +87,7 @@ nav a.active-nav::after {
     transform: translateX(-50%);
     width: 4px;
     height: 4px;
-    background-color: #d4af37; /* Prestiżowe greckie złoto */
+    background-color: #d4af37;
     border-radius: 50%;
 }
 
@@ -169,7 +181,6 @@ nav a.active-nav::after {
     background-color: #ffffff;
     color: #001f3f;
 }
-
 /* ==========================================================================
    3. HERO SECTION
    ========================================================================== */

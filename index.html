@@ -384,6 +384,7 @@
     function executeGlobalSearch() {
         const query = globalSearchInput.value.trim();
         if (query) {
+            // Przekierowujemy na wines.html z parametrem ?search=wpisana_fraza
             window.location.href = `wines.html?search=${encodeURIComponent(query)}`;
         } else {
             window.location.href = 'wines.html';

@@ -508,6 +508,47 @@
     window.addEventListener('DOMContentLoaded', () => {
         setLanguage(currentLang);
     });
-    </script>
+    // --- 1. PŁYNNE PRZEWIJANIE DO KOTWIC (SMOOTH SCROLL) ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // --- 2. ANIMACJE POJAWIANIA SIĘ PODCZAS SCROLLOWANIA (SCROLL REVEAL) ---
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // Element animuje się, gdy wejdzie w 15% widoku ekranu
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                // observer.unobserve(entry.target); // Odkomentuj, jeśli animacja ma wykonać się tylko raz
+            }
+        });
+    }, observerOptions);
+
+    // Wybieramy elementy, które mają się animować przy przewijaniu
+    window.addEventListener('DOMContentLoaded', () => {
+        const elementsToReveal = document.querySelectorAll('.product-item-card, .story-chapter, .section-title-wrapper, .story-inner-container');
+        elementsToReveal.forEach(el => {
+            el.classList.add('reveal-on-scroll');
+            revealObserver.observe(el);
+        });
+    });
+</script>
 </body>
 </html>

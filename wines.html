@@ -17,13 +17,13 @@
                 <li><a href="index.html" data-i18n="nav-home">Home</a></li>
                 <li><a href="#header" class="active-nav" data-i18n="nav-wines">Our Wines</a></li>
                 <li><a href="ourstory.html" data-i18n="nav-story">Our Story</a></li>
-                <li><a href="index.html#contact" data-i18n="nav-contact">Contact</a></li>
+                <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
             </ul>
         </nav>
 
         <div class="search-container">
-            <input type="text" class="search-input" placeholder="Search our cellar..." data-i18n-placeholder="search-placeholder">
-            <button class="search-icon" aria-label="Search">
+            <input type="text" id="search-input" class="search-input" placeholder="Search our cellar..." data-i18n-placeholder="search-placeholder">
+            <button class="search-icon" id="search-btn" aria-label="Search">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11.5 11.5L15 15M13 7C13 10.3137 10.3137 13 7 13C3.68629 13 1 10.3137 1 7C1 3.68629 3.68629 1 7 1C10.3137 1 13 3.68629 13 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -59,7 +59,7 @@
         
         <div class="products-grid" id="wines-grid">
             
-            <div class="product-item-card" data-category="white">
+            <div class="product-item-card" data-category="white" data-keywords="white wine robola old vines cephallonia gentilini λευκο κρασι">
                 <div class="product-tag" data-i18n="tag-old-vines">Old Vines</div>
                 <div class="product-img-holder">
                     <img src="Gentilini Robola Wild Paths 2023.jpg" alt="Gentilini Robola Wild Paths">
@@ -73,7 +73,7 @@
                 </div>
             </div>
 
-            <div class="product-item-card" data-category="white">
+            <div class="product-item-card" data-category="white" data-keywords="white wine malagousia gerovassiliou epanomi λευκο κρασι">
                 <div class="product-tag" data-i18n="tag-indigenous">Indigenous</div>
                 <div class="product-img-holder">
                     <img src="Gerovassiliou Malagousia Single Vineyard 2022.jpg" alt="Ktima Gerovassiliou Malagousia">
@@ -87,7 +87,7 @@
                 </div>
             </div>
 
-            <div class="product-item-card" data-category="white">
+            <div class="product-item-card" data-category="white" data-keywords="white wine sitia vilana thrapsathiri economou rare λευκο κρασι">
                 <div class="product-tag" data-i18n="tag-rare-terroir">Rare Terroir</div>
                 <div class="product-img-holder">
                     <img src="Domain Economou Sitia Vilana-Thrapsathiri 2016.jpg" alt="Domain Economou Sitia White">
@@ -101,7 +101,7 @@
                 </div>
             </div>
             
-            <div class="product-item-card" data-category="red">
+            <div class="product-item-card" data-category="red" data-keywords="red wine agiorgitiko gaia nemea grand cru ερυθρο κοκκινο κρασι">
                 <div class="product-tag" data-i18n="tag-grand-cru">Grand Cru</div>
                 <div class="product-img-holder">
                     <img src="Gaia Estate Agiorgitiko Single Vineyard 2021.webp" alt="Gaia Estate Agiorgitiko">
@@ -115,7 +115,7 @@
                 </div>
             </div>
             
-            <div class="product-item-card" data-category="red">
+            <div class="product-item-card" data-category="red" data-keywords="red wine xinomavro negoska goumenissa chatzivaritis ερυθρο κοκκινο κρασι">
                 <div class="product-tag" data-i18n="tag-boutique">Boutique Allocation</div>
                 <div class="product-img-holder">
                     <img src="Chatzivaritis Goumenissa Xinomavro-Negoska 2020.webp" alt="Chatzivaritis Goumenissa Red">
@@ -129,7 +129,7 @@
                 </div>
             </div>
 
-            <div class="product-item-card" data-category="red">
+            <div class="product-item-card" data-category="red" data-keywords="red wine pinot noir alpha estate amyndeon ερυθρο κοκκινο κρασι">
                 <div class="product-tag" data-i18n="tag-unfiltered">Unfiltered High-Altitude</div>
                 <div class="product-img-holder">
                     <img src="Alpha Estate Ecosystem Pinot Noir Strofi 2020.jpg" alt="Alpha Estate Ecosystem Pinot Noir">
@@ -143,7 +143,7 @@
                 </div>
             </div>
 
-            <div class="product-item-card" data-category="sparkling">
+            <div class="product-item-card" data-category="sparkling" data-keywords="sparkling wine brut cuvée xinomavro karanika amyndeon αφρωδες">
                 <div class="product-tag" data-i18n="tag-traditional">Traditional Method</div>
                 <div class="product-img-holder">
                     <img src="Karanika Brut Cuvée Prestige Xinomavro.jpg" alt="Domaine Karanika Brut Cuvée Prestige">
@@ -157,7 +157,7 @@
                 </div>
             </div>
 
-            <div class="product-item-card" data-category="sparkling">
+            <div class="product-item-card" data-category="sparkling" data-keywords="sparkling wine brut moschofilero tselepos mantinia αφρωδες">
                 <div class="product-tag" data-i18n="tag-ancestral">Rare Ancestral</div>
                 <div class="product-img-holder">
                     <img src="Tselepos Amalia Brut Moschofilero.jpg" alt="Tselepos Amalia Brut">
@@ -171,7 +171,7 @@
                 </div>
             </div>
 
-            <div class="product-item-card" data-category="rose">
+            <div class="product-item-card" data-category="rose" data-keywords="rose wine idylle d'achinos la tour melas ροζε κρασι">
                 <div class="product-tag" data-i18n="tag-iconic-rose">Iconic Rose</div>
                 <div class="product-img-holder">
                     <img src="La Tour Melas Idylle d'Achinos Rose 2024.webp" alt="La Tour Melas Idylle d'Achinos">
@@ -329,13 +329,11 @@
             }
         };
 
-        // --- LOGIKA ZARZĄDZANIA JĘZYKIEM ---
         let currentLang = localStorage.getItem('oinodion_lang') || 'en';
 
         function setLanguage(lang) {
             currentLang = lang;
             localStorage.setItem('oinodion_lang', lang);
-
             document.getElementById('html-root').setAttribute('lang', lang);
 
             const enSpan = document.getElementById('lang-en');
@@ -350,46 +348,92 @@
 
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.innerText = translations[lang][key];
-                }
+                if (translations[lang][key]) el.innerText = translations[lang][key];
             });
 
             document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
                 const key = el.getAttribute('data-i18n-placeholder');
-                if (translations[lang][key]) {
-                    el.setAttribute('placeholder', translations[lang][key]);
-                }
+                if (translations[lang][key]) el.setAttribute('placeholder', translations[lang][key]);
             });
 
             updateCartDOM();
+            filterProducts();
         }
 
         document.getElementById('lang-switcher-btn').addEventListener('click', () => {
-            const newLang = currentLang === 'en' ? 'gr' : 'en';
-            setLanguage(newLang);
+            setLanguage(currentLang === 'en' ? 'gr' : 'en');
         });
 
-        // --- OBSŁUGA FILTRÓW KATEGORII ---
-        document.querySelectorAll('.filter-btn').forEach(button => {
+        // --- WYSZUKIWARKA I FILTROWANIE NA ŻYWO ---
+        const searchInput = document.getElementById('search-input');
+        const searchBtn = document.getElementById('search-btn');
+        const productCards = document.querySelectorAll('.product-item-card');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const winesGrid = document.getElementById('wines-grid');
+
+        const noResultsMsg = document.createElement('p');
+        noResultsMsg.id = 'no-results-msg';
+        noResultsMsg.style.cssText = 'display: none; text-align: center; width: 100%; grid-column: 1 / -1; padding: 40px 0; color: #aaaaaa; font-size: 1.1rem;';
+        winesGrid.appendChild(noResultsMsg);
+
+        function filterProducts() {
+            const query = searchInput.value.toLowerCase().trim();
+            const activeCategoryBtn = document.querySelector('.filter-btn.active');
+            const activeCategory = activeCategoryBtn ? activeCategoryBtn.getAttribute('data-target') : 'all';
+            let visibleCount = 0;
+
+            productCards.forEach(card => {
+                const title = card.querySelector('h4').innerText.toLowerCase();
+                const region = card.querySelector('.product-region').innerText.toLowerCase();
+                const tag = card.querySelector('.product-tag').innerText.toLowerCase();
+                const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+                const category = card.getAttribute('data-category');
+
+                const matchesCategory = (activeCategory === 'all' || category === activeCategory);
+                const matchesSearch = query === '' || 
+                                      title.includes(query) || 
+                                      region.includes(query) || 
+                                      tag.includes(query) || 
+                                      keywords.includes(query);
+
+                if (matchesCategory && matchesSearch) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                    setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(10px)';
+                    setTimeout(() => { card.style.display = 'none'; }, 300);
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResultsMsg.innerText = currentLang === 'gr' 
+                    ? `Δεν βρέθηκαν κρασιά για "${searchInput.value}".` 
+                    : `No vintages found matching "${searchInput.value}".`;
+                noResultsMsg.style.display = 'block';
+            } else {
+                noResultsMsg.style.display = 'none';
+            }
+        }
+
+        searchInput.addEventListener('input', filterProducts);
+        searchBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            filterProducts();
+        });
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                filterProducts();
+            }
+        });
+
+        filterBtns.forEach(button => {
             button.addEventListener('click', () => {
-                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                filterBtns.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
-                
-                const targetCategory = button.getAttribute('data-target');
-                const productCards = document.querySelectorAll('.product-item-card');
-                
-                productCards.forEach(card => {
-                    const cardCategory = card.getAttribute('data-category');
-                    if (targetCategory === 'all' || cardCategory === targetCategory) {
-                        card.style.display = 'flex';
-                        setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(10px)';
-                        setTimeout(() => { card.style.display = 'none'; }, 300);
-                    }
-                });
+                filterProducts();
             });
         });
 
@@ -405,7 +449,6 @@
 
             const container = document.getElementById('cart-items-container');
             const totalPriceEl = document.getElementById('cart-total-price');
-            
             if (!container || !totalPriceEl) return;
 
             const t = translations[currentLang];
@@ -434,7 +477,6 @@
                         </div>
                     `;
                 });
-                
                 totalPriceEl.innerText = `€${grandTotal.toFixed(2)}`;
             }
         }
@@ -447,7 +489,6 @@
                 const price = parseFloat(priceText.replace('€', '').trim());
 
                 const existingItem = cart.find(item => item.name === name);
-
                 if (existingItem) {
                     existingItem.quantity += 1;
                 } else {
@@ -497,9 +538,27 @@
             });
         }
 
-        // Inicjalizacja przy starcie strony – ładowanie stanu języka i koszyka
+        // Odczyt parametrów URL (?search=... oraz ?cat=...) przy starcie strony
         window.addEventListener('DOMContentLoaded', () => {
             setLanguage(currentLang);
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchQuery = urlParams.get('search');
+            const catQuery = urlParams.get('cat');
+
+            if (catQuery) {
+                const targetBtn = document.querySelector(`.filter-btn[data-target="${catQuery}"]`);
+                if (targetBtn) {
+                    filterBtns.forEach(btn => btn.classList.remove('active'));
+                    targetBtn.classList.add('active');
+                }
+            }
+
+            if (searchQuery && searchInput) {
+                searchInput.value = searchQuery;
+            }
+
+            filterProducts();
         });
     </script>
 </body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,15 +19,15 @@
         <nav>
             <ul>
                 <!-- Zakładka Home oraz poprawione "Our Wines" -->
-                <li><a href="#header" class="active-nav">Home</a></li>
-                <li><a href="#wines">Our Wines</a></li>
-                <li><a href="#story">Our Story</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#header" class="active-nav" data-i18n="nav-home">Home</a></li>
+                <li><a href="#wines" data-i18n="nav-wines">Our Wines</a></li>
+                <li><a href="#story" data-i18n="nav-story">Our Story</a></li>
+                <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
             </ul>
         </nav>
 
         <div class="search-container">
-            <input type="text" class="search-input" placeholder="Search our cellar...">
+            <input type="text" class="search-input" placeholder="Search our cellar..." data-i18n-placeholder="search-placeholder">
             <button class="search-icon" aria-label="Search">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11.5 11.5L15 15M13 7C13 10.3137 10.3137 13 7 13C3.68629 13 1 10.3137 1 7C1 3.68629 3.68629 1 7 1C10.3137 1 13 3.68629 13 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -36,25 +36,25 @@
         </div>
 
         <div class="right-nav-block">
-            <div class="lang-switcher">
-                <span class="active">EN</span>
+            <div class="lang-switcher" id="lang-switcher-btn" style="cursor: pointer;">
+                <span id="lang-en" class="active">EN</span>
                 <span class="lang-divider">|</span>
-                <span>GR</span>
+                <span id="lang-gr">GR</span>
             </div>
             <div class="nav-buttons">
-    <button class="btn-nav primary" id="cart-trigger">Cart (<span id="cart-count">0</span>)</button>
-</div>
+                <button class="btn-nav primary" id="cart-trigger"><span data-i18n="cart-text">Cart</span> (<span id="cart-count">0</span>)</button>
+            </div>
         </div>
     </header>
 
     <div class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Wine made the ancient way</h1>
-            <p>We curate rare, high-altitude Greek vintages from volcanic Santorini and old-vine Naoussa. Handcrafted with millennia of tradition, tailored for the modern connoisseur. Each bottle holds a legacy worth sharing.</p>
+            <h1 data-i18n="hero-title">Wine made the ancient way</h1>
+            <p data-i18n="hero-desc">We curate rare, high-altitude Greek vintages from volcanic Santorini and old-vine Naoussa. Handcrafted with millennia of tradition, tailored for the modern connoisseur. Each bottle holds a legacy worth sharing.</p>
             <div class="hero-actions">
-                <a href="wines.html" class="btn-hero light">Shop now</a>
-                <a href="ourstory.html" class="btn-hero transparent">Learn more</a>
+                <a href="wines.html" class="btn-hero light" data-i18n="btn-shop">Shop now</a>
+                <a href="ourstory.html" class="btn-hero transparent" data-i18n="btn-learn">Learn more</a>
             </div>
         </div>
     </div>
@@ -64,13 +64,13 @@
             
             <div class="showcase-sidebar">
                 <div class="showcase-glow"></div>
-                <h2 class="showcase-title">Choose your taste</h2>
+                <h2 class="showcase-title" data-i18n="showcase-title">Choose your taste</h2>
                 <p class="showcase-desc">
-                    <span class="brand-highlight">Oinodion Cellar</span> offers a curated journey through Greece's most prestigious microclimates. From volcanic islands to high-altitude mountain peaks, our wines are selected for passionate collectors and modern epicureans across Europe.
+                    <span class="brand-highlight">Oinodion Cellar</span> <span data-i18n="showcase-desc">offers a curated journey through Greece's most prestigious microclimates. From volcanic islands to high-altitude mountain peaks, our wines are selected for passionate collectors and modern epicureans across Europe.</span>
                 </p>
-                <p class="showcase-subdesc">Select your preferred style and explore the vintage collection online.</p>
+                <p class="showcase-subdesc" data-i18n="showcase-subdesc">Select your preferred style and explore the vintage collection online.</p>
                 
-                <a href="wines.html" class="btn-showcase-order">Explore Full Cellar</a>
+                <a href="wines.html" class="btn-showcase-order" data-i18n="btn-explore">Explore Full Cellar</a>
             </div>
             
             <div class="slider-wrapper">
@@ -82,7 +82,7 @@
                                 <div class="wine-card-overlay"></div>
                             </div>
                             <div class="wine-card-info">
-                                <h3>Red Wines</h3>
+                                <h3 data-i18n="cat-red">Red Wines</h3>
                                 <span class="wine-card-line"></span>
                             </div>
                         </a>    
@@ -95,7 +95,7 @@
                                 <div class="wine-card-overlay"></div>
                             </div>
                             <div class="wine-card-info">
-                                <h3>White Wines</h3>
+                                <h3 data-i18n="cat-white">White Wines</h3>
                                 <span class="wine-card-line"></span>
                             </div>
                         </a>
@@ -108,7 +108,7 @@
                                 <div class="wine-card-overlay"></div>
                             </div>
                             <div class="wine-card-info">
-                                <h3>Sparkling</h3>
+                                <h3 data-i18n="cat-sparkling">Sparkling</h3>
                                 <span class="wine-card-line"></span>
                             </div>
                         </a>
@@ -134,55 +134,54 @@
         </div>
     </section>
 
-
     <!-- 5. BESTSELLERS SECTION -->
     <section class="products-section">
         <div class="section-title-wrapper">
-            <span class="section-kicker">Curated Vintages</span>
-            <h2 class="section-main-title">Our Handpicked Bestsellers</h2>
+            <span class="section-kicker" data-i18n="bestsellers-kicker">Curated Vintages</span>
+            <h2 class="section-main-title" data-i18n="bestsellers-title">Our Handpicked Bestsellers</h2>
             <div class="title-underline"></div>
         </div>
         
         <div class="products-grid">
             <div class="product-item-card">
-                <div class="product-tag">Rare Vintage</div>
+                <div class="product-tag" data-i18n="tag-rare">Rare Vintage</div>
                 <div class="product-img-holder">
                     <img src="XINOMAVRO-RESERVE.png" alt="Xinomavro Reserve">
                 </div>
                 <div class="product-meta">
-                    <span class="product-region">Naoussa, Macedonia</span>
+                    <span class="product-region" data-i18n="prod-region-1">Naoussa, Macedonia</span>
                     <h4>Xinomavro Reserve 2020</h4>
                     <div class="product-card-divider"></div>
                     <p class="product-price">€34.00</p>
-                    <button class="btn-add-to-cart">Add to Cart</button>
+                    <button class="btn-add-to-cart" data-i18n="btn-add-cart">Add to Cart</button>
                 </div>
             </div>
             
             <div class="product-item-card">
-                <div class="product-tag">Exclusive</div>
+                <div class="product-tag" data-i18n="tag-exclusive">Exclusive</div>
                 <div class="product-img-holder">
                     <img src="ASSYRTIKO-VOLCANIC.webp" alt="Assyrtiko Volcanic">
                 </div>
                 <div class="product-meta">
-                    <span class="product-region">Santorini, Cyclades</span>
+                    <span class="product-region" data-i18n="prod-region-2">Santorini, Cyclades</span>
                     <h4>Assyrtiko Volcanic 2022</h4>
                     <div class="product-card-divider"></div>
                     <p class="product-price">€42.00</p>
-                    <button class="btn-add-to-cart">Add to Cart</button>
+                    <button class="btn-add-to-cart" data-i18n="btn-add-cart">Add to Cart</button>
                 </div>
             </div>
             
             <div class="product-item-card">
-                <div class="product-tag">Highly Rated</div>
+                <div class="product-tag" data-i18n="tag-rated">Highly Rated</div>
                 <div class="product-img-holder">
                     <img src="allegorie-agiorgitiko.png" alt="Agiorgitiko Heritage">
                 </div>
                 <div class="product-meta">
-                    <span class="product-region">Nemea, Peloponnese</span>
+                    <span class="product-region" data-i18n="prod-region-3">Nemea, Peloponnese</span>
                     <h4>Agiorgitiko Heritage 2019</h4>
                     <div class="product-card-divider"></div>
                     <p class="product-price">€29.00</p>
-                    <button class="btn-add-to-cart">Add to Cart</button>
+                    <button class="btn-add-to-cart" data-i18n="btn-add-cart">Add to Cart</button>
                 </div>
             </div>
         </div>
@@ -192,10 +191,10 @@
     <section id="story" class="story-block-section">
         <div class="story-inner-container">
             <div class="story-content-side">
-                <span class="story-kicker">Since Millennia</span>
-                <h2>The Terroir of Volcanoes & Mountains</h2>
-                <p>Greece houses some of the oldest ungrafted vines on Earth. At Oinodion, we work directly with boutique micro-wineries resurrecting ancient methods—using amphorae, high-altitude sun, and sea breezes to bring you rare liquid art worthy of your private collection.</p>
-                <a href="ourstory.html" class="btn-story-read">Read Full Story</a>
+                <span class="story-kicker" data-i18n="story-kicker">Since Millennia</span>
+                <h2 data-i18n="story-title">The Terroir of Volcanoes & Mountains</h2>
+                <p data-i18n="story-desc">Greece houses some of the oldest ungrafted vines on Earth. At Oinodion, we work directly with boutique micro-wineries resurrecting ancient methods—using amphorae, high-altitude sun, and sea breezes to bring you rare liquid art worthy of your private collection.</p>
+                <a href="ourstory.html" class="btn-story-read" data-i18n="btn-story-read">Read Full Story</a>
             </div>
             <div class="story-image-side">
                 <div class="story-img-wrapper">
@@ -210,67 +209,208 @@
         <div class="footer-grid">
             <div>
                 <h3>Oinodion</h3>
-                <p>Boutique Greek Wine Cellar for European Collectors and Modern Connoisseurs.</p>
+                <p data-i18n="footer-desc">Boutique Greek Wine Cellar for European Collectors and Modern Connoisseurs.</p>
             </div>
             <div>
-                <h4>Navigation</h4>
-                <p><a href="/" style="color:#aaaaaa; text-decoration:none;">Home</a></p>
-                <p><a href="#wines" style="color:#aaaaaa; text-decoration:none;">Our Wines</a></p>
-                <p><a href="#story" style="color:#aaaaaa; text-decoration:none;">Our Story</a></p>
+                <h4 data-i18n="footer-nav">Navigation</h4>
+                <p><a href="/" style="color:#aaaaaa; text-decoration:none;" data-i18n="nav-home">Home</a></p>
+                <p><a href="#wines" style="color:#aaaaaa; text-decoration:none;" data-i18n="nav-wines">Our Wines</a></p>
+                <p><a href="#story" style="color:#aaaaaa; text-decoration:none;" data-i18n="nav-story">Our Story</a></p>
             </div>
             <div>
-                <h4>Customer Care</h4>
-                <p>Shipping & Delivery</p>
-                <p>Secure Packaging</p>
-                <p>Contact Support</p>
+                <h4 data-i18n="footer-care">Customer Care</h4>
+                <p data-i18n="care-shipping">Shipping & Delivery</p>
+                <p data-i18n="care-packaging">Secure Packaging</p>
+                <p data-i18n="care-support">Contact Support</p>
             </div>
         </div>
         <div class="footer-copyright">
-            <p>&copy; 2026 Oinodion Cellar. All rights reserved.</p>
+            <p>&copy; 2026 Oinodion Cellar. <span data-i18n="copyright">All rights reserved.</span></p>
         </div>
     </footer>
 
     <div id="cart-modal" class="cart-modal-overlay">
-    <div class="cart-modal-window">
-        <button class="cart-modal-close" id="cart-close">&times;</button>
-        <h2 class="cart-modal-title">Your Private Selection</h2>
-        <div class="cart-modal-divider"></div>
-        
-        <div id="cart-items-container" class="cart-items-list">
-            <p class="cart-empty-msg">Your cellar collection is currently empty.</p>
-        </div>
-        
-        <div class="cart-modal-footer">
-            <div class="cart-total-wrapper">
-                <span>Total Allocation:</span>
-                <span id="cart-total-price">€0.00</span>
+        <div class="cart-modal-window">
+            <button class="cart-modal-close" id="cart-close">&times;</button>
+            <h2 class="cart-modal-title" data-i18n="modal-title">Your Private Selection</h2>
+            <div class="cart-modal-divider"></div>
+            
+            <div id="cart-items-container" class="cart-items-list">
+                <p class="cart-empty-msg" data-i18n="cart-empty">Your cellar collection is currently empty.</p>
             </div>
-            <button class="btn-checkout" id="checkout-btn">Proceed to Secure Checkout</button>
+            
+            <div class="cart-modal-footer">
+                <div class="cart-total-wrapper">
+                    <span data-i18n="cart-total">Total Allocation:</span>
+                    <span id="cart-total-price">€0.00</span>
+                </div>
+                <button class="btn-checkout" id="checkout-btn" data-i18n="btn-checkout">Proceed to Secure Checkout</button>
+            </div>
         </div>
     </div>
-</div>
 
     <script>
-    // Inicjalizacja koszyka z localStorage lub jako pusta tablica
+    // --- SŁOWNIK TŁUMACZEŃ (EN / GR) ---
+    const translations = {
+        en: {
+            "nav-home": "Home",
+            "nav-wines": "Our Wines",
+            "nav-story": "Our Story",
+            "nav-contact": "Contact",
+            "search-placeholder": "Search our cellar...",
+            "cart-text": "Cart",
+            "hero-title": "Wine made the ancient way",
+            "hero-desc": "We curate rare, high-altitude Greek vintages from volcanic Santorini and old-vine Naoussa. Handcrafted with millennia of tradition, tailored for the modern connoisseur. Each bottle holds a legacy worth sharing.",
+            "btn-shop": "Shop now",
+            "btn-learn": "Learn more",
+            "showcase-title": "Choose your taste",
+            "showcase-desc": "offers a curated journey through Greece's most prestigious microclimates. From volcanic islands to high-altitude mountain peaks, our wines are selected for passionate collectors and modern epicureans across Europe.",
+            "showcase-subdesc": "Select your preferred style and explore the vintage collection online.",
+            "btn-explore": "Explore Full Cellar",
+            "cat-red": "Red Wines",
+            "cat-white": "White Wines",
+            "cat-sparkling": "Sparkling",
+            "bestsellers-kicker": "Curated Vintages",
+            "bestsellers-title": "Our Handpicked Bestsellers",
+            "tag-rare": "Rare Vintage",
+            "tag-exclusive": "Exclusive",
+            "tag-rated": "Highly Rated",
+            "prod-region-1": "Naoussa, Macedonia",
+            "prod-region-2": "Santorini, Cyclades",
+            "prod-region-3": "Nemea, Peloponnese",
+            "btn-add-cart": "Add to Cart",
+            "story-kicker": "Since Millennia",
+            "story-title": "The Terroir of Volcanoes & Mountains",
+            "story-desc": "Greece houses some of the oldest ungrafted vines on Earth. At Oinodion, we work directly with boutique micro-wineries resurrecting ancient methods—using amphorae, high-altitude sun, and sea breezes to bring you rare liquid art worthy of your private collection.",
+            "btn-story-read": "Read Full Story",
+            "footer-desc": "Boutique Greek Wine Cellar for European Collectors and Modern Connoisseurs.",
+            "footer-nav": "Navigation",
+            "footer-care": "Customer Care",
+            "care-shipping": "Shipping & Delivery",
+            "care-packaging": "Secure Packaging",
+            "care-support": "Contact Support",
+            "copyright": "All rights reserved.",
+            "modal-title": "Your Private Selection",
+            "cart-empty": "Your cellar collection is currently empty.",
+            "cart-total": "Total Allocation:",
+            "btn-checkout": "Proceed to Secure Checkout",
+            "btn-remove": "Remove",
+            "qty-text": "Qty"
+        },
+        gr: {
+            "nav-home": "Αρχική",
+            "nav-wines": "Τα Κρασιά μας",
+            "nav-story": "Η Ιστορία μας",
+            "nav-contact": "Επικοινωνία",
+            "search-placeholder": "Αναζήτηση στην κάβα...",
+            "cart-text": "Καλάθι",
+            "hero-title": "Κρασί φτιαγμένο με τον αρχαίο τρόπο",
+            "hero-desc": "Επιλέγουμε σπάνιες ελληνικές ετικέτες υψηλού υψομέτρου από την ηφαιστειακή Σανorini και τα παλιά αμπέλια της Νάουσας. Χειροποίητα με χιλιετή παράδοση, προσαρμοσμένα στον σύγχρονο connoisseur.",
+            "btn-shop": "Αγορά τώρα",
+            "btn-learn": "Μάθετε περισσότερα",
+            "showcase-title": "Επιλέξτε τη γεύση σας",
+            "showcase-desc": "προσφέρει ένα επιμελημένο ταξίδι στα πιο πολυτιμημένα μικροκλίματα της Ελλάδας. Από ηφαιestειακά νησιά έως ορεινές κορυφές, τα κρασιά μας επιλέγονται για παθιασμένους συλλέκτες.",
+            "showcase-subdesc": "Επιλέξτε το στυλ που προτιμάτε και εξερευνήστε τη συλλογή.",
+            "btn-explore": "Εξερεύνηση Πλήρους Κάβας",
+            "cat-red": "Ερυθρά Κρασιά",
+            "cat-white": "Λευκά Κρασιά",
+            "cat-sparkling": "Αφρώδη",
+            "bestsellers-kicker": "Επιλεγμένες Εσοδίες",
+            "bestsellers-title": "Τα κορυφαία μας bestsellers",
+            "tag-rare": "Σπάνια Εσοδεία",
+            "tag-exclusive": "Αποκλειστικό",
+            "tag-rated": "Υψηλή Βαθμολογία",
+            "prod-region-1": "Νάουσα, Μακεδονία",
+            "prod-region-2": "Σαντορίνη, Κυκλάδες",
+            "prod-region-3": "Νεμέα, Πελοπόννησος",
+            "btn-add-cart": "Προσθήκη",
+            "story-kicker": "Από χιλιετίες",
+            "story-title": "Το Terroir Ηφαιστείων & Βουνών",
+            "story-desc": "Η Ελλάδα φιλοξενεί μερικά από τα αρχαιότερα αμπελώνα στον κόσμο. Στο Oinodion συνεργαζόμαστε απευθείας με boutique οινοποιεία που αναβιώνουν αρχαίες μεθόδους.",
+            "btn-story-read": "Διαβάστε την ιστορία",
+            "footer-desc": "Boutique Ελληνική Κάβα Κρασιών για Ευρωπαίους Συλλέκτες.",
+            "footer-nav": "Πλοήγηση",
+            "footer-care": "Εξυπηρέτηση Πελατών",
+            "care-shipping": "Αποστολή & Παράδοση",
+            "care-packaging": "Ασφαλής Συσκευασία",
+            "care-support": "Υποστήριξη",
+            "copyright": "Με επιφύλαξη παντός δικαιώματος.",
+            "modal-title": "Η Επιλογή σας",
+            "cart-empty": "Η συλλογή σας είναι προς το παρόν άδεια.",
+            "cart-total": "Συνολικό Ποσό:",
+            "btn-checkout": "Προχωρήστε σε Ασφαλή Ταμείο",
+            "btn-remove": "Αφαίρεση",
+            "qty-text": "Ποσότητα"
+        }
+    };
+
+    // --- LOGIKA ZARZĄDZANIA JĘZYKIEM ---
+    let currentLang = localStorage.getItem('oinodion_lang') || 'en';
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('oinodion_lang', lang);
+
+        // Zmiana atrybuttu lang w tagu <html>
+        document.getElementById('html-root').setAttribute('lang', lang);
+
+        // Podświetlenie aktywnego języka w switcherze
+        const enSpan = document.getElementById('lang-en');
+        const grSpan = document.getElementById('lang-gr');
+        if (lang === 'gr') {
+            grSpan.classList.add('active');
+            enSpan.classList.remove('active');
+        } else {
+            enSpan.classList.add('active');
+            grSpan.classList.remove('active');
+        }
+
+        // Tłumaczenie elementów ze znacznikiem data-i18n
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+                el.innerText = translations[lang][key];
+            }
+        });
+
+        // Tłumaczenie placeholderów w inputach
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (translations[lang][key]) {
+                el.setAttribute('placeholder', translations[lang][key]);
+            }
+        });
+
+        // Odświeżenie koszyka, aby przyciski/napisy w modalu również się przetłumaczyły
+        updateCartDOM();
+    }
+
+    // Nasłuchiwanie kliknięcia w przełącznik języka (EN / GR)
+    document.getElementById('lang-switcher-btn').addEventListener('click', () => {
+        const newLang = currentLang === 'en' ? 'gr' : 'en';
+        setLanguage(newLang);
+    });
+
+
+    // --- KOSZYK I RESZTA LOGIKI ---
     let cart = JSON.parse(localStorage.getItem('oinodion_cart')) || [];
 
-    // Funkcja zapisująca koszyk i odświeżająca widok na stronie
     function updateCartDOM() {
         localStorage.setItem('oinodion_cart', JSON.stringify(cart));
         
-        // 1. Aktualizacja licznika w headerze (suma sztuk produktów)
         const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
         const cartCountEl = document.getElementById('cart-count');
         if(cartCountEl) cartCountEl.innerText = totalItems;
 
-        // 2. Generowanie listy produktów wewnątrz okna modala
         const container = document.getElementById('cart-items-container');
         const totalPriceEl = document.getElementById('cart-total-price');
         
         if (!container || !totalPriceEl) return;
 
+        const t = translations[currentLang];
+
         if (cart.length === 0) {
-            container.innerHTML = '<p class="cart-empty-msg">Your cellar collection is currently empty.</p>';
+            container.innerHTML = `<p class="cart-empty-msg">${t["cart-empty"]}</p>`;
             totalPriceEl.innerText = '€0.00';
         } else {
             container.innerHTML = '';
@@ -284,11 +424,11 @@
                     <div class="cart-item">
                         <div class="cart-item-details">
                             <h5>${item.name}</h5>
-                            <span>Qty: ${item.quantity}</span>
+                            <span>${t["qty-text"]}: ${item.quantity}</span>
                         </div>
                         <div class="cart-item-right">
                             <span class="cart-item-price">€${itemTotal.toFixed(2)}</span>
-                            <button class="btn-remove-item" onclick="removeFromCart(${index})">Remove</button>
+                            <button class="btn-remove-item" onclick="removeFromCart(${index})">${t["btn-remove"]}</button>
                         </div>
                     </div>
                 `;
@@ -298,28 +438,23 @@
         }
     }
 
-    // Funkcja dodawania produktu do koszyka
+    // Obsługa dodawania do koszyka
     document.querySelectorAll('.btn-add-to-cart').forEach(button => {
         button.addEventListener('click', (e) => {
-            // Znajdź główną kartę produktu, w którą kliknięto
             const card = e.target.closest('.product-item-card');
             const name = card.querySelector('h4').innerText;
-            // Oczyszczanie ceny ze znaku € i zamiana na liczbę
             const priceText = card.querySelector('.product-price').innerText;
             const price = parseFloat(priceText.replace('€', '').trim());
 
-            // Sprawdź czy to wino jest już w koszyku
             const existingItem = cart.find(item => item.name === name);
-
             if (existingItem) {
                 existingItem.quantity += 1;
             } else {
                 cart.push({ name, price, quantity: 1 });
             }
 
-            // Animacja zmiany napisu na przycisku dla luksusowego efektu feedbacku
             const originalText = button.innerText;
-            button.innerText = "Allocated ✓";
+            button.innerText = currentLang === 'gr' ? "Επιλέχθηκε ✓" : "Allocated ✓";
             button.style.backgroundColor = "#4a0e17";
             setTimeout(() => {
                 button.innerText = originalText;
@@ -330,13 +465,12 @@
         });
     });
 
-    // Funkcja usuwania z koszyka
     window.removeFromCart = function(index) {
         cart.splice(index, 1);
         updateCartDOM();
     }
 
-    // --- LOGIKA OTWIERANIA / ZAMYKANIA OKNA KOSZYKA ---
+    // Obsługa modala koszyka
     const modal = document.getElementById('cart-modal');
     const trigger = document.getElementById('cart-trigger');
     const closeBtn = document.getElementById('cart-close');
@@ -344,31 +478,29 @@
     if(trigger && modal && closeBtn) {
         trigger.addEventListener('click', () => modal.classList.add('active'));
         closeBtn.addEventListener('click', () => modal.classList.remove('active'));
-        
-        // Zamknij po kliknięciu w tło poza okienkiem
         modal.addEventListener('click', (e) => {
             if(e.target === modal) modal.classList.remove('active');
         });
     }
 
-    // --- FINALIZACJA ZAKUPU (CHECKOUT) ---
     const checkoutBtn = document.getElementById('checkout-btn');
     if(checkoutBtn) {
         checkoutBtn.addEventListener('click', () => {
             if(cart.length === 0) {
-                alert("Your cart is empty. Please select a vintage to proceed.");
+                alert(currentLang === 'gr' ? "Το καλάθι σας είναι άδειο." : "Your cart is empty. Please select a vintage to proceed.");
                 return;
             }
-            // Symulacja przejścia do bramki płatniczej
-            alert("Thank you for your allocation. Redirecting to secure boutique payment gateway (Stripe/PayPal)...");
-            cart = []; // Czyszczenie koszyka po zakupie
+            alert(currentLang === 'gr' ? "Ευχαριστούμε. Ανακατεύθυνση σε ασφαλή πύλη πληρωμών..." : "Thank you for your allocation. Redirecting to secure boutique payment gateway...");
+            cart = [];
             modal.classList.remove('active');
             updateCartDOM();
         });
     }
 
-    // Wywołaj na starcie, aby wczytać koszyk przy załadowaniu strony
-    window.addEventListener('DOMContentLoaded', updateCartDOM);
+    // Uruchomienie inicjalizacji przy starcie strony (wczytanie języka i koszyka)
+    window.addEventListener('DOMContentLoaded', () => {
+        setLanguage(currentLang);
+    });
 </script>
 </body>
 </html>
